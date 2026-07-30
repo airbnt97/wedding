@@ -10,12 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* ========== RESET ========== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ==================== RESET ==================== */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             background-color: #faf9f7;
@@ -24,27 +20,22 @@
             overflow-x: hidden;
         }
 
-        /* ===================================================
-           SECTIONS — FOND IMAGE
-        =================================================== */
+        /* ==================== SECTIONS FOND ==================== */
         .section-bg {
             position: relative;
             background-size: cover;
-            background-position: center center;
+            background-position: center;
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
 
-        /* Overlay sombre pour lisibilité */
         .section-bg::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
             z-index: 1;
             pointer-events: none;
         }
@@ -54,9 +45,7 @@
             z-index: 10;
         }
 
-        /* ===================================================
-           ZONE 1 : ACCUEIL
-        =================================================== */
+        /* ==================== ACCUEIL ==================== */
         .section-accueil {
             min-height: 100vh;
             background-image: url('accueil.jpg');
@@ -64,29 +53,21 @@
         }
 
         .section-accueil::before {
-            background: linear-gradient(
-                to bottom,
-                rgba(20, 15, 25, 0.40) 0%,
-                rgba(20, 15, 25, 0.50) 50%,
-                rgba(20, 15, 25, 0.65) 100%
-            );
+            background: linear-gradient(to bottom,
+                rgba(20,15,25,0.40),
+                rgba(20,15,25,0.55));
         }
 
-        /* Vignette */
         .section-accueil::after {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
             box-shadow: inset 0 0 180px rgba(0,0,0,0.4);
             z-index: 2;
             pointer-events: none;
         }
 
-        .accueil-content {
-            padding: 40px 30px;
-            max-width: 750px;
-        }
+        .accueil-content { padding: 40px 30px; max-width: 750px; }
 
         .names {
             font-family: 'Cinzel', serif;
@@ -103,12 +84,11 @@
             color: #fbe9f6;
             font-size: clamp(30px, 7vw, 60px);
             font-weight: 400;
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
             line-height: 1.15;
             text-shadow: 0 3px 25px rgba(0,0,0,0.5);
         }
 
-        /* Séparateur */
         .divider {
             display: flex;
             align-items: center;
@@ -116,23 +96,18 @@
             gap: 14px;
             margin: 25px 0;
         }
-
         .divider-line {
             width: 50px;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(196,216,232,0.5), transparent);
         }
-
         .divider-diamond {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             border: 1px solid rgba(196,216,232,0.5);
             transform: rotate(45deg);
         }
-
         .divider-dot {
-            width: 5px;
-            height: 5px;
+            width: 5px; height: 5px;
             background: rgba(224,176,185,0.6);
             border-radius: 50%;
         }
@@ -147,14 +122,8 @@
             display: inline-block;
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
-
         .date-box p { margin: 0; letter-spacing: 2px; }
-
-        .date-main {
-            font-weight: 600;
-            letter-spacing: 3px;
-            font-size: clamp(17px, 2.5vw, 21px);
-        }
+        .date-main { font-weight: 600; font-size: clamp(17px, 2.5vw, 21px); }
 
         /* Boutons langue */
         .lang-buttons {
@@ -164,7 +133,6 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-
         .lang-btn {
             cursor: pointer;
             padding: 10px 28px;
@@ -178,21 +146,18 @@
             border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             display: inline-block;
         }
-
         .lang-btn:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
-
         .lang-btn.active {
             background: rgba(224,176,185,0.25);
             border-color: rgba(224,176,185,0.5);
         }
 
-        /* Scroll hint */
         .scroll-hint {
             position: absolute;
             bottom: 30px;
@@ -205,32 +170,25 @@
             letter-spacing: 3px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
-
         @keyframes gentleBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
+            0%,100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* ===================================================
-           ZONE 2 : RSVP
-        =================================================== */
+        /* ==================== RSVP ==================== */
         .section-rsvp {
             min-height: 100vh;
             background-image: url('rsvp.jpg');
             padding: 80px 20px;
         }
-
         .section-rsvp::before {
-            background: linear-gradient(
-                to bottom,
-                rgba(25, 20, 30, 0.50) 0%,
-                rgba(25, 20, 30, 0.55) 100%
-            );
+            background: linear-gradient(to bottom,
+                rgba(25,20,30,0.50),
+                rgba(25,20,30,0.55));
         }
 
         .rsvp-card {
-            max-width: 650px;
-            width: 100%;
+            max-width: 650px; width: 100%;
             background: rgba(255,255,255,0.95);
             border-radius: 20px;
             padding: 50px 30px;
@@ -238,75 +196,50 @@
             text-align: center;
             backdrop-filter: blur(10px);
         }
-
         .rsvp-title {
-            color: #c97a8b;
-            font-size: 14px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
+            color: #c97a8b; font-size: 14px;
+            letter-spacing: 4px; text-transform: uppercase;
+            font-weight: bold; margin-bottom: 20px;
         }
-
         .rsvp-text {
-            color: #444;
-            font-size: 20px;
-            line-height: 1.5;
-            max-width: 480px;
-            margin: 0 auto 35px;
+            color: #444; font-size: 20px; line-height: 1.5;
+            max-width: 480px; margin: 0 auto 35px;
         }
-
         .rsvp-btn {
             display: inline-block;
             background: linear-gradient(135deg, #e0b0b9, #d4a0ae);
-            color: white;
-            padding: 16px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 22px;
-            font-weight: bold;
+            color: white; padding: 16px 50px;
+            border-radius: 50px; text-decoration: none;
+            font-size: 22px; font-weight: bold;
             letter-spacing: 5px;
             box-shadow: 0 8px 25px rgba(224,176,185,0.5);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
         .rsvp-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 30px rgba(224,176,185,0.7);
         }
-
         .ornament-stars {
-            color: #d4a0ae;
-            font-size: 22px;
-            letter-spacing: 8px;
-            margin-top: 30px;
+            color: #d4a0ae; font-size: 22px;
+            letter-spacing: 8px; margin-top: 30px;
         }
 
-        /* ===================================================
-           ZONE 3 : PROGRAMME & DRESS CODE
-        =================================================== */
+        /* ==================== PROGRAMME ==================== */
         .section-programme {
             min-height: 100vh;
             background-image: url('programme.jpg');
             padding: 80px 20px;
         }
-
         .section-programme::before {
-            background: linear-gradient(
-                to bottom,
-                rgba(25, 30, 25, 0.55) 0%,
-                rgba(25, 30, 25, 0.60) 100%
-            );
+            background: linear-gradient(to bottom,
+                rgba(25,30,25,0.55),
+                rgba(25,30,25,0.60));
         }
 
-        .programme-wrapper {
-            max-width: 700px;
-            width: 100%;
-        }
+        .programme-wrapper { max-width: 700px; width: 100%; }
 
         .section-card {
-            border-radius: 20px;
-            padding: 35px 25px;
+            border-radius: 20px; padding: 35px 25px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.12);
             backdrop-filter: blur(8px);
@@ -317,73 +250,43 @@
             border: 1px solid rgba(224,236,224,0.6);
             text-align: center;
         }
-
         .program-card h2 {
-            color: #729b79;
-            font-size: 28px;
-            font-weight: normal;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            color: #729b79; font-size: 28px;
+            font-weight: normal; letter-spacing: 1px; margin-bottom: 10px;
         }
-
         .program-desc {
-            font-size: 16px;
-            color: #666;
-            max-width: 500px;
-            margin: 0 auto 30px;
-            line-height: 1.5;
+            font-size: 16px; color: #666;
+            max-width: 500px; margin: 0 auto 30px; line-height: 1.5;
         }
 
         .day-block {
             background: rgba(255,255,255,0.85);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            text-align: left;
+            border-radius: 15px; padding: 25px;
+            margin-bottom: 20px; text-align: left;
         }
-
         .day-block:last-child { margin-bottom: 0; }
-
         .day-block h3 {
-            color: #5f8b62;
-            font-size: 22px;
+            color: #5f8b62; font-size: 22px;
             font-weight: normal;
             border-bottom: 1px solid #d0e8d0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 10px; margin-bottom: 20px;
         }
-
         .event-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 16px;
-            color: #444;
+            display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 12px;
+            font-size: 16px; color: #444;
         }
-
         .event-row:last-child { margin-bottom: 0; }
-
         .event-time {
-            font-weight: bold;
-            color: #4a704d;
-            min-width: 70px;
-            text-align: left;
+            font-weight: bold; color: #4a704d;
+            min-width: 70px; text-align: left;
         }
-
         .event-dots {
-            flex-grow: 1;
-            text-align: center;
-            color: #c0d6c0;
-            font-size: 14px;
-            letter-spacing: 3px;
-            padding: 0 10px;
+            flex-grow: 1; text-align: center;
+            color: #c0d6c0; font-size: 14px;
+            letter-spacing: 3px; padding: 0 10px;
         }
-
-        .event-label {
-            min-width: 180px;
-            text-align: right;
-        }
+        .event-label { min-width: 180px; text-align: right; }
 
         /* Dress code */
         .dress-card {
@@ -391,122 +294,63 @@
             border: 1px solid rgba(232,224,239,0.6);
             text-align: center;
         }
-
         .dress-card h2 {
-            color: #8e7ba5;
-            font-size: 28px;
-            font-weight: normal;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            color: #8e7ba5; font-size: 28px;
+            font-weight: normal; letter-spacing: 1px; margin-bottom: 20px;
         }
-
         .dress-inner {
             background: rgba(255,255,255,0.7);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 15px; padding: 25px;
         }
+        .dress-inner p { font-size: 16px; color: #555; line-height: 1.6; }
 
-        .dress-inner p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* ===================================================
-           ZONE 4 : LIEU
-        =================================================== */
+        /* ==================== LIEU ==================== */
         .section-lieu {
             min-height: 100vh;
             background-image: url('lieu.jpg');
             padding: 80px 20px;
         }
-
         .section-lieu::before {
-            background: linear-gradient(
-                to bottom,
-                rgba(20, 25, 20, 0.55) 0%,
-                rgba(20, 25, 20, 0.60) 100%
-            );
+            background: linear-gradient(to bottom,
+                rgba(20,25,20,0.55),
+                rgba(20,25,20,0.60));
         }
 
-        .location-card {
-            max-width: 700px;
-            width: 100%;
-        }
-
+        .location-card { max-width: 700px; width: 100%; }
         .location-inner {
             background: rgba(255,255,255,0.93);
-            border-radius: 20px;
-            padding: 35px 25px;
+            border-radius: 20px; padding: 35px 25px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.12);
             backdrop-filter: blur(8px);
         }
-
         .location-inner h2 {
-            color: #8fbc8f;
-            font-size: 28px;
-            font-weight: normal;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
+            color: #8fbc8f; font-size: 28px;
+            font-weight: normal; letter-spacing: 3px;
+            text-transform: uppercase; margin-bottom: 5px;
         }
+        .location-subtitle { color: #999; font-size: 14px; margin-bottom: 25px; }
+        .location-text { font-size: 16px; color: #555; margin-bottom: 12px; line-height: 1.6; }
+        .location-note { font-size: 14px; color: #777; font-style: italic; margin-bottom: 25px; }
+        .map-container { border-radius: 15px; overflow: hidden; height: 350px; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
 
-        .location-subtitle {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .location-text {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .location-note {
-            font-size: 14px;
-            color: #777;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-
-        .map-container {
-            border-radius: 15px;
-            overflow: hidden;
-            height: 350px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* ===================================================
-           ZONE 5 : COMPTE À REBOURS — FLIP
-        =================================================== */
+        /* ==================== COUNTDOWN FLIP ==================== */
         .section-countdown {
             min-height: 100vh;
             background-image: url('countdown.jpg');
             padding: 80px 20px;
         }
-
         .section-countdown::before {
-            background: linear-gradient(
-                to bottom,
-                rgba(15, 15, 25, 0.55) 0%,
-                rgba(15, 15, 25, 0.60) 100%
-            );
+            background: linear-gradient(to bottom,
+                rgba(15,15,25,0.55),
+                rgba(15,15,25,0.60));
         }
 
         .countdown-content {
             text-align: center;
-            width: 100%;
-            max-width: 800px;
+            width: 100%; max-width: 800px;
         }
-
         .countdown-content h1 {
             font-family: 'Aboreto', serif;
             color: #e0d0f0;
@@ -516,11 +360,20 @@
             text-shadow: 0 2px 15px rgba(0,0,0,0.4);
         }
 
-        /* --- Flip clock container --- */
+        /* --- Flip Clock --- */
+        :root {
+            --card-w: 100px;
+            --card-h: 120px;
+            --card-font: 60px;
+            --card-radius: 10px;
+            --sep-size: 22px;
+        }
+
         .flip-clock {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            align-items: flex-start;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -528,208 +381,195 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .flip-group-label {
+        .flip-label {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.45);
         }
 
         .flip-card {
             position: relative;
-            width: 90px;
-            height: 120px;
+            width: var(--card-w);
+            height: var(--card-h);
             perspective: 400px;
-            border-radius: 12px;
-            /* Pour l'effet split en deux moitiés */
+            border-radius: var(--card-radius);
         }
 
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        /* Petits points latéraux (axe de rotation) */
+        .flip-card::before,
+        .flip-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 8px; height: 8px;
+            background: #0e0e1a;
+            border-radius: 50%;
+            z-index: 30;
+            transform: translateY(-50%);
         }
+        .flip-card::before { left: -4px; }
+        .flip-card::after  { right: -4px; }
 
-        /* Moitié haute et basse (static) */
-        .flip-top,
-        .flip-bottom {
+        /* Les 4 couches */
+        .card-top,
+        .card-bottom,
+        .card-flip-top,
+        .card-flip-bottom {
             position: absolute;
             left: 0;
             width: 100%;
             height: 50%;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .flip-top {
+        .card-top,
+        .card-flip-top {
             top: 0;
-            background: linear-gradient(180deg, #2a2a3a, #222235);
-            border-radius: 12px 12px 0 0;
-            border-bottom: 1px solid rgba(0,0,0,0.5);
+            background: linear-gradient(180deg, #2c2c42, #262640);
+            border-radius: var(--card-radius) var(--card-radius) 0 0;
+            border-bottom: 1px solid rgba(0,0,0,0.6);
         }
 
-        .flip-bottom {
+        .card-bottom,
+        .card-flip-bottom {
             bottom: 0;
-            background: linear-gradient(180deg, #1e1e30, #1a1a28);
-            border-radius: 0 0 12px 12px;
+            background: linear-gradient(180deg, #22223a, #1c1c32);
+            border-radius: 0 0 var(--card-radius) var(--card-radius);
         }
 
-        .flip-top .flip-number,
-        .flip-bottom .flip-number {
+        /* Chiffres — moitié haute (montre le haut du chiffre) */
+        .card-top .num,
+        .card-flip-top .num {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             font-family: 'Georgia', serif;
-            font-size: 72px;
+            font-size: var(--card-font);
             font-weight: bold;
             color: #f0e8ff;
-            line-height: 1;
+            text-align: center;
+            height: var(--card-h);
+            line-height: var(--card-h);
+        }
+
+        /* Chiffres — moitié basse (montre le bas du chiffre) */
+        .card-bottom .num,
+        .card-flip-bottom .num {
             position: absolute;
-        }
-
-        .flip-top .flip-number {
-            bottom: 5px;
-        }
-
-        .flip-bottom .flip-number {
-            top: -72px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'Georgia', serif;
+            font-size: var(--card-font);
+            font-weight: bold;
+            color: #f0e8ff;
+            text-align: center;
+            height: var(--card-h);
+            line-height: var(--card-h);
         }
 
         /* Ligne centrale */
-        .flip-card-inner::after {
-            content: '';
+        .flip-card .card-line {
             position: absolute;
             top: 50%;
             left: 0;
             width: 100%;
             height: 1px;
-            background: rgba(0,0,0,0.6);
-            z-index: 5;
+            background: rgba(0,0,0,0.7);
+            z-index: 25;
+            pointer-events: none;
             transform: translateY(-0.5px);
         }
 
-        /* Petites ombres sur la ligne */
-        .flip-card-inner::before {
-            content: '';
+        /* Ombre sous la ligne */
+        .flip-card .card-shadow {
             position: absolute;
             top: 50%;
             left: 0;
             width: 100%;
-            height: 8px;
-            background: linear-gradient(180deg, rgba(0,0,0,0.15), transparent);
-            z-index: 4;
-            transform: translateY(-8px);
+            height: 10px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent);
+            z-index: 24;
+            pointer-events: none;
+            transform: translateY(-10px);
         }
 
-        /* Cartes animées (flap) */
-        .flip-top-flap,
-        .flip-bottom-flap {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backface-visibility: hidden;
-            z-index: 10;
-        }
-
-        .flip-top-flap {
-            top: 0;
-            background: linear-gradient(180deg, #2a2a3a, #222235);
-            border-radius: 12px 12px 0 0;
+        /* Flaps animés — cachés par défaut */
+        .card-flip-top {
+            z-index: 20;
             transform-origin: bottom center;
-            border-bottom: 1px solid rgba(0,0,0,0.5);
-            z-index: 15;
+            backface-visibility: hidden;
+            visibility: hidden;
         }
 
-        .flip-top-flap .flip-number {
-            position: absolute;
-            bottom: 5px;
-            font-family: 'Georgia', serif;
-            font-size: 72px;
-            font-weight: bold;
-            color: #f0e8ff;
-            line-height: 1;
-        }
-
-        .flip-bottom-flap {
-            bottom: 0;
-            background: linear-gradient(180deg, #1e1e30, #1a1a28);
-            border-radius: 0 0 12px 12px;
+        .card-flip-bottom {
+            z-index: 20;
             transform-origin: top center;
             transform: rotateX(90deg);
-            z-index: 14;
-        }
-
-        .flip-bottom-flap .flip-number {
-            position: absolute;
-            top: -72px;
-            font-family: 'Georgia', serif;
-            font-size: 72px;
-            font-weight: bold;
-            color: #f0e8ff;
-            line-height: 1;
+            backface-visibility: hidden;
+            visibility: hidden;
         }
 
         /* Animations */
-        @keyframes flipTop {
-            0%   { transform: rotateX(0deg); }
-            100% { transform: rotateX(-90deg); }
+        @keyframes flipTopDown {
+            from { transform: rotateX(0deg); }
+            to   { transform: rotateX(-90deg); }
         }
 
-        @keyframes flipBottom {
-            0%   { transform: rotateX(90deg); }
-            100% { transform: rotateX(0deg); }
-        }
-
-        .flip-top-flap.flipping {
-            animation: flipTop 0.3s ease-in forwards;
-        }
-
-        .flip-bottom-flap.flipping {
-            animation: flipBottom 0.3s ease-out 0.3s forwards;
+        @keyframes flipBottomUp {
+            from { transform: rotateX(90deg); }
+            to   { transform: rotateX(0deg); }
         }
 
         /* Séparateur : */
-        .flip-separator {
+        .flip-sep {
             font-family: 'Georgia', serif;
-            font-size: 60px;
-            color: rgba(240, 232, 255, 0.3);
+            font-size: var(--sep-size);
+            color: rgba(240,232,255,0.25);
             align-self: flex-start;
-            margin-top: 25px;
+            margin-top: calc(var(--card-h) / 2 - var(--sep-size) / 2);
             line-height: 1;
         }
 
-        /* Mini cards pour les secondes (plus petites) */
-        .flip-card-sm {
-            width: 70px;
-            height: 95px;
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            :root {
+                --card-w: 75px;
+                --card-h: 95px;
+                --card-font: 46px;
+                --card-radius: 8px;
+                --sep-size: 18px;
+            }
+            .flip-clock { gap: 8px; }
+            .event-row { font-size: 15px; }
+            .event-label { min-width: 130px; }
+            .event-time { min-width: 55px; }
         }
 
-        .flip-card-sm .flip-top .flip-number,
-        .flip-card-sm .flip-bottom .flip-number,
-        .flip-card-sm .flip-top-flap .flip-number,
-        .flip-card-sm .flip-bottom-flap .flip-number {
-            font-size: 56px;
+        @media (max-width: 480px) {
+            :root {
+                --card-w: 60px;
+                --card-h: 78px;
+                --card-font: 36px;
+                --card-radius: 7px;
+                --sep-size: 15px;
+            }
+            .flip-clock { gap: 5px; }
+            .flip-label { font-size: 11px; letter-spacing: 2px; }
+            .event-row { font-size: 14px; }
+            .event-label { min-width: 110px; }
+            .lang-buttons { gap: 10px; }
+            .lang-btn { padding: 8px 20px; font-size: 15px; }
+            .accueil-content { padding: 30px 20px; }
         }
 
-        .flip-card-sm .flip-bottom .flip-number {
-            top: -56px;
-        }
-
-        .flip-card-sm .flip-bottom-flap .flip-number {
-            top: -56px;
-        }
-
-        /* ===================================================
-           FOOTER
-        =================================================== */
+        /* ==================== FOOTER ==================== */
         footer {
             text-align: center;
             padding: 30px;
@@ -737,95 +577,11 @@
             color: rgba(255,255,255,0.3);
             font-size: 14px;
         }
-
-        /* ===================================================
-           RESPONSIVE
-        =================================================== */
-        @media (max-width: 768px) {
-            .flip-card {
-                width: 70px;
-                height: 95px;
-            }
-            .flip-card .flip-top .flip-number,
-            .flip-card .flip-bottom .flip-number,
-            .flip-card .flip-top-flap .flip-number,
-            .flip-card .flip-bottom-flap .flip-number {
-                font-size: 56px;
-            }
-            .flip-card .flip-bottom .flip-number {
-                top: -56px;
-            }
-            .flip-card .flip-bottom-flap .flip-number {
-                top: -56px;
-            }
-            .flip-card-sm {
-                width: 60px;
-                height: 80px;
-            }
-            .flip-card-sm .flip-top .flip-number,
-            .flip-card-sm .flip-bottom .flip-number,
-            .flip-card-sm .flip-top-flap .flip-number,
-            .flip-card-sm .flip-bottom-flap .flip-number {
-                font-size: 46px;
-            }
-            .flip-card-sm .flip-bottom .flip-number {
-                top: -46px;
-            }
-            .flip-card-sm .flip-bottom-flap .flip-number {
-                top: -46px;
-            }
-            .flip-separator {
-                font-size: 45px;
-                margin-top: 18px;
-            }
-            .flip-clock {
-                gap: 8px;
-            }
-            .event-row { font-size: 15px; }
-            .event-label { min-width: 130px; }
-            .event-time { min-width: 55px; }
-        }
-
-        @media (max-width: 480px) {
-            .event-row { font-size: 14px; }
-            .event-label { min-width: 110px; }
-            .lang-buttons { gap: 10px; }
-            .lang-btn { padding: 8px 20px; font-size: 15px; }
-            .accueil-content { padding: 30px 20px; }
-            .flip-card {
-                width: 55px;
-                height: 75px;
-            }
-            .flip-card .flip-top .flip-number,
-            .flip-card .flip-bottom .flip-number,
-            .flip-card .flip-top-flap .flip-number,
-            .flip-card .flip-bottom-flap .flip-number {
-                font-size: 44px;
-            }
-            .flip-card .flip-bottom .flip-number { top: -44px; }
-            .flip-card .flip-bottom-flap .flip-number { top: -44px; }
-            .flip-card-sm {
-                width: 50px;
-                height: 68px;
-            }
-            .flip-card-sm .flip-top .flip-number,
-            .flip-card-sm .flip-bottom .flip-number,
-            .flip-card-sm .flip-top-flap .flip-number,
-            .flip-card-sm .flip-bottom-flap .flip-number {
-                font-size: 38px;
-            }
-            .flip-card-sm .flip-bottom .flip-number { top: -38px; }
-            .flip-card-sm .flip-bottom-flap .flip-number { top: -38px; }
-            .flip-separator {
-                font-size: 35px;
-                margin-top: 12px;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <!-- ==================== ZONE 1 : ACCUEIL ==================== -->
+    <!-- ===================== ZONE 1 : ACCUEIL ===================== -->
     <div class="section-bg section-accueil">
         <div class="accueil-content">
             <p class="names">Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV</p>
@@ -847,15 +603,14 @@
 
             <div class="lang-buttons">
                 <a class="lang-btn active" onclick="changeLanguage('fr')" data-lang="fr">Français</a>
-                <a class="lang-btn" onclick="changeLanguage('it')" data-lang="it">Italiano</a>
-                <a class="lang-btn" onclick="changeLanguage('en')" data-lang="en">English</a>
+                <a class="lang-btn"          onclick="changeLanguage('it')" data-lang="it">Italiano</a>
+                <a class="lang-btn"          onclick="changeLanguage('en')" data-lang="en">English</a>
             </div>
         </div>
-
         <div class="scroll-hint">▼</div>
     </div>
 
-    <!-- ==================== ZONE 2 : RSVP ==================== -->
+    <!-- ===================== ZONE 2 : RSVP ===================== -->
     <div class="section-bg section-rsvp">
         <div class="rsvp-card">
             <p class="rsvp-title" data-i18n="rsvpTitle">Répondez-nous</p>
@@ -864,23 +619,22 @@
                 inoubliable, nous vous prions de répondre à quelques questions dans
                 le formulaire ci-dessous.
             </p>
-            <a class="rsvp-btn" id="rsvpLink" href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=sharing&ouid=106678558640909236036" target="_blank">RSVP</a>
+            <a class="rsvp-btn" id="rsvpLink"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
+               target="_blank">RSVP</a>
             <p class="ornament-stars">✦ ✦ ✦</p>
         </div>
     </div>
 
-    <!-- ==================== ZONE 3 : PROGRAMME ==================== -->
+    <!-- ===================== ZONE 3 : PROGRAMME ===================== -->
     <div class="section-bg section-programme">
         <div class="programme-wrapper">
-
             <div class="section-card program-card">
                 <h2 data-i18n="programTitle">Programme du week-end</h2>
                 <p class="program-desc" data-i18n="programDesc">
                     Le mariage se déroulera durant le week-end de l'Ascension 2027.
-                    Profitez de cette occasion pour flâner dans les rues de Rome
-                    avant la cérémonie !
+                    Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !
                 </p>
-
                 <div class="day-block">
                     <h3 data-i18n="sat">Samedi 8 mai 2027</h3>
                     <div class="event-row">
@@ -909,7 +663,6 @@
                         <span class="event-label" data-i18n="sat5">Fin des festivités</span>
                     </div>
                 </div>
-
                 <div class="day-block">
                     <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>
                     <div class="event-row">
@@ -939,7 +692,7 @@
         </div>
     </div>
 
-    <!-- ==================== ZONE 4 : LIEU ==================== -->
+    <!-- ===================== ZONE 4 : LIEU ===================== -->
     <div class="section-bg section-lieu">
         <div class="location-card">
             <div class="location-inner">
@@ -951,14 +704,12 @@
                     Rome Fiumicino (FCO).
                 </p>
                 <p class="location-note" data-i18n="locDesc2">
-                    Le trafic romain pouvant être dense, prévoyez 1h à 2h
-                    depuis le centre-ville.
+                    Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.
                 </p>
                 <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
-                        allowfullscreen=""
-                        loading="lazy"
+                        allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -966,81 +717,85 @@
         </div>
     </div>
 
-    <!-- ==================== ZONE 5 : COMPTE À REBOURS ==================== -->
+    <!-- ===================== ZONE 5 : COUNTDOWN ===================== -->
     <div class="section-bg section-countdown">
         <div class="countdown-content">
             <h1 data-i18n="countdown">L'amour nous emmène en Italie dans...</h1>
 
             <div class="flip-clock" id="flipClock">
+
                 <!-- JOURS -->
                 <div class="flip-group">
-                    <div class="flip-card" id="days-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-top"><span class="flip-number" id="days-top">00</span></div>
-                            <div class="flip-bottom"><span class="flip-number" id="days-bottom">00</span></div>
-                            <div class="flip-top-flap"><span class="flip-number" id="days-flap-top">00</span></div>
-                            <div class="flip-bottom-flap"><span class="flip-number" id="days-flap-bottom">00</span></div>
-                        </div>
+                    <div class="flip-card" id="card-days">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-                    <span class="flip-group-label" data-i18n="labelDays">Jours</span>
+                    <span class="flip-label" data-i18n="labelDays">Jours</span>
                 </div>
 
-                <span class="flip-separator">:</span>
+                <span class="flip-sep">:</span>
 
                 <!-- HEURES -->
                 <div class="flip-group">
-                    <div class="flip-card" id="hours-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-top"><span class="flip-number" id="hours-top">00</span></div>
-                            <div class="flip-bottom"><span class="flip-number" id="hours-bottom">00</span></div>
-                            <div class="flip-top-flap"><span class="flip-number" id="hours-flap-top">00</span></div>
-                            <div class="flip-bottom-flap"><span class="flip-number" id="hours-flap-bottom">00</span></div>
-                        </div>
+                    <div class="flip-card" id="card-hours">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-                    <span class="flip-group-label" data-i18n="labelHours">Heures</span>
+                    <span class="flip-label" data-i18n="labelHours">Heures</span>
                 </div>
 
-                <span class="flip-separator">:</span>
+                <span class="flip-sep">:</span>
 
                 <!-- MINUTES -->
                 <div class="flip-group">
-                    <div class="flip-card" id="minutes-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-top"><span class="flip-number" id="minutes-top">00</span></div>
-                            <div class="flip-bottom"><span class="flip-number" id="minutes-bottom">00</span></div>
-                            <div class="flip-top-flap"><span class="flip-number" id="minutes-flap-top">00</span></div>
-                            <div class="flip-bottom-flap"><span class="flip-number" id="minutes-flap-bottom">00</span></div>
-                        </div>
+                    <div class="flip-card" id="card-minutes">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-                    <span class="flip-group-label" data-i18n="labelMinutes">Minutes</span>
+                    <span class="flip-label" data-i18n="labelMinutes">Minutes</span>
                 </div>
 
-                <span class="flip-separator">:</span>
+                <span class="flip-sep">:</span>
 
-                <!-- SECONDES (plus petites) -->
+                <!-- SECONDES -->
                 <div class="flip-group">
-                    <div class="flip-card flip-card-sm" id="seconds-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-top"><span class="flip-number" id="seconds-top">00</span></div>
-                            <div class="flip-bottom"><span class="flip-number" id="seconds-bottom">00</span></div>
-                            <div class="flip-top-flap"><span class="flip-number" id="seconds-flap-top">00</span></div>
-                            <div class="flip-bottom-flap"><span class="flip-number" id="seconds-flap-bottom">00</span></div>
-                        </div>
+                    <div class="flip-card" id="card-seconds">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-                    <span class="flip-group-label" data-i18n="labelSeconds">Secondes</span>
+                    <span class="flip-label" data-i18n="labelSeconds">Secondes</span>
                 </div>
+
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>Made with ♥ for Teresa & Boris — 2027</p>
+        <p>Made with ♥ for Teresa &amp; Boris — 2027</p>
     </footer>
 
-    <!-- ==================== SCRIPTS ==================== -->
+    <!-- ===================== SCRIPTS ===================== -->
     <script>
-        // ========== TRADUCTION ==========
+        /* ========================================
+           TRADUCTION
+        ======================================== */
         const translations = {
             fr: {
                 welcome: "Bienvenue à notre mariage",
@@ -1051,25 +806,18 @@
                 programTitle: "Programme du week-end",
                 programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !",
                 sat: "Samedi 8 mai 2027",
-                sat1: "Accueil des invités",
-                sat2: "Cérémonie de mariage",
-                sat3: "Dîner et desserts",
-                sat4: "Soirée dansante",
-                sat5: "Fin des festivités",
-                sun: "Dimanche 9 mai 2027",
-                sun1: "Petit-déjeuner",
-                sun2: "Check-out",
+                sat1: "Accueil des invités", sat2: "Cérémonie de mariage",
+                sat3: "Dîner et desserts", sat4: "Soirée dansante", sat5: "Fin des festivités",
+                sun: "Dimanche 9 mai 2027", sun1: "Petit-déjeuner", sun2: "Check-out",
                 dressTitle: "Code vestimentaire",
-                dressText: "Le thème du mariage est <strong style='color: #9b7ead;'>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.",
+                dressText: "Le thème du mariage est <strong style='color:#9b7ead;'>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.",
                 locTitle: "Le lieu",
-                locDesc1: "Le <strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
+                locDesc1: "Le <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
                 locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",
                 countdown: "L'amour nous emmène en Italie dans...",
-                labelDays: "Jours",
-                labelHours: "Heures",
-                labelMinutes: "Minutes",
-                labelSeconds: "Secondes",
-                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=sharing&ouid=106678558640909236036"
+                labelDays: "Jours", labelHours: "Heures",
+                labelMinutes: "Minutes", labelSeconds: "Secondes",
+                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
             },
             it: {
                 welcome: "Benvenuti al nostro matrimonio",
@@ -1080,25 +828,18 @@
                 programTitle: "Programma del weekend",
                 programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione 2027. Approfittate di questa occasione per passeggiare per le strade di Roma prima della cerimonia!",
                 sat: "Sabato 8 maggio 2027",
-                sat1: "Accoglienza degli ospiti",
-                sat2: "Cerimonia di matrimonio",
-                sat3: "Cena e dessert",
-                sat4: "Serata danzante",
-                sat5: "Fine dei festeggiamenti",
-                sun: "Domenica 9 maggio 2027",
-                sun1: "Colazione",
-                sun2: "Check-out",
+                sat1: "Accoglienza degli ospiti", sat2: "Cerimonia di matrimonio",
+                sat3: "Cena e dessert", sat4: "Serata danzante", sat5: "Fine dei festeggiamenti",
+                sun: "Domenica 9 maggio 2027", sun1: "Colazione", sun2: "Check-out",
                 dressTitle: "Dress code",
-                dressText: "Il tema del matrimonio è <strong style='color: #9b7ead;'>pastello, floreale e beige</strong>,<br>ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio.",
+                dressText: "Il tema del matrimonio è <strong style='color:#9b7ead;'>pastello, floreale e beige</strong>,<br>ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio.",
                 locTitle: "La location",
-                locDesc1: "Il <strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
+                locDesc1: "Il <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
                 locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",
                 countdown: "L'amore ci porta in Italia tra...",
-                labelDays: "Giorni",
-                labelHours: "Ore",
-                labelMinutes: "Minuti",
-                labelSeconds: "Secondi",
-                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFU4Cn8bSTdD2vW7_JJSElzBZ0BnD-ZpTN-PPn9dNJSMtdug/viewform?usp=publish-editor"
+                labelDays: "Giorni", labelHours: "Ore",
+                labelMinutes: "Minuti", labelSeconds: "Secondi",
+                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfhyzz83kcDvGnq0SAU7t6LDZVKN6Ne09Qv4gQHHgEPcgkMAg/viewform?usp=header"
             },
             en: {
                 welcome: "Welcome to our wedding",
@@ -1109,32 +850,22 @@
                 programTitle: "Weekend Program",
                 programDesc: "The wedding will take place during the Ascension weekend 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!",
                 sat: "Saturday, May 8, 2027",
-                sat1: "Welcome of guests",
-                sat2: "Wedding ceremony",
-                sat3: "Dinner and desserts",
-                sat4: "Dance party",
-                sat5: "End of festivities",
-                sun: "Sunday, May 9, 2027",
-                sun1: "Breakfast",
-                sun2: "Check-out",
+                sat1: "Welcome of guests", sat2: "Wedding ceremony",
+                sat3: "Dinner and desserts", sat4: "Dance party", sat5: "End of festivities",
+                sun: "Sunday, May 9, 2027", sun1: "Breakfast", sun2: "Check-out",
                 dressTitle: "Dress Code",
-                dressText: "The wedding theme is <strong style='color: #9b7ead;'>pastel, floral, and beige</strong>,<br>but feel free to wear the colors that make you feel most comfortable.",
+                dressText: "The wedding theme is <strong style='color:#9b7ead;'>pastel, floral, and beige</strong>,<br>but feel free to wear the colors that make you feel most comfortable.",
                 locTitle: "The Venue",
-                locDesc1: "<strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
+                locDesc1: "<strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
                 locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",
                 countdown: "Love takes us to Italy in...",
-                labelDays: "Days",
-                labelHours: "Hours",
-                labelMinutes: "Minutes",
-                labelSeconds: "Seconds",
-                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeQAg0ugqbatXa6pVq2A-iIgBZLuUwgyMRg0gy4C4lexpLBsA/viewform?usp=publish-editor"
+                labelDays: "Days", labelHours: "Hours",
+                labelMinutes: "Minutes", labelSeconds: "Seconds",
+                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLScjINHqGInkGsfRKksbjNLIWzkMzjjN1DNtGCpRnSDENv7GOA/viewform?usp=header"
             }
         };
 
-        let currentLang = 'fr';
-
         function changeLanguage(lang) {
-            currentLang = lang;
             document.documentElement.lang = lang;
 
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1148,119 +879,98 @@
                 }
             });
 
-            // Mettre à jour le lien RSVP
-            const rsvpLink = document.getElementById('rsvpLink');
+            // Lien RSVP par langue
             if (translations[lang] && translations[lang].rsvpUrl) {
-                rsvpLink.href = translations[lang].rsvpUrl;
+                document.getElementById('rsvpLink').href = translations[lang].rsvpUrl;
             }
         }
 
-        // ========== FLIP CLOCK ==========
-        const countDownDate = new Date("May 8, 2027 16:00:00").getTime();
+        /* ========================================
+           FLIP CLOCK
+        ======================================== */
+        const WEDDING = new Date("2027-05-08T16:00:00").getTime();
+        const prev = {};
+        const timeouts = {};
 
-        // État précédent pour détecter les changements
-        let prevValues = { days: '', hours: '', minutes: '', seconds: '' };
-
-        function flipCard(unit, newValue) {
-            const padded = String(newValue).padStart(2, '0');
-
-            if (prevValues[unit] === padded) return; // Pas de changement
-
-            const oldValue = prevValues[unit] || padded;
-
-            const topStatic = document.getElementById(unit + '-top');
-            const bottomStatic = document.getElementById(unit + '-bottom');
-            const flapTop = document.getElementById(unit + '-flap-top');
-            const flapBottom = document.getElementById(unit + '-flap-bottom');
-            const card = document.getElementById(unit + '-card');
-
-            // État initial : la carte affiche l'ancien chiffre
-            topStatic.textContent = oldValue;
-            flapTop.textContent = oldValue;
-            bottomStatic.textContent = oldValue;
-
-            // Préparer la nouvelle valeur
-            flapBottom.textContent = padded;
-            bottomStatic.textContent = padded;
-
-            // Supprimer les anciennes animations
-            flapTop.classList.remove('flipping');
-            flapBottom.classList.remove('flipping');
-
-            // Forcer le reflow
-            void flapTop.offsetWidth;
-
-            // Lancer l'animation
-            flapTop.classList.add('flipping');
-            flapBottom.classList.add('flipping');
-
-            // À mi-chemin de l'animation (300ms), changer la moitié haute statique
-            setTimeout(() => {
-                topStatic.textContent = padded;
-            }, 300);
-
-            // Nettoyer après l'animation (600ms)
-            setTimeout(() => {
-                flapTop.classList.remove('flipping');
-                flapBottom.classList.remove('flipping');
-            }, 650);
-
-            prevValues[unit] = padded;
+        function pad(n, len) {
+            return String(n).padStart(len, '0');
         }
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
+        function flipUnit(id, newValue, padLen) {
+            const padded = pad(newValue, padLen);
 
-            if (distance < 0) {
+            if (prev[id] === padded) return;          // inchangé
+
+            const card      = document.getElementById('card-' + id);
+            const topStatic = card.querySelector('.card-top .num');
+            const botStatic = card.querySelector('.card-bottom .num');
+            const topFlip   = card.querySelector('.card-flip-top .num');
+            const botFlip   = card.querySelector('.card-flip-bottom .num');
+            const topFlap   = card.querySelector('.card-flip-top');
+            const botFlap   = card.querySelector('.card-flip-bottom');
+
+            const oldValue = prev[id] || padded;
+
+            // 1. Préparer les valeurs
+            topStatic.textContent = padded;          // nouvelle valeur (cachée derrière le flap)
+            topFlip.textContent   = oldValue;        // ancienne valeur (visible)
+            botFlip.textContent   = padded;          // nouvelle valeur (arrive en second)
+            // botStatic garde l'ancienne valeur (recouverte par botFlap)
+
+            // 2. Rendre les flaps visibles, reset animation
+            topFlap.style.visibility = 'visible';
+            botFlap.style.visibility = 'visible';
+            topFlap.style.animation  = 'none';
+            botFlap.style.animation  = 'none';
+            void topFlap.offsetWidth;                // reflow
+
+            // 3. Lancer les animations
+            topFlap.style.animation = 'flipTopDown 0.3s ease-in forwards';
+            botFlap.style.animation = 'flipBottomUp 0.3s 0.3s ease-out forwards';
+
+            // 4. Nettoyage après animation complète
+            if (timeouts[id]) clearTimeout(timeouts[id]);
+            timeouts[id] = setTimeout(() => {
+                botStatic.textContent  = padded;
+                topFlap.style.visibility = 'hidden';
+                botFlap.style.visibility = 'hidden';
+                topFlap.style.animation  = 'none';
+                botFlap.style.animation  = 'none';
+            }, 700);
+
+            prev[id] = padded;
+        }
+
+        function tick() {
+            const now = Date.now();
+            const diff = WEDDING - now;
+
+            if (diff <= 0) {
                 document.getElementById('flipClock').innerHTML =
-                    "<h2 style='color:#f0e8ff;font-family:Aboreto,serif;font-size:28px;'>🎉 Le jour J est arrivé ! 🎉</h2>";
+                    '<h2 style="color:#f0e8ff;font-family:Aboreto,serif;font-size:clamp(22px,5vw,32px);">' +
+                    '🎉 ' +
+                    (document.documentElement.lang === 'it' ? 'È arrivato il grande giorno!' :
+                     document.documentElement.lang === 'en' ? 'The big day is here!' :
+                     "Le jour J est arrivé !") +
+                    ' 🎉</h2>';
+                clearInterval(timer);
                 return;
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
 
-            // Jours : peut avoir 3 chiffres
-            const daysStr = String(days).padStart(2, '0');
-            if (prevValues.days !== daysStr) {
-                const card = document.getElementById('days-card');
-                const topStatic = document.getElementById('days-top');
-                const bottomStatic = document.getElementById('days-bottom');
-                const flapTop = document.getElementById('days-flap-top');
-                const flapBottom = document.getElementById('days-flap-bottom');
-
-                const oldVal = prevValues.days || daysStr;
-                topStatic.textContent = oldVal;
-                flapTop.textContent = oldVal;
-                bottomStatic.textContent = oldVal;
-                flapBottom.textContent = daysStr;
-
-                flapTop.classList.remove('flipping');
-                flapBottom.classList.remove('flipping');
-                void flapTop.offsetWidth;
-                flapTop.classList.add('flipping');
-                flapBottom.classList.add('flipping');
-
-                setTimeout(() => { topStatic.textContent = daysStr; }, 300);
-                setTimeout(() => {
-                    flapTop.classList.remove('flipping');
-                    flapBottom.classList.remove('flipping');
-                }, 650);
-
-                prevValues.days = daysStr;
-            }
-
-            flipCard('hours', hours);
-            flipCard('minutes', minutes);
-            flipCard('seconds', seconds);
+            flipUnit('days',    d, 3);   // 3 chiffres pour les jours
+            flipUnit('hours',   h, 2);
+            flipUnit('minutes', m, 2);
+            flipUnit('seconds', s, 2);
         }
 
-        // Initialisation
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        // Premier appel immédiat (sans animation), puis toutes les secondes
+        tick();
+        const timer = setInterval(tick, 1000);
     </script>
 </body>
 </html>
