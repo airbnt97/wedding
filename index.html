@@ -25,77 +25,65 @@
         }
 
         /* ===================================================
-           ZONE 1 : HEADER AVEC IMAGE DE FOND
+           SECTIONS — FOND IMAGE
         =================================================== */
-        .header-zone {
+        .section-bg {
             position: relative;
-            width: 100%;
-            min-height: 100vh;
-
-            /* ── IMAGE DE FOND ── */
-            background-image: url('images/background.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             overflow: hidden;
         }
 
-        /* ── Assombrir l'image pour la lisibilité ── */
-        .header-zone::before {
+        /* Overlay sombre pour lisibilité */
+        .section-bg::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(20, 15, 25, 0.45) 0%,
-                rgba(20, 15, 25, 0.55) 50%,
-                rgba(20, 15, 25, 0.7) 100%
-            );
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 1;
+            pointer-events: none;
         }
 
-        /* ── Overlay floral optionnel (coins décoratifs) ── */
-        .header-zone::after {
+        .section-bg > * {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ===================================================
+           ZONE 1 : ACCUEIL
+        =================================================== */
+        .section-accueil {
+            min-height: 100vh;
+            background-image: url('accueil.jpg');
+            text-align: center;
+        }
+
+        .section-accueil::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(20, 15, 25, 0.40) 0%,
+                rgba(20, 15, 25, 0.50) 50%,
+                rgba(20, 15, 25, 0.65) 100%
+            );
+        }
+
+        /* Vignette */
+        .section-accueil::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at 0% 0%,   rgba(224,176,185,0.15) 0%, transparent 40%),
-                radial-gradient(ellipse at 100% 0%,  rgba(149,196,235,0.12) 0%, transparent 40%),
-                radial-gradient(ellipse at 0% 100%,  rgba(180,200,160,0.1)  0%, transparent 40%),
-                radial-gradient(ellipse at 100% 100%, rgba(200,180,220,0.1) 0%, transparent 40%);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            box-shadow: inset 0 0 180px rgba(0,0,0,0.4);
             z-index: 2;
             pointer-events: none;
         }
 
-        /* ── Vignettage bords ── */
-        .header-vignette {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.4);
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        /* ── Contenu texte ── */
-        .header-content {
-            position: relative;
-            z-index: 10;
+        .accueil-content {
             padding: 40px 30px;
             max-width: 750px;
         }
@@ -120,8 +108,8 @@
             text-shadow: 0 3px 25px rgba(0,0,0,0.5);
         }
 
-        /* ── Séparateur floral ── */
-        .floral-divider {
+        /* Séparateur */
+        .divider {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -149,9 +137,7 @@
             border-radius: 50%;
         }
 
-        /* ── Bloc date ── */
         .date-box {
-            font-family: 'Cormorant Garamond', serif;
             color: #fbe9f6;
             border-left: 1px solid rgba(196,216,232,0.4);
             padding-left: 25px;
@@ -162,10 +148,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
 
-        .date-box p {
-            margin: 0;
-            letter-spacing: 2px;
-        }
+        .date-box p { margin: 0; letter-spacing: 2px; }
 
         .date-main {
             font-weight: 600;
@@ -173,7 +156,7 @@
             font-size: clamp(17px, 2.5vw, 21px);
         }
 
-        /* ── Boutons de langue ── */
+        /* Boutons langue */
         .lang-buttons {
             margin-top: 40px;
             display: flex;
@@ -202,7 +185,6 @@
         .lang-btn:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
         .lang-btn.active {
@@ -210,7 +192,7 @@
             border-color: rgba(224,176,185,0.5);
         }
 
-        /* ── Scroll indicator ── */
+        /* Scroll hint */
         .scroll-hint {
             position: absolute;
             bottom: 30px;
@@ -218,11 +200,9 @@
             transform: translateX(-50%);
             z-index: 10;
             animation: gentleBounce 2.5s ease infinite;
-            opacity: 0.6;
-            color: #fbe9f6;
-            font-size: 14px;
+            color: rgba(251,233,246,0.6);
+            font-size: 13px;
             letter-spacing: 3px;
-            text-transform: uppercase;
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
 
@@ -234,14 +214,29 @@
         /* ===================================================
            ZONE 2 : RSVP
         =================================================== */
+        .section-rsvp {
+            min-height: 100vh;
+            background-image: url('rsvp.jpg');
+            padding: 80px 20px;
+        }
+
+        .section-rsvp::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(25, 20, 30, 0.50) 0%,
+                rgba(25, 20, 30, 0.55) 100%
+            );
+        }
+
         .rsvp-card {
             max-width: 650px;
-            margin: 50px auto;
-            background-color: #ffffff;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
             border-radius: 20px;
             padding: 50px 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .rsvp-title {
@@ -290,23 +285,36 @@
         /* ===================================================
            ZONE 3 : PROGRAMME & DRESS CODE
         =================================================== */
-        .sections-wrapper {
+        .section-programme {
+            min-height: 100vh;
+            background-image: url('programme.jpg');
+            padding: 80px 20px;
+        }
+
+        .section-programme::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(25, 30, 25, 0.55) 0%,
+                rgba(25, 30, 25, 0.60) 100%
+            );
+        }
+
+        .programme-wrapper {
             max-width: 700px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width: 100%;
         }
 
         .section-card {
             border-radius: 20px;
             padding: 35px 25px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            backdrop-filter: blur(8px);
         }
 
-        /* Programme */
         .program-card {
-            background-color: #f7faf7;
-            border: 1px solid #e0ece0;
+            background: rgba(247,250,247,0.93);
+            border: 1px solid rgba(224,236,224,0.6);
             text-align: center;
         }
 
@@ -327,7 +335,7 @@
         }
 
         .day-block {
-            background-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.85);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
@@ -379,8 +387,8 @@
 
         /* Dress code */
         .dress-card {
-            background-color: #f9f7fb;
-            border: 1px solid #e8e0ef;
+            background: rgba(249,247,251,0.93);
+            border: 1px solid rgba(232,224,239,0.6);
             text-align: center;
         }
 
@@ -393,7 +401,7 @@
         }
 
         .dress-inner {
-            background-color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.7);
             border-radius: 15px;
             padding: 25px;
         }
@@ -407,18 +415,32 @@
         /* ===================================================
            ZONE 4 : LIEU
         =================================================== */
+        .section-lieu {
+            min-height: 100vh;
+            background-image: url('lieu.jpg');
+            padding: 80px 20px;
+        }
+
+        .section-lieu::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(20, 25, 20, 0.55) 0%,
+                rgba(20, 25, 20, 0.60) 100%
+            );
+        }
+
         .location-card {
             max-width: 700px;
-            margin: 0 auto 30px;
-            padding: 0 20px;
+            width: 100%;
         }
 
         .location-inner {
-            background: #ffffff;
+            background: rgba(255,255,255,0.93);
             border-radius: 20px;
             padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            backdrop-filter: blur(8px);
         }
 
         .location-inner h2 {
@@ -463,31 +485,246 @@
         }
 
         /* ===================================================
-           ZONE 5 : COMPTE À REBOURS
+           ZONE 5 : COMPTE À REBOURS — FLIP
         =================================================== */
-        .countdown-section {
-            text-align: center;
-            padding: 60px 20px 40px;
-            margin-bottom: 40px;
+        .section-countdown {
+            min-height: 100vh;
+            background-image: url('countdown.jpg');
+            padding: 80px 20px;
         }
 
-        .countdown-section h1 {
+        .section-countdown::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 15, 25, 0.55) 0%,
+                rgba(15, 15, 25, 0.60) 100%
+            );
+        }
+
+        .countdown-content {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .countdown-content h1 {
             font-family: 'Aboreto', serif;
-            color: #9881e9;
+            color: #e0d0f0;
             font-size: clamp(22px, 4vw, 36px);
             font-weight: 400;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
         }
 
-        .countdown-timer {
+        /* --- Flip clock container --- */
+        .flip-clock {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .flip-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flip-group-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .flip-card {
+            position: relative;
+            width: 90px;
+            height: 120px;
+            perspective: 400px;
+            border-radius: 12px;
+            /* Pour l'effet split en deux moitiés */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Moitié haute et basse (static) */
+        .flip-top,
+        .flip-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flip-top {
+            top: 0;
+            background: linear-gradient(180deg, #2a2a3a, #222235);
+            border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid rgba(0,0,0,0.5);
+        }
+
+        .flip-bottom {
+            bottom: 0;
+            background: linear-gradient(180deg, #1e1e30, #1a1a28);
+            border-radius: 0 0 12px 12px;
+        }
+
+        .flip-top .flip-number,
+        .flip-bottom .flip-number {
             font-family: 'Georgia', serif;
-            font-size: clamp(22px, 5vw, 35px);
-            color: #444;
-            margin-top: 20px;
+            font-size: 72px;
+            font-weight: bold;
+            color: #f0e8ff;
+            line-height: 1;
+            position: absolute;
         }
 
-        .countdown-timer span {
+        .flip-top .flip-number {
+            bottom: 5px;
+        }
+
+        .flip-bottom .flip-number {
+            top: -72px;
+        }
+
+        /* Ligne centrale */
+        .flip-card-inner::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(0,0,0,0.6);
+            z-index: 5;
+            transform: translateY(-0.5px);
+        }
+
+        /* Petites ombres sur la ligne */
+        .flip-card-inner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.15), transparent);
+            z-index: 4;
+            transform: translateY(-8px);
+        }
+
+        /* Cartes animées (flap) */
+        .flip-top-flap,
+        .flip-bottom-flap {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+            z-index: 10;
+        }
+
+        .flip-top-flap {
+            top: 0;
+            background: linear-gradient(180deg, #2a2a3a, #222235);
+            border-radius: 12px 12px 0 0;
+            transform-origin: bottom center;
+            border-bottom: 1px solid rgba(0,0,0,0.5);
+            z-index: 15;
+        }
+
+        .flip-top-flap .flip-number {
+            position: absolute;
+            bottom: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 72px;
             font-weight: bold;
-            color: #9881e9;
+            color: #f0e8ff;
+            line-height: 1;
+        }
+
+        .flip-bottom-flap {
+            bottom: 0;
+            background: linear-gradient(180deg, #1e1e30, #1a1a28);
+            border-radius: 0 0 12px 12px;
+            transform-origin: top center;
+            transform: rotateX(90deg);
+            z-index: 14;
+        }
+
+        .flip-bottom-flap .flip-number {
+            position: absolute;
+            top: -72px;
+            font-family: 'Georgia', serif;
+            font-size: 72px;
+            font-weight: bold;
+            color: #f0e8ff;
+            line-height: 1;
+        }
+
+        /* Animations */
+        @keyframes flipTop {
+            0%   { transform: rotateX(0deg); }
+            100% { transform: rotateX(-90deg); }
+        }
+
+        @keyframes flipBottom {
+            0%   { transform: rotateX(90deg); }
+            100% { transform: rotateX(0deg); }
+        }
+
+        .flip-top-flap.flipping {
+            animation: flipTop 0.3s ease-in forwards;
+        }
+
+        .flip-bottom-flap.flipping {
+            animation: flipBottom 0.3s ease-out 0.3s forwards;
+        }
+
+        /* Séparateur : */
+        .flip-separator {
+            font-family: 'Georgia', serif;
+            font-size: 60px;
+            color: rgba(240, 232, 255, 0.3);
+            align-self: flex-start;
+            margin-top: 25px;
+            line-height: 1;
+        }
+
+        /* Mini cards pour les secondes (plus petites) */
+        .flip-card-sm {
+            width: 70px;
+            height: 95px;
+        }
+
+        .flip-card-sm .flip-top .flip-number,
+        .flip-card-sm .flip-bottom .flip-number,
+        .flip-card-sm .flip-top-flap .flip-number,
+        .flip-card-sm .flip-bottom-flap .flip-number {
+            font-size: 56px;
+        }
+
+        .flip-card-sm .flip-bottom .flip-number {
+            top: -56px;
+        }
+
+        .flip-card-sm .flip-bottom-flap .flip-number {
+            top: -56px;
         }
 
         /* ===================================================
@@ -496,7 +733,8 @@
         footer {
             text-align: center;
             padding: 30px;
-            color: #aaa;
+            background: #1a1a28;
+            color: rgba(255,255,255,0.3);
             font-size: 14px;
         }
 
@@ -504,49 +742,96 @@
            RESPONSIVE
         =================================================== */
         @media (max-width: 768px) {
-            .event-row {
-                font-size: 15px;
+            .flip-card {
+                width: 70px;
+                height: 95px;
             }
-            .event-label {
-                min-width: 130px;
+            .flip-card .flip-top .flip-number,
+            .flip-card .flip-bottom .flip-number,
+            .flip-card .flip-top-flap .flip-number,
+            .flip-card .flip-bottom-flap .flip-number {
+                font-size: 56px;
             }
-            .event-time {
-                min-width: 55px;
+            .flip-card .flip-bottom .flip-number {
+                top: -56px;
             }
+            .flip-card .flip-bottom-flap .flip-number {
+                top: -56px;
+            }
+            .flip-card-sm {
+                width: 60px;
+                height: 80px;
+            }
+            .flip-card-sm .flip-top .flip-number,
+            .flip-card-sm .flip-bottom .flip-number,
+            .flip-card-sm .flip-top-flap .flip-number,
+            .flip-card-sm .flip-bottom-flap .flip-number {
+                font-size: 46px;
+            }
+            .flip-card-sm .flip-bottom .flip-number {
+                top: -46px;
+            }
+            .flip-card-sm .flip-bottom-flap .flip-number {
+                top: -46px;
+            }
+            .flip-separator {
+                font-size: 45px;
+                margin-top: 18px;
+            }
+            .flip-clock {
+                gap: 8px;
+            }
+            .event-row { font-size: 15px; }
+            .event-label { min-width: 130px; }
+            .event-time { min-width: 55px; }
         }
 
         @media (max-width: 480px) {
-            .event-row {
-                font-size: 14px;
+            .event-row { font-size: 14px; }
+            .event-label { min-width: 110px; }
+            .lang-buttons { gap: 10px; }
+            .lang-btn { padding: 8px 20px; font-size: 15px; }
+            .accueil-content { padding: 30px 20px; }
+            .flip-card {
+                width: 55px;
+                height: 75px;
             }
-            .event-label {
-                min-width: 110px;
+            .flip-card .flip-top .flip-number,
+            .flip-card .flip-bottom .flip-number,
+            .flip-card .flip-top-flap .flip-number,
+            .flip-card .flip-bottom-flap .flip-number {
+                font-size: 44px;
             }
-            .lang-buttons {
-                gap: 10px;
+            .flip-card .flip-bottom .flip-number { top: -44px; }
+            .flip-card .flip-bottom-flap .flip-number { top: -44px; }
+            .flip-card-sm {
+                width: 50px;
+                height: 68px;
             }
-            .lang-btn {
-                padding: 8px 20px;
-                font-size: 15px;
+            .flip-card-sm .flip-top .flip-number,
+            .flip-card-sm .flip-bottom .flip-number,
+            .flip-card-sm .flip-top-flap .flip-number,
+            .flip-card-sm .flip-bottom-flap .flip-number {
+                font-size: 38px;
             }
-            .header-content {
-                padding: 30px 20px;
+            .flip-card-sm .flip-bottom .flip-number { top: -38px; }
+            .flip-card-sm .flip-bottom-flap .flip-number { top: -38px; }
+            .flip-separator {
+                font-size: 35px;
+                margin-top: 12px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== ZONE 1 : HEADER ========== -->
-    <div class="header-zone">
-        <div class="header-vignette"></div>
-
-        <div class="header-content">
+    <!-- ==================== ZONE 1 : ACCUEIL ==================== -->
+    <div class="section-bg section-accueil">
+        <div class="accueil-content">
             <p class="names">Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV</p>
-
             <h1 class="welcome-title" data-i18n="welcome">Bienvenue à notre mariage</h1>
 
-            <div class="floral-divider">
+            <div class="divider">
                 <span class="divider-line"></span>
                 <span class="divider-dot"></span>
                 <span class="divider-diamond"></span>
@@ -567,124 +852,184 @@
             </div>
         </div>
 
-        <div class="scroll-hint">
-            ▼
-        </div>
+        <div class="scroll-hint">▼</div>
     </div>
 
-    <!-- ========== ZONE 2 : RSVP ========== -->
-    <div class="rsvp-card">
-        <p class="rsvp-title" data-i18n="rsvpTitle">Répondez-nous</p>
-        <p class="rsvp-text" data-i18n="rsvpText">
-            Afin de préparer au mieux cette journée et de vous offrir un moment
-            inoubliable, nous vous prions de répondre à quelques questions dans
-            le formulaire ci-dessous.
-        </p>
-        <a class="rsvp-btn" href="https://forms.gle/cb4UtLiYa36DxSkZ7" target="_blank">RSVP</a>
-        <p class="ornament-stars">✦ ✦ ✦</p>
-    </div>
-
-    <!-- ========== ZONE 3 : PROGRAMME & DRESS CODE ========== -->
-    <div class="sections-wrapper">
-
-        <div class="section-card program-card">
-            <h2 data-i18n="programTitle">Programme du week-end</h2>
-            <p class="program-desc" data-i18n="programDesc">
-                Le mariage se déroulera durant le week-end de l'Ascension 2027.
-                Profitez de cette occasion pour flâner dans les rues de Rome
-                avant la cérémonie !
+    <!-- ==================== ZONE 2 : RSVP ==================== -->
+    <div class="section-bg section-rsvp">
+        <div class="rsvp-card">
+            <p class="rsvp-title" data-i18n="rsvpTitle">Répondez-nous</p>
+            <p class="rsvp-text" data-i18n="rsvpText">
+                Afin de préparer au mieux cette journée et de vous offrir un moment
+                inoubliable, nous vous prions de répondre à quelques questions dans
+                le formulaire ci-dessous.
             </p>
-
-            <div class="day-block">
-                <h3 data-i18n="sat">Samedi 8 mai 2027</h3>
-                <div class="event-row">
-                    <span class="event-time">15h00</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sat1">Accueil des invités</span>
-                </div>
-                <div class="event-row">
-                    <span class="event-time">16h00</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sat2">Cérémonie de mariage</span>
-                </div>
-                <div class="event-row">
-                    <span class="event-time">19h00</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sat3">Dîner et desserts</span>
-                </div>
-                <div class="event-row">
-                    <span class="event-time">21h00</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sat4">Soirée dansante</span>
-                </div>
-                <div class="event-row">
-                    <span class="event-time">02h00</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sat5">Fin des festivités</span>
-                </div>
-            </div>
-
-            <div class="day-block">
-                <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>
-                <div class="event-row">
-                    <span class="event-time" style="min-width:90px">6h – 11h</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sun1">Petit-déjeuner</span>
-                </div>
-                <div class="event-row">
-                    <span class="event-time">11h00</span>
-                    <span class="event-dots">··········</span>
-                    <span class="event-label" data-i18n="sun2">Check-out</span>
-                </div>
-            </div>
+            <a class="rsvp-btn" id="rsvpLink" href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=sharing&ouid=106678558640909236036" target="_blank">RSVP</a>
+            <p class="ornament-stars">✦ ✦ ✦</p>
         </div>
+    </div>
 
-        <div class="section-card dress-card">
-            <h2 data-i18n="dressTitle">Code vestimentaire</h2>
-            <div class="dress-inner">
-                <p data-i18n="dressText">
-                    Le thème du mariage est
-                    <strong style="color:#9b7ead;">pastel, floral et beige</strong>,
-                    <br>mais sentez-vous libres de porter les couleurs qui vous font
-                    vous sentir le plus à votre aise.
+    <!-- ==================== ZONE 3 : PROGRAMME ==================== -->
+    <div class="section-bg section-programme">
+        <div class="programme-wrapper">
+
+            <div class="section-card program-card">
+                <h2 data-i18n="programTitle">Programme du week-end</h2>
+                <p class="program-desc" data-i18n="programDesc">
+                    Le mariage se déroulera durant le week-end de l'Ascension 2027.
+                    Profitez de cette occasion pour flâner dans les rues de Rome
+                    avant la cérémonie !
                 </p>
+
+                <div class="day-block">
+                    <h3 data-i18n="sat">Samedi 8 mai 2027</h3>
+                    <div class="event-row">
+                        <span class="event-time">15h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat1">Accueil des invités</span>
+                    </div>
+                    <div class="event-row">
+                        <span class="event-time">16h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat2">Cérémonie de mariage</span>
+                    </div>
+                    <div class="event-row">
+                        <span class="event-time">19h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat3">Dîner et desserts</span>
+                    </div>
+                    <div class="event-row">
+                        <span class="event-time">21h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat4">Soirée dansante</span>
+                    </div>
+                    <div class="event-row">
+                        <span class="event-time">02h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat5">Fin des festivités</span>
+                    </div>
+                </div>
+
+                <div class="day-block">
+                    <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>
+                    <div class="event-row">
+                        <span class="event-time" style="min-width:90px">6h – 11h</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sun1">Petit-déjeuner</span>
+                    </div>
+                    <div class="event-row">
+                        <span class="event-time">11h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sun2">Check-out</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card dress-card">
+                <h2 data-i18n="dressTitle">Code vestimentaire</h2>
+                <div class="dress-inner">
+                    <p data-i18n="dressText">
+                        Le thème du mariage est
+                        <strong style="color:#9b7ead;">pastel, floral et beige</strong>,
+                        <br>mais sentez-vous libres de porter les couleurs qui vous font
+                        vous sentir le plus à votre aise.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ========== ZONE 4 : LIEU ========== -->
-    <div class="location-card">
-        <div class="location-inner">
-            <h2 data-i18n="locTitle">Le lieu</h2>
-            <p class="location-subtitle">Borgo di Tragliata, Rome</p>
-            <p class="location-text" data-i18n="locDesc1">
-                Le <strong style="color:#8fbc8f;">Borgo di Tragliata</strong> est situé
-                à environ <strong>30 minutes en voiture</strong> de l'aéroport
-                Rome Fiumicino (FCO).
-            </p>
-            <p class="location-note" data-i18n="locDesc2">
-                Le trafic romain pouvant être dense, prévoyez 1h à 2h
-                depuis le centre-ville.
-            </p>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+    <!-- ==================== ZONE 4 : LIEU ==================== -->
+    <div class="section-bg section-lieu">
+        <div class="location-card">
+            <div class="location-inner">
+                <h2 data-i18n="locTitle">Le lieu</h2>
+                <p class="location-subtitle">Borgo di Tragliata, Rome</p>
+                <p class="location-text" data-i18n="locDesc1">
+                    Le <strong style="color:#8fbc8f;">Borgo di Tragliata</strong> est situé
+                    à environ <strong>30 minutes en voiture</strong> de l'aéroport
+                    Rome Fiumicino (FCO).
+                </p>
+                <p class="location-note" data-i18n="locDesc2">
+                    Le trafic romain pouvant être dense, prévoyez 1h à 2h
+                    depuis le centre-ville.
+                </p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ========== ZONE 5 : COMPTE À REBOURS ========== -->
-    <div class="countdown-section">
-        <h1 data-i18n="countdown">L'amour nous emmène en Italie dans...</h1>
-        <div class="countdown-timer" id="custom-countdown">
-            <span id="days">00</span>j :
-            <span id="hours">00</span>h :
-            <span id="minutes">00</span>m :
-            <span id="seconds">00</span>s
+    <!-- ==================== ZONE 5 : COMPTE À REBOURS ==================== -->
+    <div class="section-bg section-countdown">
+        <div class="countdown-content">
+            <h1 data-i18n="countdown">L'amour nous emmène en Italie dans...</h1>
+
+            <div class="flip-clock" id="flipClock">
+                <!-- JOURS -->
+                <div class="flip-group">
+                    <div class="flip-card" id="days-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-top"><span class="flip-number" id="days-top">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number" id="days-bottom">00</span></div>
+                            <div class="flip-top-flap"><span class="flip-number" id="days-flap-top">00</span></div>
+                            <div class="flip-bottom-flap"><span class="flip-number" id="days-flap-bottom">00</span></div>
+                        </div>
+                    </div>
+                    <span class="flip-group-label" data-i18n="labelDays">Jours</span>
+                </div>
+
+                <span class="flip-separator">:</span>
+
+                <!-- HEURES -->
+                <div class="flip-group">
+                    <div class="flip-card" id="hours-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-top"><span class="flip-number" id="hours-top">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number" id="hours-bottom">00</span></div>
+                            <div class="flip-top-flap"><span class="flip-number" id="hours-flap-top">00</span></div>
+                            <div class="flip-bottom-flap"><span class="flip-number" id="hours-flap-bottom">00</span></div>
+                        </div>
+                    </div>
+                    <span class="flip-group-label" data-i18n="labelHours">Heures</span>
+                </div>
+
+                <span class="flip-separator">:</span>
+
+                <!-- MINUTES -->
+                <div class="flip-group">
+                    <div class="flip-card" id="minutes-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-top"><span class="flip-number" id="minutes-top">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number" id="minutes-bottom">00</span></div>
+                            <div class="flip-top-flap"><span class="flip-number" id="minutes-flap-top">00</span></div>
+                            <div class="flip-bottom-flap"><span class="flip-number" id="minutes-flap-bottom">00</span></div>
+                        </div>
+                    </div>
+                    <span class="flip-group-label" data-i18n="labelMinutes">Minutes</span>
+                </div>
+
+                <span class="flip-separator">:</span>
+
+                <!-- SECONDES (plus petites) -->
+                <div class="flip-group">
+                    <div class="flip-card flip-card-sm" id="seconds-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-top"><span class="flip-number" id="seconds-top">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number" id="seconds-bottom">00</span></div>
+                            <div class="flip-top-flap"><span class="flip-number" id="seconds-flap-top">00</span></div>
+                            <div class="flip-bottom-flap"><span class="flip-number" id="seconds-flap-bottom">00</span></div>
+                        </div>
+                    </div>
+                    <span class="flip-group-label" data-i18n="labelSeconds">Secondes</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -693,7 +1038,7 @@
         <p>Made with ♥ for Teresa & Boris — 2027</p>
     </footer>
 
-    <!-- ========== SCRIPTS ========== -->
+    <!-- ==================== SCRIPTS ==================== -->
     <script>
         // ========== TRADUCTION ==========
         const translations = {
@@ -719,7 +1064,12 @@
                 locTitle: "Le lieu",
                 locDesc1: "Le <strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
                 locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",
-                countdown: "L'amour nous emmène en Italie dans..."
+                countdown: "L'amour nous emmène en Italie dans...",
+                labelDays: "Jours",
+                labelHours: "Heures",
+                labelMinutes: "Minutes",
+                labelSeconds: "Secondes",
+                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=sharing&ouid=106678558640909236036"
             },
             it: {
                 welcome: "Benvenuti al nostro matrimonio",
@@ -743,7 +1093,12 @@
                 locTitle: "La location",
                 locDesc1: "Il <strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
                 locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",
-                countdown: "L'amore ci porta in Italia tra..."
+                countdown: "L'amore ci porta in Italia tra...",
+                labelDays: "Giorni",
+                labelHours: "Ore",
+                labelMinutes: "Minuti",
+                labelSeconds: "Secondi",
+                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFU4Cn8bSTdD2vW7_JJSElzBZ0BnD-ZpTN-PPn9dNJSMtdug/viewform?usp=publish-editor"
             },
             en: {
                 welcome: "Welcome to our wedding",
@@ -767,11 +1122,19 @@
                 locTitle: "The Venue",
                 locDesc1: "<strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
                 locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",
-                countdown: "Love takes us to Italy in..."
+                countdown: "Love takes us to Italy in...",
+                labelDays: "Days",
+                labelHours: "Hours",
+                labelMinutes: "Minutes",
+                labelSeconds: "Seconds",
+                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeQAg0ugqbatXa6pVq2A-iIgBZLuUwgyMRg0gy4C4lexpLBsA/viewform?usp=publish-editor"
             }
         };
 
+        let currentLang = 'fr';
+
         function changeLanguage(lang) {
+            currentLang = lang;
             document.documentElement.lang = lang;
 
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -784,19 +1147,74 @@
                     el.innerHTML = translations[lang][key];
                 }
             });
+
+            // Mettre à jour le lien RSVP
+            const rsvpLink = document.getElementById('rsvpLink');
+            if (translations[lang] && translations[lang].rsvpUrl) {
+                rsvpLink.href = translations[lang].rsvpUrl;
+            }
         }
 
-        // ========== COMPTE À REBOURS ==========
+        // ========== FLIP CLOCK ==========
         const countDownDate = new Date("May 8, 2027 16:00:00").getTime();
 
-        const countdownInterval = setInterval(function() {
+        // État précédent pour détecter les changements
+        let prevValues = { days: '', hours: '', minutes: '', seconds: '' };
+
+        function flipCard(unit, newValue) {
+            const padded = String(newValue).padStart(2, '0');
+
+            if (prevValues[unit] === padded) return; // Pas de changement
+
+            const oldValue = prevValues[unit] || padded;
+
+            const topStatic = document.getElementById(unit + '-top');
+            const bottomStatic = document.getElementById(unit + '-bottom');
+            const flapTop = document.getElementById(unit + '-flap-top');
+            const flapBottom = document.getElementById(unit + '-flap-bottom');
+            const card = document.getElementById(unit + '-card');
+
+            // État initial : la carte affiche l'ancien chiffre
+            topStatic.textContent = oldValue;
+            flapTop.textContent = oldValue;
+            bottomStatic.textContent = oldValue;
+
+            // Préparer la nouvelle valeur
+            flapBottom.textContent = padded;
+            bottomStatic.textContent = padded;
+
+            // Supprimer les anciennes animations
+            flapTop.classList.remove('flipping');
+            flapBottom.classList.remove('flipping');
+
+            // Forcer le reflow
+            void flapTop.offsetWidth;
+
+            // Lancer l'animation
+            flapTop.classList.add('flipping');
+            flapBottom.classList.add('flipping');
+
+            // À mi-chemin de l'animation (300ms), changer la moitié haute statique
+            setTimeout(() => {
+                topStatic.textContent = padded;
+            }, 300);
+
+            // Nettoyer après l'animation (600ms)
+            setTimeout(() => {
+                flapTop.classList.remove('flipping');
+                flapBottom.classList.remove('flipping');
+            }, 650);
+
+            prevValues[unit] = padded;
+        }
+
+        function updateCountdown() {
             const now = new Date().getTime();
             const distance = countDownDate - now;
 
             if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("custom-countdown").innerHTML =
-                    "<span style='font-family:Aboreto,serif;font-size:28px;'>🎉 Le jour J est arrivé ! 🎉</span>";
+                document.getElementById('flipClock').innerHTML =
+                    "<h2 style='color:#f0e8ff;font-family:Aboreto,serif;font-size:28px;'>🎉 Le jour J est arrivé ! 🎉</h2>";
                 return;
             }
 
@@ -805,11 +1223,44 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-        }, 1000);
+            // Jours : peut avoir 3 chiffres
+            const daysStr = String(days).padStart(2, '0');
+            if (prevValues.days !== daysStr) {
+                const card = document.getElementById('days-card');
+                const topStatic = document.getElementById('days-top');
+                const bottomStatic = document.getElementById('days-bottom');
+                const flapTop = document.getElementById('days-flap-top');
+                const flapBottom = document.getElementById('days-flap-bottom');
+
+                const oldVal = prevValues.days || daysStr;
+                topStatic.textContent = oldVal;
+                flapTop.textContent = oldVal;
+                bottomStatic.textContent = oldVal;
+                flapBottom.textContent = daysStr;
+
+                flapTop.classList.remove('flipping');
+                flapBottom.classList.remove('flipping');
+                void flapTop.offsetWidth;
+                flapTop.classList.add('flipping');
+                flapBottom.classList.add('flipping');
+
+                setTimeout(() => { topStatic.textContent = daysStr; }, 300);
+                setTimeout(() => {
+                    flapTop.classList.remove('flipping');
+                    flapBottom.classList.remove('flipping');
+                }, 650);
+
+                prevValues.days = daysStr;
+            }
+
+            flipCard('hours', hours);
+            flipCard('minutes', minutes);
+            flipCard('seconds', seconds);
+        }
+
+        // Initialisation
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
