@@ -4,143 +4,384 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariage Teresa & Boris</title>
-    
-    <!-- Polices Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-        * { box-sizing: border-box; }
-        body {
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
-            background-color: #fafafa;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            color: #333;
+            box-sizing: border-box;
         }
 
-        /* En-tête */
+        body {
+            background-color: #faf9f7;
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ========== ZONE 1 : HEADER FLORAL ========== */
         .header-zone {
-            background-color: #1a1a1a;
             position: relative;
-            width: 100%;
-            min-height: 480px;
-            padding: 60px 20px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             text-align: center;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(224, 176, 185, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(149, 196, 235, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(200, 210, 180, 0.15) 0%, transparent 60%),
+                linear-gradient(170deg, #1e2a1e 0%, #1a2420 25%, #1f2b25 50%, #2a1f2e 75%, #1a1a2e 100%);
         }
 
-        .names-title {
+        /* --- Texture de fond --- */
+        .header-zone::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(200, 180, 160, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(180, 160, 200, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- Conteneur des fleurs SVG --- */
+        .floral-container {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .floral-svg {
+            position: absolute;
+            opacity: 0;
+            animation: floralAppear 2s ease forwards;
+        }
+
+        /* Coin supérieur gauche - grand bouquet */
+        .floral-top-left {
+            top: -30px;
+            left: -30px;
+            width: 400px;
+            height: 400px;
+            animation-delay: 0.3s;
+        }
+
+        /* Coin supérieur droit */
+        .floral-top-right {
+            top: -20px;
+            right: -20px;
+            width: 320px;
+            height: 320px;
+            transform: scaleX(-1);
+            animation-delay: 0.5s;
+        }
+
+        /* Coin inférieur gauche */
+        .floral-bottom-left {
+            bottom: -20px;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            transform: scaleY(-1);
+            animation-delay: 0.7s;
+        }
+
+        /* Coin inférieur droit */
+        .floral-bottom-right {
+            bottom: -30px;
+            right: -10px;
+            width: 350px;
+            height: 350px;
+            transform: scale(-1, -1);
+            animation-delay: 0.9s;
+        }
+
+        /* Éléments flottants */
+        .floating-petal {
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+            animation: floatPetal linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes floatPetal {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% {
+                transform: translateY(110vh) rotate(720deg) translateX(80px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floralAppear {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Les variantes de scale(-1) doivent être préservées */
+        .floral-top-right { animation: floralAppearRight 2s ease 0.5s forwards; }
+        .floral-bottom-left { animation: floralAppearLeft 2s ease 0.7s forwards; }
+        .floral-bottom-right { animation: floralAppearBoth 2s ease 0.9s forwards; }
+
+        @keyframes floralAppearRight {
+            from { opacity: 0; transform: scaleX(-1) scale(0.8); }
+            to { opacity: 1; transform: scaleX(-1) scale(1); }
+        }
+        @keyframes floralAppearLeft {
+            from { opacity: 0; transform: scaleY(-1) scale(0.8); }
+            to { opacity: 1; transform: scaleY(-1) scale(1); }
+        }
+        @keyframes floralAppearBoth {
+            from { opacity: 0; transform: scale(-1, -1) scale(0.8); }
+            to { opacity: 1; transform: scale(-1, -1) scale(1); }
+        }
+
+        /* --- Guirlande centrale --- */
+        .floral-garland {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 200px;
+            opacity: 0;
+            animation: floralAppear 2.5s ease 1.2s forwards;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* --- Contenu texte --- */
+        .header-content {
+            position: relative;
+            z-index: 10;
+            padding: 40px 30px;
+        }
+
+        .names {
             font-family: 'Cinzel', serif;
-            color: #95c4eb;
-            font-size: 18px;
-            letter-spacing: 4px;
-            margin: 0 0 15px 0;
+            color: #c4d8e8;
+            font-size: clamp(13px, 2.5vw, 18px);
+            letter-spacing: 5px;
             text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .welcome-heading {
+        .welcome-title {
             font-family: 'Aboreto', serif;
-            color: #fbe9f6;
-            font-size: 45px;
+            color: #f5e6f0;
+            font-size: clamp(32px, 7vw, 65px);
             font-weight: 400;
-            margin: 0 0 30px 0;
-            line-height: 1.2;
+            margin: 0 0 40px 0;
+            line-height: 1.1;
+            text-shadow: 0 3px 20px rgba(0,0,0,0.3);
         }
 
-        .details-box {
-            border-left: 2px solid rgba(149, 196, 235, 0.6);
-            padding-left: 20px;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #fbe9f6;
+        .date-box {
+            font-family: 'Cormorant Garamond', serif;
+            color: #f5e6f0;
+            border-left: 1px solid rgba(196, 216, 232, 0.5);
+            padding-left: 25px;
             text-align: left;
+            font-size: clamp(16px, 2.5vw, 20px);
+            line-height: 2;
             display: inline-block;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        /* Boutons de langue */
-        .lang-container {
-            margin-top: 35px;
+        .date-box p {
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .date-box .date-main {
+            font-weight: 600;
+            letter-spacing: 3px;
+            font-size: clamp(17px, 2.5vw, 21px);
+        }
+
+        /* --- Séparateur floral --- */
+        .floral-divider {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
+            gap: 12px;
+            margin: 30px 0;
+            opacity: 0.7;
+        }
+
+        .floral-divider svg {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        /* --- Boutons de langue --- */
+        .lang-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .lang-btn {
             cursor: pointer;
-            padding: 8px 22px;
+            padding: 10px 28px;
             border-radius: 30px;
-            background: rgba(255, 255, 255, 0.15);
-            color: #fbe9f6;
+            background: rgba(255,255,255,0.1);
+            color: #f5e6f0;
             text-decoration: none;
-            font-size: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
             letter-spacing: 1px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
             transition: all 0.3s ease;
         }
 
         .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
-        /* Cartes de contenu */
-        .card {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 35px 25px;
+        .lang-btn.active {
+            background: rgba(224, 176, 185, 0.3);
+            border-color: rgba(224, 176, 185, 0.6);
+        }
+
+        /* --- Indicateur de scroll --- */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: gentleBounce 2.5s ease infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ========== ZONE 2 : RSVP ========== */
+        .rsvp-card {
+            max-width: 650px;
+            margin: 50px auto;
             background-color: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 50px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             text-align: center;
         }
 
-        /* Bouton RSVP */
+        .rsvp-title {
+            color: #c97a8b;
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .rsvp-text {
+            color: #444;
+            font-size: 20px;
+            line-height: 1.5;
+            max-width: 480px;
+            margin: 0 auto 35px;
+        }
+
         .rsvp-btn {
             display: inline-block;
-            background-color: #e0b0b9;
+            background: linear-gradient(135deg, #e0b0b9, #d4a0ae);
             color: white;
-            padding: 16px 45px;
+            padding: 16px 50px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
-            letter-spacing: 4px;
-            box-shadow: 0 8px 20px rgba(224, 176, 185, 0.5);
+            letter-spacing: 5px;
+            box-shadow: 0 8px 25px rgba(224,176,185,0.5);
             transition: all 0.3s ease;
-            margin-top: 15px;
         }
 
         .rsvp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(224, 176, 185, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(224,176,185,0.7);
         }
 
-        /* Styles Programme & Dress code */
+        .ornament-stars {
+            color: #d4a0ae;
+            font-size: 22px;
+            letter-spacing: 8px;
+            margin-top: 30px;
+        }
+
+        /* ========== ZONE 3 : PROGRAMME & DRESS CODE ========== */
+        .section-card {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Programme */
         .program-card {
             background-color: #f7faf7;
             border: 1px solid #e0ece0;
+            text-align: center;
         }
 
-        .program-block {
-            background-color: rgba(255, 255, 255, 0.85);
+        .program-card h2 {
+            color: #729b79;
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .program-desc {
+            font-size: 16px;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .day-block {
+            background-color: rgba(255,255,255,0.8);
             border-radius: 15px;
-            padding: 20px 25px;
+            padding: 25px;
             margin-bottom: 20px;
-            text-align: left;
         }
 
-        .program-block h3 {
+        .day-block:last-child { margin-bottom: 0; }
+
+        .day-block h3 {
             color: #5f8b62;
             font-size: 22px;
-            margin: 0 0 15px 0;
             font-weight: normal;
             border-bottom: 1px solid #d0e8d0;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .event-row {
@@ -152,133 +393,558 @@
             color: #444;
         }
 
+        .event-row:last-child { margin-bottom: 0; }
+
         .event-time {
             font-weight: bold;
             color: #4a704d;
-            min-width: 80px;
+            min-width: 70px;
+            text-align: left;
         }
 
         .event-dots {
             flex-grow: 1;
             text-align: center;
             color: #c0d6c0;
-            margin: 0 10px;
-            overflow: hidden;
-            white-space: nowrap;
+            font-size: 14px;
+            letter-spacing: 3px;
+            padding: 0 10px;
         }
 
+        .event-label {
+            min-width: 180px;
+            text-align: right;
+        }
+
+        /* Dress code */
         .dress-card {
             background-color: #f9f7fb;
             border: 1px solid #e8e0ef;
+            text-align: center;
         }
 
-        .countdown-digits {
-            font-size: 32px;
+        .dress-card h2 {
+            color: #8e7ba5;
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .dress-inner {
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .dress-inner p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .dress-inner strong {
+            color: #9b7ead;
+        }
+
+        /* ========== ZONE 4 : LIEU ========== */
+        .location-card {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .location-card h2 {
+            color: #8fbc8f;
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .location-subtitle {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .location-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .location-text strong {
+            color: #8fbc8f;
+        }
+
+        .location-note {
+            font-size: 14px;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ========== ZONE 5 : COMPTE À REBOURS ========== */
+        .countdown-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+            margin-bottom: 40px;
+        }
+
+        .countdown-section h1 {
+            font-family: 'Aboreto', serif;
+            color: #9881e9;
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 400;
+        }
+
+        .countdown-timer {
+            font-family: 'Georgia', serif;
+            font-size: clamp(24px, 5vw, 35px);
             color: #444;
-            font-weight: 600;
-            margin-top: 15px;
-            letter-spacing: 2px;
+            margin-top: 20px;
         }
 
-        @media (max-width: 600px) {
-            .welcome-heading { font-size: 32px; }
-            .header-zone { padding: 40px 15px; }
-            .card { margin: 25px 15px; padding: 25px 15px; }
+        .countdown-timer span {
+            font-weight: bold;
+            color: #9881e9;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .floral-top-left {
+                width: 250px;
+                height: 250px;
+                top: -20px;
+                left: -20px;
+            }
+            .floral-top-right {
+                width: 200px;
+                height: 200px;
+                top: -15px;
+                right: -15px;
+            }
+            .floral-bottom-left {
+                width: 160px;
+                height: 160px;
+            }
+            .floral-bottom-right {
+                width: 220px;
+                height: 220px;
+            }
+            .floral-garland {
+                width: 100%;
+                height: 120px;
+            }
+            .header-content {
+                padding: 30px 20px;
+            }
+            .event-row {
+                font-size: 15px;
+            }
+            .event-label {
+                min-width: 140px;
+            }
+            .event-time {
+                min-width: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .event-row {
+                font-size: 14px;
+            }
+            .event-label {
+                min-width: 120px;
+            }
+            .lang-buttons {
+                gap: 10px;
+            }
+            .lang-btn {
+                padding: 8px 20px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ZONE 1 : En-tête -->
+    <!-- ===== ZONE 1 : HEADER FLORAL ===== -->
     <div class="header-zone">
-        <div style="max-width: 700px;">
-            <p class="names-title">Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV</p>
-            <h1 class="welcome-heading">
-                <span data-i18n="welcome">Bienvenue à notre mariage</span>
-            </h1>
-            <div class="details-box">
-                <p style="margin: 0; letter-spacing: 2px; font-weight: 500;">
-                    <span data-i18n="date">Samedi 08 MAI 2027</span>
-                </p>
-                <p style="margin: 6px 0;">
-                    <span>🏰 Borgo di Tragliata</span>
-                </p>
-                <p style="margin: 0; font-size: 16px; letter-spacing: 1px;">
-                    <span data-i18n="time">À partir de 16h00</span>
-                </p>
+
+        <!-- Conteneur des décorations florales SVG -->
+        <div class="floral-container">
+
+            <!-- ===== Grand bouquet coin supérieur gauche ===== -->
+            <svg class="floral-svg floral-top-left" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Feuilles vertes -->
+                <ellipse cx="120" cy="300" rx="60" ry="20" transform="rotate(-60 120 300)" fill="#4a704d" opacity="0.5"/>
+                <ellipse cx="80" cy="280" rx="50" ry="15" transform="rotate(-40 80 280)" fill="#5f8b62" opacity="0.45"/>
+                <ellipse cx="60" cy="260" rx="45" ry="14" transform="rotate(-75 60 260)" fill="#6b9b6e" opacity="0.4"/>
+                <ellipse cx="150" cy="280" rx="55" ry="18" transform="rotate(-30 150 280)" fill="#4a704d" opacity="0.4"/>
+                <ellipse cx="100" cy="310" rx="40" ry="12" transform="rotate(-50 100 310)" fill="#5a8b5d" opacity="0.35"/>
+
+                <!-- Branche avec feuilles -->
+                <path d="M 50 350 Q 80 300 130 260" stroke="#4a704d" stroke-width="2" fill="none" opacity="0.4"/>
+                <path d="M 70 320 Q 110 280 160 250" stroke="#5f8b62" stroke-width="1.5" fill="none" opacity="0.35"/>
+                <ellipse cx="130" cy="260" rx="35" ry="12" transform="rotate(-55 130 260)" fill="#6b9b6e" opacity="0.4"/>
+
+                <!-- Grandes fleurs roses -->
+                <g transform="translate(100, 180)">
+                    <ellipse cx="0" cy="0" rx="28" ry="25" fill="#e8b4be" opacity="0.6"/>
+                    <ellipse cx="15" cy="-10" rx="25" ry="22" fill="#deb0bc" opacity="0.55"/>
+                    <ellipse cx="-12" cy="-8" rx="24" ry="20" fill="#f0c4ce" opacity="0.5"/>
+                    <ellipse cx="5" cy="8" rx="22" ry="18" fill="#e4b8c2" opacity="0.5"/>
+                    <circle cx="3" cy="-2" r="8" fill="#f5d5dc" opacity="0.7"/>
+                </g>
+
+                <g transform="translate(60, 200)">
+                    <ellipse cx="0" cy="0" rx="22" ry="20" fill="#e0b0b9" opacity="0.55"/>
+                    <ellipse cx="10" cy="-8" rx="20" ry="18" fill="#ddb0bc" opacity="0.5"/>
+                    <ellipse cx="-8" cy="5" rx="18" ry="16" fill="#f0c8d0" opacity="0.45"/>
+                    <circle cx="2" cy="-1" r="6" fill="#f5dde3" opacity="0.65"/>
+                </g>
+
+                <!-- Fleurs plus petites -->
+                <g transform="translate(140, 220)">
+                    <ellipse cx="0" cy="0" rx="16" ry="14" fill="#d4c0d8" opacity="0.5"/>
+                    <ellipse cx="8" cy="-5" rx="14" ry="12" fill="#cdbcd4" opacity="0.45"/>
+                    <circle cx="2" cy="-1" r="5" fill="#e8d8ec" opacity="0.6"/>
+                </g>
+
+                <g transform="translate(45, 235)">
+                    <ellipse cx="0" cy="0" rx="18" ry="15" fill="#f0d8c8" opacity="0.5"/>
+                    <ellipse cx="-7" cy="-6" rx="15" ry="13" fill="#ecd0c0" opacity="0.45"/>
+                    <circle cx="-1" cy="-2" r="5" fill="#f8e8dc" opacity="0.6"/>
+                </g>
+
+                <!-- Petites fleurs et boutons -->
+                <circle cx="120" cy="240" r="5" fill="#e8c4ce" opacity="0.5"/>
+                <circle cx="75" cy="250" r="4" fill="#d8c0d4" opacity="0.45"/>
+                <circle cx="155" cy="200" r="3.5" fill="#c8d8c0" opacity="0.5"/>
+                <circle cx="90" cy="170" r="4" fill="#e8b8c0" opacity="0.4"/>
+                <circle cx="55" cy="215" r="3" fill="#d4b8d0" opacity="0.45"/>
+
+                <!-- Détails tiges -->
+                <path d="M 100 210 Q 110 230 100 260" stroke="#5f8b62" stroke-width="1.5" fill="none" opacity="0.35"/>
+                <path d="M 60 225 Q 65 240 70 265" stroke="#6b9b6e" stroke-width="1" fill="none" opacity="0.3"/>
+            </svg>
+
+            <!-- ===== Bouquet coin supérieur droit ===== -->
+            <svg class="floral-svg floral-top-right" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="100" cy="250" rx="50" ry="16" transform="rotate(-55 100 250)" fill="#4a704d" opacity="0.45"/>
+                <ellipse cx="65" cy="230" rx="42" ry="13" transform="rotate(-70 65 230)" fill="#5f8b62" opacity="0.4"/>
+                <ellipse cx="130" cy="235" rx="45" ry="15" transform="rotate(-35 130 235)" fill="#6b9b6e" opacity="0.35"/>
+
+                <g transform="translate(85, 150)">
+                    <ellipse cx="0" cy="0" rx="24" ry="21" fill="#e0b0b9" opacity="0.55"/>
+                    <ellipse cx="12" cy="-8" rx="21" ry="18" fill="#ddb0bc" opacity="0.5"/>
+                    <ellipse cx="-8" cy="6" rx="20" ry="17" fill="#f0c4ce" opacity="0.45"/>
+                    <circle cx="2" cy="-1" r="7" fill="#f5dde3" opacity="0.65"/>
+                </g>
+
+                <g transform="translate(50, 175)">
+                    <ellipse cx="0" cy="0" rx="18" ry="15" fill="#c8bcd8" opacity="0.5"/>
+                    <ellipse cx="7" cy="-5" rx="15" ry="13" fill="#c0b4d0" opacity="0.45"/>
+                    <circle cx="2" cy="-1" r="5" fill="#ddd0e8" opacity="0.6"/>
+                </g>
+
+                <g transform="translate(115, 185)">
+                    <ellipse cx="0" cy="0" rx="16" ry="14" fill="#d8c8b0" opacity="0.5"/>
+                    <circle cx="0" cy="0" r="5" fill="#ece0c8" opacity="0.6"/>
+                </g>
+
+                <circle cx="95" cy="200" r="4" fill="#e8c4ce" opacity="0.45"/>
+                <circle cx="70" cy="195" r="3" fill="#d4c0d4" opacity="0.4"/>
+                <circle cx="110" cy="170" r="3.5" fill="#c0d0c4" opacity="0.4"/>
+            </svg>
+
+            <!-- ===== Bouquet coin inférieur gauche ===== -->
+            <svg class="floral-svg floral-bottom-left" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="80" cy="200" rx="40" ry="14" transform="rotate(-45 80 200)" fill="#4a704d" opacity="0.4"/>
+                <ellipse cx="50" cy="185" rx="35" ry="11" transform="rotate(-65 50 185)" fill="#5f8b62" opacity="0.35"/>
+
+                <g transform="translate(65, 120)">
+                    <ellipse cx="0" cy="0" rx="20" ry="17" fill="#e8b4be" opacity="0.5"/>
+                    <ellipse cx="8" cy="-6" rx="17" ry="15" fill="#deb0bc" opacity="0.45"/>
+                    <circle cx="2" cy="-1" r="6" fill="#f5d5dc" opacity="0.55"/>
+                </g>
+
+                <g transform="translate(40, 145)">
+                    <ellipse cx="0" cy="0" rx="14" ry="12" fill="#d0c0d4" opacity="0.45"/>
+                    <circle cx="0" cy="0" r="4" fill="#e4d4e8" opacity="0.55"/>
+                </g>
+
+                <circle cx="55" cy="160" r="3" fill="#e8c4ce" opacity="0.4"/>
+            </svg>
+
+            <!-- ===== Grand bouquet coin inférieur droit ===== -->
+            <svg class="floral-svg floral-bottom-right" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="110" cy="280" rx="55" ry="18" transform="rotate(-50 110 280)" fill="#4a704d" opacity="0.45"/>
+                <ellipse cx="70" cy="265" rx="48" ry="15" transform="rotate(-70 70 265)" fill="#5f8b62" opacity="0.4"/>
+                <ellipse cx="140" cy="270" rx="50" ry="16" transform="rotate(-30 140 270)" fill="#6b9b6e" opacity="0.38"/>
+                <ellipse cx="90" cy="290" rx="38" ry="12" transform="rotate(-55 90 290)" fill="#4a704d" opacity="0.35"/>
+
+                <g transform="translate(90, 170)">
+                    <ellipse cx="0" cy="0" rx="26" ry="23" fill="#e0b0b9" opacity="0.55"/>
+                    <ellipse cx="14" cy="-9" rx="23" ry="20" fill="#ddb0bc" opacity="0.5"/>
+                    <ellipse cx="-10" cy="7" rx="22" ry="19" fill="#f0c4ce" opacity="0.45"/>
+                    <circle cx="3" cy="-2" r="7" fill="#f5dde3" opacity="0.6"/>
+                </g>
+
+                <g transform="translate(50, 195)">
+                    <ellipse cx="0" cy="0" rx="20" ry="17" fill="#c8bcd8" opacity="0.5"/>
+                    <ellipse cx="8" cy="-6" rx="17" ry="14" fill="#c0b4d0" opacity="0.45"/>
+                    <circle cx="2" cy="-1" r="5.5" fill="#ddd0e8" opacity="0.55"/>
+                </g>
+
+                <g transform="translate(130, 200)">
+                    <ellipse cx="0" cy="0" rx="17" ry="15" fill="#d8c8b0" opacity="0.5"/>
+                    <ellipse cx="-6" cy="-5" rx="14" ry="12" fill="#d0c0a8" opacity="0.45"/>
+                    <circle cx="0" cy="0" r="5" fill="#ece0c8" opacity="0.55"/>
+                </g>
+
+                <g transform="translate(68, 225)">
+                    <ellipse cx="0" cy="0" rx="15" ry="13" fill="#e8b8c0" opacity="0.45"/>
+                    <circle cx="0" cy="0" r="5" fill="#f0d0d8" opacity="0.55"/>
+                </g>
+
+                <circle cx="110" cy="215" r="4.5" fill="#d8c0d4" opacity="0.45"/>
+                <circle cx="80" cy="235" r="3.5" fill="#c0d0c4" opacity="0.4"/>
+                <circle cx="140" cy="180" r="4" fill="#e8c4ce" opacity="0.4"/>
+                <circle cx="60" cy="210" r="3" fill="#d4b8d0" opacity="0.4"/>
+
+                <path d="M 90 195 Q 100 220 95 250" stroke="#5f8b62" stroke-width="1.5" fill="none" opacity="0.3"/>
+                <path d="M 50 210 Q 55 230 60 255" stroke="#6b9b6e" stroke-width="1" fill="none" opacity="0.25"/>
+            </svg>
+
+            <!-- ===== Guirlande centrale ===== -->
+            <svg class="floral-svg floral-garland" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arc central -->
+                <path d="M 100 100 Q 200 30 400 20 Q 600 30 700 100" stroke="#5f8b62" stroke-width="1.5" fill="none" opacity="0.3"/>
+                <path d="M 150 110 Q 250 50 400 40 Q 550 50 650 110" stroke="#4a704d" stroke-width="1" fill="none" opacity="0.2"/>
+
+                <!-- Feuilles le long de l'arc -->
+                <ellipse cx="180" cy="75" rx="15" ry="6" transform="rotate(-30 180 75)" fill="#5f8b62" opacity="0.3"/>
+                <ellipse cx="250" cy="50" rx="14" ry="5" transform="rotate(-20 250 50)" fill="#6b9b6e" opacity="0.25"/>
+                <ellipse cx="330" cy="32" rx="13" ry="5" transform="rotate(-10 330 32)" fill="#5f8b62" opacity="0.3"/>
+                <ellipse cx="400" cy="25" rx="12" ry="5" transform="rotate(0 400 25)" fill="#4a704d" opacity="0.25"/>
+                <ellipse cx="470" cy="32" rx="13" ry="5" transform="rotate(10 470 32)" fill="#6b9b6e" opacity="0.3"/>
+                <ellipse cx="550" cy="50" rx="14" ry="5" transform="rotate(20 550 50)" fill="#5f8b62" opacity="0.25"/>
+                <ellipse cx="620" cy="75" rx="15" ry="6" transform="rotate(30 620 75)" fill="#4a704d" opacity="0.3"/>
+
+                <!-- Petites fleurs -->
+                <circle cx="210" cy="62" r="8" fill="#e8b4be" opacity="0.4"/>
+                <circle cx="210" cy="62" r="3" fill="#f5d5dc" opacity="0.5"/>
+
+                <circle cx="300" cy="38" r="7" fill="#d4c0d8" opacity="0.35"/>
+                <circle cx="300" cy="38" r="2.5" fill="#e8d4ec" opacity="0.45"/>
+
+                <circle cx="400" cy="20" r="9" fill="#e0b0b9" opacity="0.4"/>
+                <circle cx="400" cy="20" r="3.5" fill="#f0d0d8" opacity="0.5"/>
+
+                <circle cx="500" cy="38" r="7" fill="#d8c8b0" opacity="0.35"/>
+                <circle cx="500" cy="38" r="2.5" fill="#ece0c8" opacity="0.45"/>
+
+                <circle cx="590" cy="62" r="8" fill="#c8bcd8" opacity="0.4"/>
+                <circle cx="590" cy="62" r="3" fill="#ddd0e8" opacity="0.5"/>
+            </svg>
+        </div>
+
+        <!-- Pétales flottants animés (générés par JS) -->
+        <div id="petalsContainer"></div>
+
+        <!-- Contenu central -->
+        <div class="header-content">
+            <p class="names">Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV</p>
+            <h1 class="welcome-title" data-i18n="welcome">Bienvenue à notre mariage</h1>
+
+            <!-- Séparateur floral -->
+            <div class="floral-divider">
+                <svg width="40" height="20" viewBox="0 0 40 20">
+                    <path d="M 38 10 Q 30 2 20 10 Q 10 18 2 10" stroke="rgba(196,216,232,0.5)" stroke-width="1" fill="none"/>
+                    <circle cx="20" cy="10" r="3" fill="rgba(224,176,185,0.5)"/>
+                </svg>
+                <svg width="12" height="12" viewBox="0 0 12 12">
+                    <rect x="3" y="3" width="6" height="6" transform="rotate(45 6 6)" fill="none" stroke="rgba(196,216,232,0.4)" stroke-width="1"/>
+                </svg>
+                <svg width="40" height="20" viewBox="0 0 40 20">
+                    <path d="M 2 10 Q 10 2 20 10 Q 30 18 38 10" stroke="rgba(196,216,232,0.5)" stroke-width="1" fill="none"/>
+                    <circle cx="20" cy="10" r="3" fill="rgba(224,176,185,0.5)"/>
+                </svg>
+            </div>
+
+            <div class="date-box">
+                <p class="date-main" data-i18n="date">Samedi 08 MAI 2027</p>
+                <p>🏰 Borgo di Tragliata</p>
+                <p data-i18n="time">À partir de 16h00</p>
+            </div>
+
+            <div class="lang-buttons">
+                <a class="lang-btn active" onclick="changeLanguage('fr')" data-lang="fr">Français</a>
+                <a class="lang-btn" onclick="changeLanguage('it')" data-lang="it">Italiano</a>
+                <a class="lang-btn" onclick="changeLanguage('en')" data-lang="en">English</a>
             </div>
         </div>
-        
-        <div class="lang-container">
-            <a onclick="changeLanguage('fr')" class="lang-btn">Français</a> 
-            <a onclick="changeLanguage('it')" class="lang-btn">Italiano</a> 
-            <a onclick="changeLanguage('en')" class="lang-btn">English</a>
+
+        <!-- Indicateur de scroll -->
+        <div class="scroll-hint">
+            <svg width="30" height="30" viewBox="0 0 30 30">
+                <polyline points="8,12 15,19 22,12" stroke="rgba(245,230,240,0.6)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </div>
     </div>
 
-    <!-- ZONE 2 : RSVP -->
-    <div class="card">
-        <p style="color: #c97a8b; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; font-weight: bold;" data-i18n="rsvpTitle">Répondez-nous</p>
-        <p style="color: #444; font-size: 18px; line-height: 1.6; max-width: 500px; margin: 0 auto 25px auto;" data-i18n="rsvpText">Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.</p>
+    <!-- ===== ZONE 2 : RSVP ===== -->
+    <div class="rsvp-card">
+        <p class="rsvp-title" data-i18n="rsvpTitle">Répondez-nous</p>
+        <p class="rsvp-text" data-i18n="rsvpText">Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.</p>
         <a class="rsvp-btn" href="https://forms.gle/cb4UtLiYa36DxSkZ7" target="_blank">RSVP</a>
-        <p style="color: #d4a0ae; font-size: 22px; letter-spacing: 8px; margin: 25px 0 0 0;">✦ ✦ ✦</p>
+        <p class="ornament-stars">✦ ✦ ✦</p>
     </div>
 
-    <!-- ZONE 3 : Programme & Code Vestimentaire -->
-    <div class="card program-card">
-        <h2 style="color: #729b79; font-size: 28px; margin-top: 0; font-family: 'Aboreto', serif;" data-i18n="programTitle">Programme du week-end</h2>
-        <p style="font-size: 16px; color: #666; max-width: 500px; margin: 0 auto 25px auto;" data-i18n="programDesc">Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !</p>
-        
-        <div class="program-block">
-            <h3 data-i18n="sat">Samedi 8 mai 2027</h3>
-            <div class="event-row"><span class="event-time">15h00</span><span class="event-dots">········································</span><span data-i18n="sat1">Accueil des invités</span></div>
-            <div class="event-row"><span class="event-time">16h00</span><span class="event-dots">········································</span><span data-i18n="sat2">Cérémonie de mariage</span></div>
-            <div class="event-row"><span class="event-time">19h00</span><span class="event-dots">········································</span><span data-i18n="sat3">Dîner et desserts</span></div>
-            <div class="event-row"><span class="event-time">21h00</span><span class="event-dots">········································</span><span data-i18n="sat4">Soirée dansante</span></div>
-            <div class="event-row"><span class="event-time">02h00</span><span class="event-dots">········································</span><span data-i18n="sat5">Fin des festivités</span></div>
+    <!-- ===== ZONE 3 : PROGRAMME ===== -->
+    <div style="max-width: 700px; margin: 0 auto; padding: 0 20px;">
+        <div class="section-card program-card">
+            <h2 data-i18n="programTitle">Programme du week-end</h2>
+            <p class="program-desc" data-i18n="programDesc">Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !</p>
+
+            <div class="day-block">
+                <h3 data-i18n="sat">Samedi 8 mai 2027</h3>
+                <div class="event-row">
+                    <span class="event-time">15h00</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sat1">Accueil des invités</span>
+                </div>
+                <div class="event-row">
+                    <span class="event-time">16h00</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sat2">Cérémonie de mariage</span>
+                </div>
+                <div class="event-row">
+                    <span class="event-time">19h00</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sat3">Dîner et desserts</span>
+                </div>
+                <div class="event-row">
+                    <span class="event-time">21h00</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sat4">Soirée dansante</span>
+                </div>
+                <div class="event-row">
+                    <span class="event-time">02h00</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sat5">Fin des festivités</span>
+                </div>
+            </div>
+
+            <div class="day-block">
+                <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>
+                <div class="event-row">
+                    <span class="event-time" style="min-width:90px">6h – 11h</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sun1">Petit-déjeuner</span>
+                </div>
+                <div class="event-row">
+                    <span class="event-time">11h00</span>
+                    <span class="event-dots">··········</span>
+                    <span class="event-label" data-i18n="sun2">Check-out</span>
+                </div>
+            </div>
         </div>
 
-        <div class="program-block" style="margin-bottom: 0;">
-            <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>
-            <div class="event-row"><span class="event-time">6h – 11h</span><span class="event-dots">········································</span><span data-i18n="sun1">Petit-déjeuner</span></div>
-            <div class="event-row"><span class="event-time">11h00</span><span class="event-dots">········································</span><span data-i18n="sun2">Check-out</span></div>
+        <!-- DRESS CODE -->
+        <div class="section-card dress-card">
+            <h2 data-i18n="dressTitle">Code vestimentaire</h2>
+            <div class="dress-inner">
+                <p data-i18n="dressText">Le thème du mariage est <strong>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.</p>
+            </div>
         </div>
     </div>
 
-    <div class="card dress-card">
-        <h2 style="color: #8e7ba5; font-size: 28px; margin-top: 0; font-family: 'Aboreto', serif;" data-i18n="dressTitle">Code vestimentaire</h2>
-        <div style="background-color: rgba(255,255,255,0.7); border-radius: 15px; padding: 20px;">
-            <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;" data-i18n="dressText">Le thème du mariage est <strong style="color: #9b7ead;">pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.</p>
+    <!-- ===== ZONE 4 : LIEU ===== -->
+    <div style="max-width: 700px; margin: 0 auto; padding: 20px;">
+        <div class="location-card">
+            <h2 data-i18n="locTitle">Le lieu</h2>
+            <p class="location-subtitle">Borgo di Tragliata, Rome</p>
+            <p class="location-text" data-i18n="locDesc1">Le <strong>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).</p>
+            <p class="location-note" data-i18n="locDesc2">Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </div>
 
-    <!-- ZONE 4 : Lieu et Carte -->
-    <div class="card">
-        <h2 style="color: #8fbc8f; font-size: 28px; margin-top: 0; font-family: 'Aboreto', serif;" data-i18n="locTitle">Le lieu</h2>
-        <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Borgo di Tragliata, Rome</p>
-        
-        <p style="font-size: 16px; color: #555; margin-bottom: 10px; line-height: 1.6;" data-i18n="locDesc1">
-            Le <strong style="color: #8fbc8f;">Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).
-        </p>
-        <p style="font-size: 14px; color: #777; font-style: italic; margin-bottom: 25px;" data-i18n="locDesc2">
-            Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.
-        </p>
-        <div style="border-radius: 15px; overflow: hidden; height: 350px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- ===== ZONE 5 : COMPTE À REBOURS ===== -->
+    <div class="countdown-section">
+        <h1 data-i18n="countdown">L'amour nous emmène en Italie dans...</h1>
+        <div class="countdown-timer" id="custom-countdown">
+            <span id="days">00</span>j :
+            <span id="hours">00</span>h :
+            <span id="minutes">00</span>m :
+            <span id="seconds">00</span>s
         </div>
     </div>
 
-    <!-- ZONE 5 : Compte à rebours -->
-    <div style="text-align: center; padding: 40px 20px;">
-        <h2 style="font-family: 'Aboreto', serif; color: #9881e9; font-weight: normal; font-size: 24px;" data-i18n="countdown">L'amour nous emmène en Italie dans...</h2>
-        <div class="countdown-digits" id="custom-countdown">
-            <span id="days">00</span>j : <span id="hours">00</span>h : <span id="minutes">00</span>m : <span id="seconds">00</span>s
-        </div>
-    </div>
+    <!-- FOOTER -->
+    <footer>
+        <p>Made with ♥ for Teresa & Boris — 2027</p>
+    </footer>
 
-    <!-- SCRIPT DE TRADUCTION & COMPTE À REBOURS -->
+    <!-- ===== SCRIPTS ===== -->
     <script>
-        // 1. Système de traduction
+        // ========== PÉTALES FLOTTANTS ==========
+        function createPetals() {
+            const container = document.getElementById('petalsContainer');
+            const petalColors = ['#e8b4be', '#d4c0d8', '#f0d8c8', '#c8d8c0', '#d8c0b0'];
+            const petalCount = 15;
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                petal.classList.add('floating-petal');
+                petal.setAttribute('width', Math.random() * 12 + 8);
+                petal.setAttribute('height', Math.random() * 12 + 8);
+                petal.setAttribute('viewBox', '0 0 20 20');
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (Math.random() * 12 + 10) + 's';
+                petal.style.animationDelay = (Math.random() * 15) + 's';
+
+                const color = petalColors[Math.floor(Math.random() * petalColors.length)];
+                petal.innerHTML = `<ellipse cx="10" cy="10" rx="8" ry="6" fill="${color}" opacity="0.6" transform="rotate(${Math.random()*360} 10 10)"/>`;
+
+                container.appendChild(petal);
+            }
+        }
+        createPetals();
+
+        // ========== TRADUCTION ==========
         const translations = {
             fr: {
                 welcome: "Bienvenue à notre mariage",
@@ -356,8 +1022,14 @@
 
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
+
+            // Mettre à jour le bouton actif
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Remplacer les textes
+            document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
@@ -365,8 +1037,8 @@
             });
         }
 
-        // 2. Compte à rebours
-        const countDownDate = new Date("May 8, 2027 16:30:00").getTime();
+        // ========== COMPTE À REBOURS ==========
+        const countDownDate = new Date("May 8, 2027 16:00:00").getTime();
 
         const countdownInterval = setInterval(function() {
             const now = new Date().getTime();
@@ -374,7 +1046,8 @@
 
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("custom-countdown").innerHTML = "Le jour J est arrivé !";
+                document.getElementById("custom-countdown").innerHTML =
+                    "<span style='font-family: Aboreto, serif; font-size: 28px;'>🎉 Le jour J est arrivé ! 🎉</span>";
                 return;
             }
 
@@ -383,10 +1056,10 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = String(days).padStart(2, '0');
-            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
         }, 1000);
     </script>
 </body>
