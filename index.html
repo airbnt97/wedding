@@ -1,3 +1,18 @@
+C'est un très beau projet ! Votre nouveau site a déjà une excellente structure et un design très élégant. Les ajustements que vous demandez vont effectivement lui donner une touche plus professionnelle et améliorer l'expérience utilisateur (notamment avec le Call-to-Action du RSVP).
+
+Voici les modifications appliquées dans le code ci-dessous :
+
+1. **Image de fond fixe :** Ajout de `background-attachment: fixed;` à la classe `.section-bg`. Ainsi, l'image restera ancrée pendant le défilement et ne se déformera plus lors d'un dézoom.
+2. **Transparence des sections (Retrait des voiles colorés) :** J'ai supprimé les blocs CSS `.section-rsvp::before`, `.section-programme::before` et `.section-lieu::before` qui ajoutaient un filtre coloré par-dessus les images de fond. Désormais, seul le panneau blanc/semi-transparent (la carte) viendra habiller le contenu.
+3. **Mise en avant du bouton RSVP & Deadline :**
+* Ajout d'une nouvelle phrase de délai de réponse juste au-dessus du bouton RSVP (`<p class="rsvp-deadline">`), incluse dans le système de traduction multilingue.
+* Le bouton a été rendu un peu plus grand, ses couleurs légèrement intensifiées pour contraster avec le fond, et je lui ai ajouté une discrète **animation de pulsation** (`pulse-btn`) pour attirer l'œil instantanément et clarifier l'appel à l'action. Au survol, il grossit très légèrement.
+
+
+
+Voici le code HTML complet et corrigé, prêt à être copié-collé :
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,6 +41,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed; /* FOND FIXE AU SCROLL/DEZOOM */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -181,11 +197,7 @@
             background-image: url('rsvp.jpg');
             padding: 80px 20px;
         }
-        .section-rsvp::before {
-            background: linear-gradient(to bottom,
-                rgba(25,20,30,0.50),
-                rgba(25,20,30,0.55));
-        }
+        /* Voile sombre retiré selon la demande */
 
         .rsvp-card {
             max-width: 650px; width: 100%;
@@ -203,22 +215,36 @@
         }
         .rsvp-text {
             color: #444; font-size: 20px; line-height: 1.5;
-            max-width: 480px; margin: 0 auto 35px;
+            max-width: 480px; margin: 0 auto 20px;
         }
+        .rsvp-deadline {
+            color: #b05c70; font-size: 18px; font-weight: bold;
+            margin-bottom: 35px;
+        }
+        
+        /* Bouton RSVP mis en avant */
         .rsvp-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #e0b0b9, #d4a0ae);
-            color: white; padding: 16px 50px;
+            background: linear-gradient(135deg, #d4798c, #c55a71); 
+            color: white; padding: 18px 60px;
             border-radius: 50px; text-decoration: none;
-            font-size: 22px; font-weight: bold;
+            font-size: 24px; font-weight: bold;
             letter-spacing: 5px;
-            box-shadow: 0 8px 25px rgba(224,176,185,0.5);
-            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(197, 90, 113, 0.5);
+            transition: all 0.3s ease;
+            animation: pulse-btn 2s infinite; 
         }
         .rsvp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(224,176,185,0.7);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(197, 90, 113, 0.7);
         }
+
+        @keyframes pulse-btn {
+            0% { box-shadow: 0 0 0 0 rgba(212, 121, 140, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 121, 140, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 121, 140, 0); }
+        }
+
         .ornament-stars {
             color: #d4a0ae; font-size: 22px;
             letter-spacing: 8px; margin-top: 30px;
@@ -230,11 +256,7 @@
             background-image: url('programme.jpg');
             padding: 80px 20px;
         }
-        .section-programme::before {
-            background: linear-gradient(to bottom,
-                rgba(25,30,25,0.55),
-                rgba(25,30,25,0.60));
-        }
+        /* Voile sombre retiré selon la demande */
 
         .programme-wrapper { max-width: 700px; width: 100%; }
 
@@ -310,11 +332,7 @@
             background-image: url('lieu.jpg');
             padding: 80px 20px;
         }
-        .section-lieu::before {
-            background: linear-gradient(to bottom,
-                rgba(20,25,20,0.55),
-                rgba(20,25,20,0.60));
-        }
+        /* Voile sombre retiré selon la demande */
 
         .location-card { max-width: 700px; width: 100%; }
         .location-inner {
@@ -341,6 +359,7 @@
             background-image: url('countdown.jpg');
             padding: 80px 20px;
         }
+        /* Le voile sombre reste ici pour s'assurer que le compteur blanc soit bien visible */
         .section-countdown::before {
             background: linear-gradient(to bottom,
                 rgba(15,15,25,0.55),
@@ -619,6 +638,11 @@
                 inoubliable, nous vous prions de répondre à quelques questions dans
                 le formulaire ci-dessous.
             </p>
+            
+            <p class="rsvp-deadline" data-i18n="rsvpDeadline">
+                Merci de nous répondre avant le 01 octobre 2026.
+            </p>
+
             <a class="rsvp-btn" id="rsvpLink"
                href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
                target="_blank">RSVP</a>
@@ -803,6 +827,7 @@
                 time: "À partir de 16h00",
                 rsvpTitle: "Répondez-nous",
                 rsvpText: "Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.",
+                rsvpDeadline: "Merci de nous répondre avant le 01 octobre 2026.",
                 programTitle: "Programme du week-end",
                 programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !",
                 sat: "Samedi 8 mai 2027",
@@ -825,6 +850,7 @@
                 time: "Dalle 16:00",
                 rsvpTitle: "Rispondeteci",
                 rsvpText: "Per organizzare al meglio questa giornata e offrirvi un momento indimenticabile, vi preghiamo di rispondere ad alcune domande nel modulo sottostante.",
+                rsvpDeadline: "Vi preghiamo di risponderci entro il 01 ottobre 2026.",
                 programTitle: "Programma del weekend",
                 programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione 2027. Approfittate di questa occasione per passeggiare per le strade di Roma prima della cerimonia!",
                 sat: "Sabato 8 maggio 2027",
@@ -847,6 +873,7 @@
                 time: "From 4:00 PM",
                 rsvpTitle: "RSVP",
                 rsvpText: "To best prepare for this day and offer you an unforgettable moment, please answer a few questions in the form below.",
+                rsvpDeadline: "Please kindly respond by October 01, 2026.",
                 programTitle: "Weekend Program",
                 programDesc: "The wedding will take place during the Ascension weekend 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!",
                 sat: "Saturday, May 8, 2027",
@@ -974,3 +1001,5 @@
     </script>
 </body>
 </html>
+
+```
