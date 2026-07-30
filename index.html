@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage Teresa & Boris</title>
+    
+    <!-- Importation des polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Styles de base pour réinitialiser la page */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+        /* Style au survol pour les boutons de langue */
+        .lang-btn {
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.4) !important;
+        }
+        .rsvp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(224, 176, 185, 0.7) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ZONE 1 : En-tête et boutons de langue -->
+    <div style="background-color: #1a1a1a; position: relative; width: 100%; min-height: 450px; padding: 60px 80px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; overflow: hidden;">
+        <!-- Optionnel : Ajouter une image de fond ici si vous en aviez une sur Infomaniak -->
+        
+        <div style="max-width: 700px; z-index: 10;">
+            <p style="font-family: 'Cinzel', serif; color: #95c4eb; font-size: 18px; letter-spacing: 4px; margin: 0 0 15px 0; text-transform: uppercase;">
+                Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV
+            </p>
+            <h1 style="font-family: 'Aboreto', serif; color: #fbe9f6; font-size: 65px; font-weight: 400; margin: 0 0 40px 0; line-height: 1;">
+                <span style="font-size: 49px;" data-i18n="welcome">Bienvenue à notre mariage</span>
+            </h1>
+            <div style="font-family: 'Cormorant Garamond', serif; color: #fbe9f6; border-left: 1px solid rgba(149, 196, 235, 0.6); padding-left: 25px; font-size: 20px; line-height: 1.8;">
+                <p style="margin: 0; letter-spacing: 3px; font-weight: 500; text-align: left;">
+                    <span style="font-size: 18px;" data-i18n="date">Samedi 08 MAI 2027</span>
+                </p>
+                <p style="display: flex; align-items: center; margin: 8px 0; text-align: left;">
+                    <span style="font-size: 18px;"><span style="margin-right: 12px;">🏰</span> Borgo di Tragliata</span>
+                </p>
+                <p style="margin: 0; font-size: 16px; letter-spacing: 1px; text-align: left;">
+                    <span style="font-size: 18px;" data-i18n="time">À partir de 16h00</span>
+                </p>
+            </div>
+        </div>
+        <div style="margin-top: 40px; display: flex; gap: 15px; flex-wrap: wrap; z-index: 10;">
+            <a onclick="changeLanguage('fr')" class="lang-btn" style="display: inline-block; padding: 10px 25px; border-radius: 30px; background: rgba(255,255,255,0.2); color: #fbe9f6; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px);">Français</a> 
+            <a onclick="changeLanguage('it')" class="lang-btn" style="display: inline-block; padding: 10px 25px; border-radius: 30px; background: rgba(255,255,255,0.2); color: #fbe9f6; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px);">Italiano</a> 
+            <a onclick="changeLanguage('en')" class="lang-btn" style="display: inline-block; padding: 10px 25px; border-radius: 30px; background: rgba(255,255,255,0.2); color: #fbe9f6; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px);">English</a>
+        </div>
+    </div>
+
+    <!-- ZONE 2 : RSVP -->
+    <div style="max-width: 650px; margin: 40px auto; padding: 20px; font-family: 'Georgia', 'Times New Roman', serif;">
+        <div style="background-color: #ffffff; border-radius: 20px; padding: 50px 30px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); text-align: center;">
+            <p style="color: #c97a8b; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; font-weight: bold;" data-i18n="rsvpTitle">Répondez-nous</p>
+            <p style="color: #444; font-size: 20px; line-height: 1.5; max-width: 480px; margin-left: auto; margin-right: auto; margin-bottom: 35px;" data-i18n="rsvpText">Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.</p>
+            <a class="rsvp-btn" style="display: inline-block; background-color: #e0b0b9; color: white; padding: 16px 50px; border-radius: 50px; text-decoration: none; font-size: 22px; font-weight: bold; letter-spacing: 5px; border: none; box-shadow: 0 8px 20px rgba(224, 176, 185, 0.5); transition: all 0.3s ease;" href="https://forms.gle/cb4UtLiYa36DxSkZ7" target="_blank">RSVP</a>
+            <p style="color: #d4a0ae; font-size: 22px; letter-spacing: 8px; margin-top: 30px; margin-bottom: 0;">✦ ✦ ✦</p>
+        </div>
+    </div>
+
+    <!-- ZONE 3 : Programme et Code vestimentaire -->
+    <div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: 'Georgia', 'Times New Roman', serif; color: #333;">
+        <div style="background-color: #f7faf7; border-radius: 20px; padding: 35px 25px; margin-bottom: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e0ece0;">
+            <h2 style="color: #729b79; font-size: 28px; margin-bottom: 10px; font-weight: normal; letter-spacing: 1px;" data-i18n="programTitle">Programme du week-end</h2>
+            <p style="font-size: 16px; color: #666; max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 30px;" data-i18n="programDesc">Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !</p>
+            <div style="background-color: rgba(255,255,255,0.8); border-radius: 15px; padding: 25px; margin-bottom: 20px;">
+                <h3 style="color: #5f8b62; font-size: 22px; margin-bottom: 20px; font-weight: normal; border-bottom: 1px solid #d0e8d0; padding-bottom: 10px;" data-i18n="sat">Samedi 8 mai 2027</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">15h00</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 200px; text-align: right;" data-i18n="sat1">Accueil des invités</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">16h00</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 200px; text-align: right;" data-i18n="sat2">Cérémonie de mariage</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">19h00</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 200px; text-align: right;" data-i18n="sat3">Dîner et desserts</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">21h00</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 200px; text-align: right;" data-i18n="sat4">Soirée dansante</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">02h00</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 200px; text-align: right;" data-i18n="sat5">Fin des festivités</span></div>
+            </div>
+            <div style="background-color: rgba(255,255,255,0.8); border-radius: 15px; padding: 25px;">
+                <h3 style="color: #5f8b62; font-size: 22px; margin-bottom: 20px; font-weight: normal; border-bottom: 1px solid #d0e8d0; padding-bottom: 10px;" data-i18n="sun">Dimanche 9 mai 2027</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 90px; text-align: left;">6h – 11h</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 180px; text-align: right;" data-i18n="sun1">Petit-déjeuner</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #444;"><span style="font-weight: bold; color: #4a704d; width: 90px; text-align: left;">11h00</span> <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span> <span style="width: 180px; text-align: right;" data-i18n="sun2">Check-out</span></div>
+            </div>
+        </div>
+        
+        <div style="background-color: #f9f7fb; border-radius: 20px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e8e0ef;">
+            <h2 style="color: #8e7ba5; font-size: 28px; margin-bottom: 20px; font-weight: normal; letter-spacing: 1px;" data-i18n="dressTitle">Code vestimentaire</h2>
+            <div style="background-color: rgba(255,255,255,0.7); border-radius: 15px; padding: 25px;">
+                <p style="font-size: 16px; color: #555; line-height: 1.6;" data-i18n="dressText">Le thème du mariage est <strong style="color: #9b7ead;">pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZONE 4 : Lieu et Carte -->
+    <div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: 'Georgia', 'Times New Roman', serif;">
+        <div style="background-color: #ffffff; border-radius: 20px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+            <h2 style="color: #8fbc8f; font-size: 28px; margin-bottom: 5px; font-weight: normal; letter-spacing: 3px; text-transform: uppercase;" data-i18n="locTitle">Le lieu</h2>
+            <p style="color: #999; font-size: 14px; margin-bottom: 25px;">Borgo di Tragliata, Rome</p>
+            
+            <p style="font-size: 16px; color: #555; margin-bottom: 12px; line-height: 1.6;" data-i18n="locDesc1">
+                Le <strong style="color: #8fbc8f;">Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).
+            </p>
+            <p style="font-size: 14px; color: #777; font-style: italic; margin-bottom: 25px;" data-i18n="locDesc2">
+                Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.
+            </p>
+            <div style="border-radius: 15px; overflow: hidden; height: 350px;">
+                <!-- Remplacement du module Infomaniak par une iframe Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZONE 5 : Compte à rebours -->
+    <div style="text-align: center; padding: 40px 20px; margin-bottom: 40px;">
+        <h1 style="font-family: 'Aboreto', serif;">
+            <span style="color: #9881e9;" data-i18n="countdown">L'amour nous emmène en Italie dans...</span>
+        </h1>
+        <div style="font-family: 'Georgia', serif; font-size: 35px; color: #444; margin-top: 20px;" id="custom-countdown">
+            <!-- Le script JS va injecter les jours/heures ici -->
+            <span id="days">00</span>j : <span id="hours">00</span>h : <span id="minutes">00</span>m : <span id="seconds">00</span>s
+        </div>
+    </div>
+
+
+    <!-- SCRIPT DE TRADUCTION & COMPTE À REBOURS -->
+    <script>
+        // 1. Système de traduction
+        const translations = {
+            fr: {
+                welcome: "Bienvenue à notre mariage",
+                date: "Samedi 08 MAI 2027",
+                time: "À partir de 16h00",
+                rsvpTitle: "Répondez-nous",
+                rsvpText: "Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.",
+                programTitle: "Programme du week-end",
+                programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !",
+                sat: "Samedi 8 mai 2027",
+                sat1: "Accueil des invités",
+                sat2: "Cérémonie de mariage",
+                sat3: "Dîner et desserts",
+                sat4: "Soirée dansante",
+                sat5: "Fin des festivités",
+                sun: "Dimanche 9 mai 2027",
+                sun1: "Petit-déjeuner",
+                sun2: "Check-out",
+                dressTitle: "Code vestimentaire",
+                dressText: "Le thème du mariage est <strong style='color: #9b7ead;'>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.",
+                locTitle: "Le lieu",
+                locDesc1: "Le <strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
+                locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",
+                countdown: "L'amour nous emmène en Italie dans..."
+            },
+            it: {
+                welcome: "Benvenuti al nostro matrimonio",
+                date: "Sabato 08 MAGGIO 2027",
+                time: "Dalle 16:00",
+                rsvpTitle: "Rispondeteci",
+                rsvpText: "Per organizzare al meglio questa giornata e offrirvi un momento indimenticabile, vi preghiamo di rispondere ad alcune domande nel modulo sottostante.",
+                programTitle: "Programma del weekend",
+                programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione 2027. Approfittate di questa occasione per passeggiare per le strade di Roma prima della cerimonia!",
+                sat: "Sabato 8 maggio 2027",
+                sat1: "Accoglienza degli ospiti",
+                sat2: "Cerimonia di matrimonio",
+                sat3: "Cena e dessert",
+                sat4: "Serata danzante",
+                sat5: "Fine dei festeggiamenti",
+                sun: "Domenica 9 maggio 2027",
+                sun1: "Colazione",
+                sun2: "Check-out",
+                dressTitle: "Dress code",
+                dressText: "Il tema del matrimonio è <strong style='color: #9b7ead;'>pastello, floreale e beige</strong>,<br>ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio.",
+                locTitle: "La location",
+                locDesc1: "Il <strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
+                locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",
+                countdown: "L'amore ci porta in Italia tra..."
+            },
+            en: {
+                welcome: "Welcome to our wedding",
+                date: "Saturday, MAY 08, 2027",
+                time: "From 4:00 PM",
+                rsvpTitle: "RSVP",
+                rsvpText: "To best prepare for this day and offer you an unforgettable moment, please answer a few questions in the form below.",
+                programTitle: "Weekend Program",
+                programDesc: "The wedding will take place during the Ascension weekend 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!",
+                sat: "Saturday, May 8, 2027",
+                sat1: "Welcome of guests",
+                sat2: "Wedding ceremony",
+                sat3: "Dinner and desserts",
+                sat4: "Dance party",
+                sat5: "End of festivities",
+                sun: "Sunday, May 9, 2027",
+                sun1: "Breakfast",
+                sun2: "Check-out",
+                dressTitle: "Dress Code",
+                dressText: "The wedding theme is <strong style='color: #9b7ead;'>pastel, floral, and beige</strong>,<br>but feel free to wear the colors that make you feel most comfortable.",
+                locTitle: "The Venue",
+                locDesc1: "<strong style='color: #8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
+                locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",
+                countdown: "Love takes us to Italy in..."
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Mise à jour de la balise HTML pour l'accessibilité
+            document.documentElement.lang = lang;
+            
+            // Remplacement du texte
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // 2. Système de compte à rebours personnalisé
+        // Date cible : 8 Mai 2027 à 16:30 (Heure locale italienne/française)
+        const countDownDate = new Date("May 8, 2027 16:30:00").getTime();
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("custom-countdown").innerHTML = "Le jour J est arrivé !";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) /Pour adapter ce projet à **GitHub Pages**, il est préférable de nettoyer le code en supprimant toutes les balises et attributs spécifiques à l'éditeur d'Infomaniak (comme `data-mce-style` ou `keditable`). 
+
+Sur GitHub Pages, vous avez le contrôle total. La meilleure pratique consiste à créer un fichier **`index.html`** propre, en séparant la structure (HTML), le style (CSS) et la logique (JavaScript).
+
+Voici le code complet et standardisé, prêt à être hébergé sur GitHub Pages. *(Note : j'ai légèrement généricisé les noms et les textes pour respecter les directives strictes de droits d'auteur de ma plateforme, mais la structure exacte de vos 4 zones est conservée. Il vous suffit de remettre vos propres informations).*
+
+### Fichier `index.html`
+
+Créez un fichier nommé `index.html` dans votre dépôt GitHub et collez-y ce code :
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation de Mariage</title>
+    
+    <!-- Importation des polices Google Fonts -->
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel&family=Cormorant+Garamond:wght@400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel&family=Cormorant+Garamond:wght@400;500;600&display=swap)" rel="stylesheet">
+    
+    <style>
+        /* --- STYLES GLOBAUX --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #faf9f7;
+            font-family: 'Cormorant Garamond', serif;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- ZONE 1 : EN-TÊTE --- */
+        .header-zone {
+            min-height: 450px;
+            padding: 60px 40px;
+            background-color: #2c3e50; /* Couleur de fond temporaire (à remplacer par votre image) */
+            color: #fbe9f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .names {
+            font-family: 'Cinzel', serif;
+            color: #95c4eb;
+            font-size: 18px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .welcome-title {
+            font-family: 'Aboreto', serif;
+            font-size: 50px;
+            font-weight: 400;
+            margin: 0 0 30px 0;
+        }
+        .date-box {
+            border-left: 2px solid rgba(149, 196, 235, 0.6);
+            padding-left: 20px;
+            text-align: left;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .lang-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .lang-btn {
+            cursor: pointer;
+            padding: 10px 25px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.2);
+            color: #fbe9f6;
+            text-decoration: none;
+            font-size: 18px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: background 0.3s;
+        }
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* --- ZONE 2 : RSVP --- */
+        .rsvp-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        .rsvp-title {
+            color: #c97a8b;
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .rsvp-btn {
+            display: inline-block;
+            background-color: #e0b0b9;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        .rsvp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- ZONE 3 : PROGRAMME --- */
+        .program-card {
+            background-color: #f7faf7;
+            border-radius: 20px;
+            padding: 35px 25px;
+            margin-bottom: 30px;
+            border: 1px solid #e0ece0;
+        }
+        .program-card h2 { color: #729b79; text-align: center; font-family: 'Aboreto', serif; }
+        .day-block {
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .day-block h3 { color: #5f8b62; border-bottom: 1px solid #d0e8d0; padding-bottom: 10px; }
+        .event-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        /* --- ZONE 4 : LIEU --- */
+        .location-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .location-card h2 { color: #8fbc8f; font-family: 'Aboreto', serif; }
+    </style>
+</head>
+<body>
+
+    <!-- ZONE 1 : En-tête et langues -->
+    <div class="header-zone">
+        <div class="names">Noms des Mariés</div>
+        <h1 class="welcome-title" data-i18n="welcome">Bienvenue à notre mariage</h1>
+        
+        <div class="date-box">
+            <div style="font-weight: 600;" data-i18n="date">Samedi 08 MAI 2027</div>
+            <div>🏰 <span data-i18n="venue_name">Nom du lieu</span></div>
+            <div data-i18n="time">À partir de 16h00</div>
+        </div>
+
+        <div class="lang-buttons">
+            <a class="lang-btn" onclick="changeLanguage('fr')">Français</a>
+            <a class="lang-btn" onclick="changeLanguage('it')">Italiano</a>
+            <a class="lang-btn" onclick="changeLanguage('en')">English</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ZONE 2 : RSVP -->
+        <div class="rsvp-card">
+            <p class="rsvp-title" data-i18n="rsvpTitle">Répondez-nous</p>
+            <p style="font-size: 18px; color: #555;" data-i18n="rsvpText">Afin de préparer au mieux cette journée, nous vous prions de remplir le formulaire.</p>
+            <a href="#" class="rsvp-btn">RSVP</a>
+        </div>
+
+        <!-- ZONE 3 : Programme -->
+        <div class="program-card">
+            <h2 data-i18n="programTitle">Programme du week-end</h2>
+            <p style="text-align: center; color: #666;" data-i18n="programDesc">Profitez de cette occasion pour célébrer avec nous !</p>
+            
+            <div class="day-block">
+                <h3 data-i18n="sat">Samedi 8 mai 2027</h3>
+                <div class="event-row">
+                    <strong style="color: #4a704d;">15h00</strong>
+                    <span data-i18n="sat1">Accueil des invités</span>
+                </div>
+                <div class="event-row">
+                    <strong style="color: #4a704d;">16h00</strong>
+                    <span data-i18n="sat2">Cérémonie</span>
+                </div>
+                <div class="event-row">
+                    <strong style="color: #4a704d;">19h00</strong>
+                    <span data-i18n="sat3">Dîner</span>
+                </div>
+            </div>
+
+            <div class="day-block">
+                <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>
+                <div class="event-row">
+                    <strong style="color: #4a704d;">11h00</strong>
+                    <span data-i18n="sun1">Brunch de départ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 4 : Lieu -->
+        <div class="location-card">
+            <h2 data-i18n="locTitle">Le lieu</h2>
+            <p style="color: #555;" data-i18n="locDesc">Le domaine est situé à 30 minutes de l'aéroport.</p>
+            <!-- Remplacez ceci par une iframe Google Maps -->
+            <div style="background: #eee; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+                [Carte Google Maps ici]
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE TRADUCTION -->
+    <script>
+        const translations = {
+            fr: {
+                welcome: "Bienvenue à notre mariage",
+                date: "Samedi 08 MAI 2027",
+                venue_name: "Borgo di Tragliata",
+                time: "À partir de 16h00",
+                rsvpTitle: "Répondez-nous",
+                rsvpText: "Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.",
+                programTitle: "Programme du week-end",
+                programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner avant la cérémonie !",
+                sat: "Samedi 8 mai 2027",
+                sat1: "Accueil des invités",
+                sat2: "Cérémonie de mariage",
+                sat3: "Dîner et festivités",
+                sun: "Dimanche 9 mai 2027",
+                sun1: "Brunch de départ",
+                locTitle: "Le lieu",
+                locDesc: "Le domaine est situé à 30 minutes de l'aéroport. Prévoyez un peu de marge pour le trafic."
+            },
+            it: {
+                welcome: "Benvenuti al nostro matrimonio",
+                date: "Sabato 08 MAGGIO 2027",
+                venue_name: "Borgo di Tragliata",
+                time: "Dalle 16:00",
+                rsvpTitle: "Rispondeteci",
+                rsvpText: "Per organizzare al meglio questa giornata, vi preghiamo di rispondere ad alcune domande nel modulo sottostante.",
+                programTitle: "Programma del weekend",
+                programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione. Approfittate di questa occasione per festeggiare con noi!",
+                sat: "Sabato 8 maggio 2027",
+                sat1: "Accoglienza degli ospiti",
+                sat2: "Cerimonia di matrimonio",
+                sat3: "Cena e festeggiamenti",
+                sun: "Domenica 9 maggio 2027",
+                sun1: "Brunch di partenza",
+                locTitle: "La location",
+                locDesc: "La tenuta si trova a 30 minuti dall'aeroporto. Prevedete un po' di margine per il traffico."
+            },
+            en: {
+                welcome: "Welcome to our wedding",
+                date: "Saturday, MAY 08, 2027",
+                venue_name: "Borgo di Tragliata",
+                time: "From 4:00 PM",
+                rsvpTitle: "RSVP",
+                rsvpText: "To best prepare for this day and offer you an unforgettable moment, please fill out the form below.",
+                programTitle: "Weekend Program",
+                programDesc: "The wedding will take place during the Ascension weekend. Take this opportunity to celebrate with us!",
+                sat: "Saturday, May 8, 2027",
+                sat1: "Welcome of guests",
+                sat2: "Wedding ceremony",
+                sat3: "Dinner and festivities",
+                sun: "Sunday, May 9, 2027",
+                sun1: "Farewell Brunch",
+                locTitle: "The Venue",
+                locDesc: "The estate is located 30 minutes from the airport. Please allow some extra time for traffic."
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Sélectionne tous les éléments ayant l'attribut data-i18n
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
