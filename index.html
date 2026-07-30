@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Ajout de FontAwesome pour les icônes de contact -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* ==================== RESET ==================== */
@@ -26,7 +28,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* FOND FIXE AU SCROLL/DEZOOM */
+            /* L'image n'est plus "fixe", elle défile naturellement et garde son ratio au dézoom */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -86,7 +88,7 @@
             font-size: clamp(30px, 7vw, 60px);
             font-weight: 400;
             margin: 0 0 10px;
-            line-height: 1.15;
+            line-height: 1.2;
             text-shadow: 0 3px 25px rgba(0,0,0,0.5);
         }
 
@@ -182,7 +184,6 @@
             background-image: url('rsvp.jpg');
             padding: 80px 20px;
         }
-        /* Voile sombre retiré selon la demande */
 
         .rsvp-card {
             max-width: 650px; width: 100%;
@@ -194,7 +195,8 @@
             backdrop-filter: blur(10px);
         }
         .rsvp-title {
-            color: #c97a8b; font-size: 14px;
+            color: #c97a8b; 
+            font-size: 24px; /* Agrandissement du titre */
             letter-spacing: 4px; text-transform: uppercase;
             font-weight: bold; margin-bottom: 20px;
         }
@@ -207,7 +209,6 @@
             margin-bottom: 35px;
         }
         
-        /* Bouton RSVP mis en avant */
         .rsvp-btn {
             display: inline-block;
             background: linear-gradient(135deg, #d4798c, #c55a71); 
@@ -223,13 +224,11 @@
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 12px 30px rgba(197, 90, 113, 0.7);
         }
-
         @keyframes pulse-btn {
             0% { box-shadow: 0 0 0 0 rgba(212, 121, 140, 0.6); }
             70% { box-shadow: 0 0 0 15px rgba(212, 121, 140, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 121, 140, 0); }
         }
-
         .ornament-stars {
             color: #d4a0ae; font-size: 22px;
             letter-spacing: 8px; margin-top: 30px;
@@ -241,7 +240,6 @@
             background-image: url('programme.jpg');
             padding: 80px 20px;
         }
-        /* Voile sombre retiré selon la demande */
 
         .programme-wrapper { max-width: 700px; width: 100%; }
 
@@ -258,7 +256,8 @@
             text-align: center;
         }
         .program-card h2 {
-            color: #729b79; font-size: 28px;
+            color: #729b79; 
+            font-size: 38px; /* Agrandissement du titre */
             font-weight: normal; letter-spacing: 1px; margin-bottom: 10px;
         }
         .program-desc {
@@ -302,7 +301,8 @@
             text-align: center;
         }
         .dress-card h2 {
-            color: #8e7ba5; font-size: 28px;
+            color: #8e7ba5; 
+            font-size: 38px; /* Agrandissement du titre */
             font-weight: normal; letter-spacing: 1px; margin-bottom: 20px;
         }
         .dress-inner {
@@ -311,13 +311,12 @@
         }
         .dress-inner p { font-size: 16px; color: #555; line-height: 1.6; }
 
-        /* ==================== LIEU ==================== */
+        /* ==================== LIEU & CONTACT ==================== */
         .section-lieu {
             min-height: 100vh;
             background-image: url('lieu.jpg');
             padding: 80px 20px;
         }
-        /* Voile sombre retiré selon la demande */
 
         .location-card { max-width: 700px; width: 100%; }
         .location-inner {
@@ -328,7 +327,8 @@
             backdrop-filter: blur(8px);
         }
         .location-inner h2 {
-            color: #8fbc8f; font-size: 28px;
+            color: #8fbc8f; 
+            font-size: 38px; /* Agrandissement du titre */
             font-weight: normal; letter-spacing: 3px;
             text-transform: uppercase; margin-bottom: 5px;
         }
@@ -338,13 +338,58 @@
         .map-container { border-radius: 15px; overflow: hidden; height: 350px; }
         .map-container iframe { width: 100%; height: 100%; border: 0; }
 
+        /* Section Contact Stylisée */
+        .contact-box {
+            background: rgba(247,250,247,0.93);
+            border: 1px solid rgba(224,236,224,0.6);
+            border-radius: 20px;
+            padding: 30px 25px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            backdrop-filter: blur(8px);
+        }
+        .contact-box h3 {
+            color: #729b79;
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 18px;
+            color: #444;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        .contact-item i {
+            color: #8fbc8f;
+            font-size: 24px;
+            min-width: 30px;
+            text-align: center;
+        }
+        .contact-item p { margin: 0; line-height: 1.4; }
+        .contact-divider {
+            width: 100%; height: 1px;
+            background: #d0e8d0;
+            margin: 10px 0;
+        }
+        .contact-us i { color: #d4a0ae; } /* Couleur différente pour le mail du couple */
+
         /* ==================== COUNTDOWN FLIP ==================== */
         .section-countdown {
             min-height: 100vh;
             background-image: url('countdown.jpg');
             padding: 80px 20px;
         }
-        /* Le voile sombre reste ici pour s'assurer que le compteur blanc soit bien visible */
         .section-countdown::before {
             background: linear-gradient(to bottom,
                 rgba(15,15,25,0.55),
@@ -404,7 +449,6 @@
             border-radius: var(--card-radius);
         }
 
-        /* Petits points latéraux (axe de rotation) */
         .flip-card::before,
         .flip-card::after {
             content: '';
@@ -419,136 +463,50 @@
         .flip-card::before { left: -4px; }
         .flip-card::after  { right: -4px; }
 
-        /* Les 4 couches */
-        .card-top,
-        .card-bottom,
-        .card-flip-top,
-        .card-flip-bottom {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            overflow: hidden;
+        .card-top, .card-bottom, .card-flip-top, .card-flip-bottom {
+            position: absolute; left: 0; width: 100%; height: 50%; overflow: hidden;
         }
-
-        .card-top,
-        .card-flip-top {
-            top: 0;
-            background: linear-gradient(180deg, #2c2c42, #262640);
-            border-radius: var(--card-radius) var(--card-radius) 0 0;
-            border-bottom: 1px solid rgba(0,0,0,0.6);
+        .card-top, .card-flip-top {
+            top: 0; background: linear-gradient(180deg, #2c2c42, #262640);
+            border-radius: var(--card-radius) var(--card-radius) 0 0; border-bottom: 1px solid rgba(0,0,0,0.6);
         }
-
-        .card-bottom,
-        .card-flip-bottom {
-            bottom: 0;
-            background: linear-gradient(180deg, #22223a, #1c1c32);
+        .card-bottom, .card-flip-bottom {
+            bottom: 0; background: linear-gradient(180deg, #22223a, #1c1c32);
             border-radius: 0 0 var(--card-radius) var(--card-radius);
         }
 
-        /* Chiffres — moitié haute (montre le haut du chiffre) */
-        .card-top .num,
-        .card-flip-top .num {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            font-family: 'Georgia', serif;
-            font-size: var(--card-font);
-            font-weight: bold;
-            color: #f0e8ff;
-            text-align: center;
-            height: var(--card-h);
-            line-height: var(--card-h);
+        .card-top .num, .card-flip-top .num, .card-bottom .num, .card-flip-bottom .num {
+            position: absolute; left: 0; width: 100%; font-family: 'Georgia', serif;
+            font-size: var(--card-font); font-weight: bold; color: #f0e8ff; text-align: center;
+            height: var(--card-h); line-height: var(--card-h);
         }
+        .card-top .num, .card-flip-top .num { top: 0; }
+        .card-bottom .num, .card-flip-bottom .num { bottom: 0; }
 
-        /* Chiffres — moitié basse (montre le bas du chiffre) */
-        .card-bottom .num,
-        .card-flip-bottom .num {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            font-family: 'Georgia', serif;
-            font-size: var(--card-font);
-            font-weight: bold;
-            color: #f0e8ff;
-            text-align: center;
-            height: var(--card-h);
-            line-height: var(--card-h);
-        }
-
-        /* Ligne centrale */
         .flip-card .card-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: rgba(0,0,0,0.7);
-            z-index: 25;
-            pointer-events: none;
-            transform: translateY(-0.5px);
+            position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(0,0,0,0.7);
+            z-index: 25; pointer-events: none; transform: translateY(-0.5px);
         }
-
-        /* Ombre sous la ligne */
         .flip-card .card-shadow {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent);
-            z-index: 24;
-            pointer-events: none;
-            transform: translateY(-10px);
+            position: absolute; top: 50%; left: 0; width: 100%; height: 10px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent); z-index: 24; pointer-events: none; transform: translateY(-10px);
         }
 
-        /* Flaps animés — cachés par défaut */
-        .card-flip-top {
-            z-index: 20;
-            transform-origin: bottom center;
-            backface-visibility: hidden;
-            visibility: hidden;
-        }
+        .card-flip-top { z-index: 20; transform-origin: bottom center; backface-visibility: hidden; visibility: hidden; }
+        .card-flip-bottom { z-index: 20; transform-origin: top center; transform: rotateX(90deg); backface-visibility: hidden; visibility: hidden; }
 
-        .card-flip-bottom {
-            z-index: 20;
-            transform-origin: top center;
-            transform: rotateX(90deg);
-            backface-visibility: hidden;
-            visibility: hidden;
-        }
+        @keyframes flipTopDown { from { transform: rotateX(0deg); } to { transform: rotateX(-90deg); } }
+        @keyframes flipBottomUp { from { transform: rotateX(90deg); } to { transform: rotateX(0deg); } }
 
-        /* Animations */
-        @keyframes flipTopDown {
-            from { transform: rotateX(0deg); }
-            to   { transform: rotateX(-90deg); }
-        }
-
-        @keyframes flipBottomUp {
-            from { transform: rotateX(90deg); }
-            to   { transform: rotateX(0deg); }
-        }
-
-        /* Séparateur : */
         .flip-sep {
-            font-family: 'Georgia', serif;
-            font-size: var(--sep-size);
-            color: rgba(240,232,255,0.25);
-            align-self: flex-start;
-            margin-top: calc(var(--card-h) / 2 - var(--sep-size) / 2);
-            line-height: 1;
+            font-family: 'Georgia', serif; font-size: var(--sep-size); color: rgba(240,232,255,0.25);
+            align-self: flex-start; margin-top: calc(var(--card-h) / 2 - var(--sep-size) / 2); line-height: 1;
         }
 
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
             :root {
-                --card-w: 75px;
-                --card-h: 95px;
-                --card-font: 46px;
-                --card-radius: 8px;
-                --sep-size: 18px;
+                --card-w: 75px; --card-h: 95px; --card-font: 46px; --card-radius: 8px; --sep-size: 18px;
             }
             .flip-clock { gap: 8px; }
             .event-row { font-size: 15px; }
@@ -558,11 +516,7 @@
 
         @media (max-width: 480px) {
             :root {
-                --card-w: 60px;
-                --card-h: 78px;
-                --card-font: 36px;
-                --card-radius: 7px;
-                --sep-size: 15px;
+                --card-w: 60px; --card-h: 78px; --card-font: 36px; --card-radius: 7px; --sep-size: 15px;
             }
             .flip-clock { gap: 5px; }
             .flip-label { font-size: 11px; letter-spacing: 2px; }
@@ -576,10 +530,12 @@
         /* ==================== FOOTER ==================== */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             background: #1a1a28;
-            color: rgba(255,255,255,0.3);
-            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            font-size: 22px; /* Footer agrandi */
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -701,9 +657,11 @@
         </div>
     </div>
 
-    <!-- ===================== ZONE 4 : LIEU ===================== -->
+    <!-- ===================== ZONE 4 : LIEU & CONTACT ===================== -->
     <div class="section-bg section-lieu">
         <div class="location-card">
+            
+            <!-- La Carte du Lieu -->
             <div class="location-inner">
                 <h2 data-i18n="locTitle">Le lieu</h2>
                 <p class="location-subtitle">Borgo di Tragliata, Rome</p>
@@ -715,14 +673,44 @@
                 <p class="location-note" data-i18n="locDesc2">
                     Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.
                 </p>
+                
+                <!-- Nouvelle carte dézoomée avec épingle -->
                 <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.867919864222!2d12.285811!3d41.981655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325efa26a7e58a7%3A0xc3cf3f9905216d7a!2sBorgo%20di%20Tragliata!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
-                        allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Borgo%20di%20Tragliata,%20Via%20Casale%20di%20Tragliata,%2000054%20Fiumicino%20RM,%20Italy&t=&z=10&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
                     </iframe>
                 </div>
             </div>
+
+            <!-- La Section Contact -->
+            <div class="contact-box">
+                <h3 data-i18n="contactTitle">Contact & Informations</h3>
+                <div class="contact-grid">
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><strong>Borgo di Tragliata</strong><br>Via Casale di Tragliata, 00054 Fiumicino RM, Italy</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>(+39) 06 66.87.267</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@tragliata.it</p>
+                    </div>
+                    
+                    <div class="contact-divider"></div>
+                    
+                    <div class="contact-item contact-us">
+                        <i class="fas fa-envelope"></i>
+                        <p><strong>Teresa & Boris :</strong><br>airbnt97@gmail.com</p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -733,7 +721,6 @@
 
             <div class="flip-clock" id="flipClock">
 
-                <!-- JOURS -->
                 <div class="flip-group">
                     <div class="flip-card" id="card-days">
                         <div class="card-line"></div>
@@ -748,7 +735,6 @@
 
                 <span class="flip-sep">:</span>
 
-                <!-- HEURES -->
                 <div class="flip-group">
                     <div class="flip-card" id="card-hours">
                         <div class="card-line"></div>
@@ -763,7 +749,6 @@
 
                 <span class="flip-sep">:</span>
 
-                <!-- MINUTES -->
                 <div class="flip-group">
                     <div class="flip-card" id="card-minutes">
                         <div class="card-line"></div>
@@ -778,7 +763,6 @@
 
                 <span class="flip-sep">:</span>
 
-                <!-- SECONDES -->
                 <div class="flip-group">
                     <div class="flip-card" id="card-seconds">
                         <div class="card-line"></div>
@@ -802,9 +786,6 @@
 
     <!-- ===================== SCRIPTS ===================== -->
     <script>
-        /* ========================================
-           TRADUCTION
-        ======================================== */
         const translations = {
             fr: {
                 welcome: "Bienvenue à notre mariage",
@@ -824,13 +805,14 @@
                 locTitle: "Le lieu",
                 locDesc1: "Le <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
                 locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",
+                contactTitle: "Contact & Informations",
                 countdown: "L'amour nous emmène en Italie dans...",
                 labelDays: "Jours", labelHours: "Heures",
                 labelMinutes: "Minutes", labelSeconds: "Secondes",
                 rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
             },
             it: {
-                welcome: "Benvenuti al nostro matrimonio",
+                welcome: "Benvenuti al nostro<br>matrimonio", /* Correctif : forcé sur 2 lignes */
                 date: "Sabato 08 MAGGIO 2027",
                 time: "Dalle 16:00",
                 rsvpTitle: "Rispondeteci",
@@ -847,6 +829,7 @@
                 locTitle: "La location",
                 locDesc1: "Il <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
                 locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",
+                contactTitle: "Contatti & Informazioni",
                 countdown: "L'amore ci porta in Italia tra...",
                 labelDays: "Giorni", labelHours: "Ore",
                 labelMinutes: "Minuti", labelSeconds: "Secondi",
@@ -870,6 +853,7 @@
                 locTitle: "The Venue",
                 locDesc1: "<strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
                 locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",
+                contactTitle: "Contact & Information",
                 countdown: "Love takes us to Italy in...",
                 labelDays: "Days", labelHours: "Hours",
                 labelMinutes: "Minutes", labelSeconds: "Seconds",
@@ -891,15 +875,12 @@
                 }
             });
 
-            // Lien RSVP par langue
             if (translations[lang] && translations[lang].rsvpUrl) {
                 document.getElementById('rsvpLink').href = translations[lang].rsvpUrl;
             }
         }
 
-        /* ========================================
-           FLIP CLOCK
-        ======================================== */
+        /* FLIP CLOCK */
         const WEDDING = new Date("2027-05-08T16:00:00").getTime();
         const prev = {};
         const timeouts = {};
@@ -910,8 +891,7 @@
 
         function flipUnit(id, newValue, padLen) {
             const padded = pad(newValue, padLen);
-
-            if (prev[id] === padded) return;          // inchangé
+            if (prev[id] === padded) return;
 
             const card      = document.getElementById('card-' + id);
             const topStatic = card.querySelector('.card-top .num');
@@ -923,24 +903,19 @@
 
             const oldValue = prev[id] || padded;
 
-            // 1. Préparer les valeurs
-            topStatic.textContent = padded;          // nouvelle valeur (cachée derrière le flap)
-            topFlip.textContent   = oldValue;        // ancienne valeur (visible)
-            botFlip.textContent   = padded;          // nouvelle valeur (arrive en second)
-            // botStatic garde l'ancienne valeur (recouverte par botFlap)
+            topStatic.textContent = padded;
+            topFlip.textContent   = oldValue;
+            botFlip.textContent   = padded;
 
-            // 2. Rendre les flaps visibles, reset animation
             topFlap.style.visibility = 'visible';
             botFlap.style.visibility = 'visible';
             topFlap.style.animation  = 'none';
             botFlap.style.animation  = 'none';
-            void topFlap.offsetWidth;                // reflow
+            void topFlap.offsetWidth;
 
-            // 3. Lancer les animations
             topFlap.style.animation = 'flipTopDown 0.3s ease-in forwards';
             botFlap.style.animation = 'flipBottomUp 0.3s 0.3s ease-out forwards';
 
-            // 4. Nettoyage après animation complète
             if (timeouts[id]) clearTimeout(timeouts[id]);
             timeouts[id] = setTimeout(() => {
                 botStatic.textContent  = padded;
@@ -974,13 +949,12 @@
             const m = Math.floor((diff % 3600000) / 60000);
             const s = Math.floor((diff % 60000) / 1000);
 
-            flipUnit('days',    d, 3);   // 3 chiffres pour les jours
+            flipUnit('days',    d, 3);
             flipUnit('hours',   h, 2);
             flipUnit('minutes', m, 2);
             flipUnit('seconds', s, 2);
         }
 
-        // Premier appel immédiat (sans animation), puis toutes les secondes
         tick();
         const timer = setInterval(tick, 1000);
     </script>
