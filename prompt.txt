@@ -1,0 +1,143 @@
+Voici le code de notre ancien site infomaniak : 
+
+acceuil : 
+<div class="keditable keditable-auto mce-content-body"><div class="wedding-luxury-header" style="position: relative; width: 100%; min-height: 450px; padding: 60px 80px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;"><div style="max-width: 700px; z-index: 10;"><p style="font-family: 'Cinzel', serif !important; color: #95c4eb !important; font-size: 18px !important; letter-spacing: 4px !important; margin: 0 0 15px 0 !important; text-transform: uppercase !important;">Teresa Maria GIUSTI &amp; Boris Rafael GUEORGUIEV</p><h1 style="font-family: 'Aboreto', serif !important; color: #fbe9f6 !important; font-size: 65px !important; font-style: normal !important; font-weight: 400 !important; margin: 0 0 40px 0 !important; line-height: 1 !important; border: none !important;"><span data-en="Welcome to our wedding" data-it="Benvenuti al nostro matrimonio" data-fr="Bienvenue à notre mariage" style="font-size: 49px;">Bienvenue à notre mariage</span></h1><div style="font-family: 'Cormorant Garamond', serif !important; color: #fbe9f6 !important; border-left: 1px solid rgba(149, 196, 235, 0.6) !important; padding-left: 25px !important; font-size: 20px !important; line-height: 1.8 !important;"><p style="margin: 0px !important; letter-spacing: 3px !important; font-weight: 500 !important; text-align: left;"><span data-en="Saturday 08 MAY 2027" data-it="Sabato 08 MAGGIO 2027" data-fr="Samedi 08 MAI 2027" style="font-size: 18px;">Samedi 08 MAI 2027</span></p><p style="display: flex; align-items: center; margin: 8px 0px !important; text-align: left;"><span style="font-size: 18px;">🏰 Borgo di Tragliata</span></p><p style="margin: 0px !important; font-size: 16px !important; letter-spacing: 1px !important; text-align: left;"><span data-en="From 4:00 PM" data-it="Dalle ore 16:00" data-fr="À partir de 16h00" style="font-size: 18px;">À partir de 16h00</span></p></div></div><div style="margin-top: 40px; display: flex; gap: 15px; flex-wrap: wrap; z-index: 10;"><a style="display: inline-block; padding: 10px 25px; border-radius: 30px; background: rgba(255,255,255,0.4); color: #fbe9f6; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.6); backdrop-filter: blur(5px); cursor: pointer; transition: all 0.3s ease;" class="lang-btn lang-active mce-item-anchor" id="lang-fr"></a> Français <a style="display: inline-block; padding: 10px 25px; border-radius: 30px; background: rgba(255,255,255,0.15); color: #fbe9f6; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(5px); cursor: pointer; transition: all 0.3s ease;" class="lang-btn mce-item-anchor" id="lang-it"></a> Italiano <a style="display: inline-block; padding: 10px 25px; border-radius: 30px; background: rgba(255,255,255,0.15); color: #fbe9f6; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(5px); cursor: pointer; transition: all 0.3s ease;" class="lang-btn mce-item-anchor" id="lang-en"></a> English</div></div></div>
+
+rsvp:
+<div class="keditable keditable-auto mce-content-body">
+  <div style="max-width: 650px; margin: 40px auto; padding: 20px; font-family: 'Georgia', 'Times New Roman', serif;">
+    <div style="background-color: #ffffff; border-radius: 20px; padding: 50px 30px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); text-align: center;">
+
+      <p data-en="Kindly Respond" data-it="Rispondeteci" data-fr="Répondez-nous" style="color: #c97a8b; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; font-weight: bold;">Répondez-nous</p>
+
+      <p data-en="To best prepare this day and offer you an unforgettable moment, we kindly ask you to answer a few questions in the form below." data-it="Per preparare al meglio questa giornata e offrirvi un momento indimenticabile, vi preghiamo di rispondere ad alcune domande nel modulo qui sotto." data-fr="Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous." style="color: #444; font-size: 20px; line-height: 1.5; max-width: 480px; margin-left: auto; margin-right: auto; margin-bottom: 35px;">Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.</p>
+
+      <a href="https://forms.gle/cb4UtLiYa36DxSkZ7" style="display: inline-block; background-color: #e0b0b9; color: white; padding: 16px 50px; border-radius: 50px; text-decoration: none; font-size: 22px; font-weight: bold; letter-spacing: 5px; border: none; box-shadow: 0 8px 20px rgba(224, 176, 185, 0.5); transition: all 0.3s ease;">RSVP</a>
+
+      <p style="color: #d4a0ae; font-size: 22px; letter-spacing: 8px; margin-top: 30px; margin-bottom: 0;">✦ ✦ ✦</p>
+
+    </div>
+  </div>
+</div>
+
+programme : 
+<div class="keditable keditable-auto mce-content-body">
+  <div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: 'Georgia', 'Times New Roman', serif; color: #333;">
+
+    
+    <div style="background-color: #f7faf7; border-radius: 20px; padding: 35px 25px; margin-bottom: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e0ece0;">
+
+      <h2 data-en="Weekend Schedule" data-it="Programma del weekend" data-fr="Programme du week-end" style="color: #729b79; font-size: 28px; margin-bottom: 10px; font-weight: normal; letter-spacing: 1px;">Programme du week-end</h2>
+
+      <p data-en="The wedding will take place during the Ascension weekend of 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!" data-it="Il matrimonio si terrà durante il weekend dell'Ascensione 2027. Approfittate di questa occasione per passeggiare nelle strade di Roma prima della cerimonia!" data-fr="Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !" style="font-size: 16px; color: #666; max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 30px;">Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !</p>
+
+      
+      <div style="background-color: rgba(255,255,255,0.8); border-radius: 15px; padding: 25px; margin-bottom: 20px;">
+        <h3 data-en="Saturday, May 8, 2027" data-it="Sabato 8 maggio 2027" data-fr="Samedi 8 mai 2027" style="color: #5f8b62; font-size: 22px; margin-bottom: 20px; font-weight: normal; border-bottom: 1px solid #d0e8d0; padding-bottom: 10px;">Samedi 8 mai 2027</h3>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">15h00</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span data-en="Guest Welcome" data-it="Accoglienza degli invitati" data-fr="Accueil des invités" style="width: 200px; text-align: right;">Accueil des invités</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">16h00</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span data-en="Wedding Ceremony" data-it="Cerimonia di matrimonio" data-fr="Cérémonie de mariage" style="width: 200px; text-align: right;">Cérémonie de mariage</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">19h00</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span data-en="Dinner &amp; Desserts" data-it="Cena e dessert" data-fr="Dîner et desserts" style="width: 200px; text-align: right;">Dîner et desserts</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">21h00</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span data-en="Dance Party" data-it="Serata da ballo" data-fr="Soirée dansante" style="width: 200px; text-align: right;">Soirée dansante</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 70px; text-align: left;">02h00</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span data-en="End of Festivities" data-it="Fine dei festeggiamenti" data-fr="Fin des festivités" style="width: 200px; text-align: right;">Fin des festivités</span>
+        </div>
+      </div>
+
+      
+      <div style="background-color: rgba(255,255,255,0.8); border-radius: 15px; padding: 25px;">
+        <h3 data-en="Sunday, May 9, 2027" data-it="Domenica 9 maggio 2027" data-fr="Dimanche 9 mai 2027" style="color: #5f8b62; font-size: 22px; margin-bottom: 20px; font-weight: normal; border-bottom: 1px solid #d0e8d0; padding-bottom: 10px;">Dimanche 9 mai 2027</h3>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 90px; text-align: left;">6h – 11h</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span data-en="Breakfast" data-it="Colazione" data-fr="Petit-déjeuner" style="width: 180px; text-align: right;">Petit-déjeuner</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #444;">
+          <span style="font-weight: bold; color: #4a704d; width: 90px; text-align: left;">11h00</span>
+          <span style="flex-grow: 1; text-align: center; color: #c0d6c0; font-size: 14px;">··········</span>
+          <span style="width: 180px; text-align: right;">Check-out</span>
+        </div>
+      </div>
+    </div>
+
+    
+    <div style="background-color: #f9f7fb; border-radius: 20px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e8e0ef;">
+      <h2 data-en="Dress Code" data-it="Codice vestimentario" data-fr="Code vestimentaire" style="color: #8e7ba5; font-size: 28px; margin-bottom: 20px; font-weight: normal; letter-spacing: 1px;">Code vestimentaire</h2>
+
+      <div style="background-color: rgba(255,255,255,0.7); border-radius: 15px; padding: 25px;">
+        <p data-en="The wedding theme is &lt;strong style='color: #9b7ead;'&gt;pastel, floral and beige&lt;/strong&gt;,&lt;br&gt;but feel free to wear the colors that make you feel most comfortable." data-it="Il tema del matrimonio è &lt;strong style='color: #9b7ead;'&gt;pastello, floreale e beige&lt;/strong&gt;,&lt;br&gt;ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio." data-fr="Le thème du mariage est &lt;strong style='color: #9b7ead;'&gt;pastel, floral et beige&lt;/strong&gt;,&lt;br&gt;mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise." style="font-size: 16px; color: #555; line-height: 1.6;">Le thème du mariage est <strong style="color: #9b7ead;">pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+lieu : 
+<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: 'Georgia', 'Times New Roman', serif;">
+    <div style="background-color: #ffffff; border-radius: 20px; padding: 35px 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+        <h2 style="color: #8fbc8f; font-size: 28px; margin-bottom: 5px; font-weight: normal; letter-spacing: 3px; text-transform: uppercase;">Le lieu</h2>
+        <p style="color: #999; font-size: 14px; margin-bottom: 25px;">Borgo di Tragliata, Rome</p>
+        
+        
+        <p style="font-size: 16px; color: #555; margin-bottom: 12px; line-height: 1.6;">
+            Le <strong style="color: #8fbc8f;">Borgo di Tragliata</strong> est situé à environ
+            <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).
+        </p>
+        <p style="font-size: 14px; color: #777; font-style: italic; margin-bottom: 25px;">
+            Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.
+        </p>
+        <div style="border-radius: 15px; overflow: hidden;">
+            {%map%}
+        </div>
+    </div>
+</div>
+
+contact :
+<div class="row justify-content-center align-contents-center mx-5 mx-md-0 skiptranslate">
+<div class="col-12 col-md-auto d-flex align-items-center">
+    <span class="me-1 ms-0 koIconHolder koIconStyle5 koIconSquare koIconSize100"><i class="koIcon fas fa-phone"></i></span> <div class="keditable me-5 ms-3 mce-content-body"><p><br>(+39) 06 66.87.267</p></div>
+</div>
+<div class="col-12 col-md-auto d-flex align-items-center my-4 my-md-0">
+    <span class="me-1 ms-0 koIconHolder koIconStyle5 koIconSquare koIconSize100"><i class="koIcon fas fa-envelope"></i></span> <div class="keditable me-5 ms-3 mce-content-body"><p><br>info@tragliata.it</p></div>
+</div>
+<div class="col-12 col-md-auto d-flex align-items-center">
+    <span class="me-1 ms-0 koIconHolder koIconStyle5 koIconSquare koIconSize100"><i class="koIcon fas fa-map-marker-alt"></i></span> <div class="keditable ms-3 mce-content-body"><p><br>Borgo di Tragliata<br>Via Casale di Tragliata, 00054 Fiumicino RM, Italy</p></div>
+</div>
+</div>
+
+
+countdown:
+<div class="no-container">
+    
+        <div data-aos="fade-up" class="keditable text-center mce-content-body"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aboreto&amp;subset=latin,latin-ext"><h1 data-font="Aboreto" style="font-family: Aboreto;"><span style="color: #9881e9;">L'amour nous emmène en Italie dans...</span></h1></div>
+
+        <div data-value="2027-05-08T16:30:00+0100" data-app="countdown" class="kapp"></div>
+
+Notre nouveau site est presque parfait mais il doit être améliorer. 
+Déjà le fond des sections rsvp, programme et lieu ne devraient pas être colorié, seulement le pannel.
+Ensuite l'image de fond devrait être fixe, si on dézoome ça déforme le ration fond/pannel et ça rend pas bien.
+le boutton resvp pourrait être un poil plus mis en avant histoire de faire comprendre lâppel à l'action, mentionner quil faut répondre avant le 01 octobre 2026.
