@@ -140,4 +140,4 @@ countdown:
 Notre nouveau site est presque parfait mais il doit être améliorer. 
 Déjà le fond des sections rsvp, programme et lieu ne devraient pas être colorié, seulement le pannel.
 Ensuite l'image de fond devrait être fixe, si on dézoome ça déforme le ration fond/pannel et ça rend pas bien.
-le boutton resvp pourrait être un poil plus mis en avant histoire de faire comprendre lâppel à l'action, mentionner quil faut répondre avant le 01 octobre 2026.
+le boutton resvp pourrait être un poil plus mis en avant histoire de faire comprendre lâppel à l'action, mentionner quil faut répondre avant le 31 octobre 2026.
