@@ -1,976 +1,1940 @@
-<!DOCTYPE html>  
-<html lang="fr">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Mariage Teresa & Boris</title>  
-  
-    <link rel="preconnect" href="https://fonts.googleapis.com">  
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">  
-    <!-- Ajout de FontAwesome pour les icônes de contact -->  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
-  
-    <style>  
-        /* ==================== RESET ==================== */  
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }  
-  
-        body {  
-            background-color: #ffffff; /* NOUVEAU : Fond blanc pour les bandes sur le côté */
-            font-family: 'Cormorant Garamond', 'Georgia', serif;  
-            color: #333;  
-            overflow-x: hidden;  
-        }  
-        
-        /* NOUVEAU : Le conteneur principal qui crée l'effet parchemin */
+Voici le code complet mis à jour. Le message concernant les paiements hors zone SEPA a été supprimé et le titre est maintenant **Paiement en euros (SEPA)** dans les trois langues.
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage Teresa & Boris</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== RESET ==================== */
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #333;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            overflow-x: hidden;
+        }
+
         .site-wrapper {
-            max-width: 1200px; /* Tu peux ajuster cette valeur (ex: 1024px, 1440px) selon le ratio de tes images */
-            margin: 0 auto; /* Centre le site horizontalement */
-            background-color: #faf9f7; /* L'ancienne couleur de fond du site */
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.15); /* La petite ombre sur les côtés */
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #faf9f7;
+            box-shadow: 0 0 40px rgba(0, 0, 0, .15);
             position: relative;
             overflow: hidden;
         }
-  
-        /* ==================== SECTIONS FOND ==================== */  
-        .section-bg {  
-            position: relative;  
-            background-size: cover;  
-            background-position: center;  
-            background-repeat: no-repeat;  
-            display: flex;  
-            flex-direction: column;  
-            justify-content: center;  
-            align-items: center;  
-        }  
-  
-        .section-bg::before {  
-            content: '';  
-            position: absolute;  
-            inset: 0;  
-            z-index: 1;  
-            pointer-events: none;  
-        }  
-  
-        .section-bg > * {  
-            position: relative;  
-            z-index: 10;  
-        }  
-  
-        /* ==================== ACCUEIL ==================== */  
-        .section-accueil {  
-            min-height: 100vh;  
-            background-image: url('accueil.jpg');  
-            text-align: center;  
-        }  
-  
-        .section-accueil::before {  
-            background: linear-gradient(to bottom,  
-                rgba(20,15,25,0.40),  
-                rgba(20,15,25,0.55));  
-        }  
-  
-        .section-accueil::after {  
-            content: '';  
-            position: absolute;  
-            inset: 0;  
-            box-shadow: inset 0 0 180px rgba(0,0,0,0.4);  
-            z-index: 2;  
-            pointer-events: none;  
-        }  
-  
-        .accueil-content { padding: 40px 30px; max-width: 750px; }  
-  
-        .names {  
-            font-family: 'Cinzel', serif;  
-            color: #c4d8e8;  
-            font-size: clamp(12px, 2.2vw, 17px);  
-            letter-spacing: 5px;  
-            text-transform: uppercase;  
-            margin-bottom: 20px;  
-            text-shadow: 0 2px 15px rgba(0,0,0,0.5);  
-        }  
-  
-        .welcome-title {  
-            font-family: 'Aboreto', serif;  
-            color: #fbe9f6;  
-            font-size: clamp(30px, 7vw, 60px);  
-            font-weight: 400;  
-            margin: 0 0 10px;  
-            line-height: 1.2;  
-            text-shadow: 0 3px 25px rgba(0,0,0,0.5);  
-        }  
-  
-        .divider {  
-            display: flex;  
-            align-items: center;  
-            justify-content: center;  
-            gap: 14px;  
-            margin: 25px 0;  
-        }  
-        .divider-line {  
-            width: 50px;  
-            height: 1px;  
-            background: linear-gradient(90deg, transparent, rgba(196,216,232,0.5), transparent);  
-        }  
-        .divider-diamond {  
-            width: 8px; height: 8px;  
-            border: 1px solid rgba(196,216,232,0.5);  
-            transform: rotate(45deg);  
-        }  
-        .divider-dot {  
-            width: 5px; height: 5px;  
-            background: rgba(224,176,185,0.6);  
-            border-radius: 50%;  
-        }  
-  
-        .date-box {  
-            color: #fbe9f6;  
-            border-left: 1px solid rgba(196,216,232,0.4);  
-            padding-left: 25px;  
-            text-align: left;  
-            font-size: clamp(16px, 2.5vw, 20px);  
-            line-height: 2;  
-            display: inline-block;  
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);  
-        }  
-        .date-box p { margin: 0; letter-spacing: 2px; }  
-        .date-main { font-weight: 600; font-size: clamp(17px, 2.5vw, 21px); }  
-  
-        /* Boutons langue */  
-        .lang-buttons {  
-            margin-top: 40px;  
-            display: flex;  
-            gap: 15px;  
-            justify-content: center;  
-            flex-wrap: wrap;  
-        }  
-        .lang-btn {  
-            cursor: pointer;  
-            padding: 10px 28px;  
-            border-radius: 30px;  
-            background: rgba(255,255,255,0.08);  
-            color: #fbe9f6;  
-            text-decoration: none;  
-            font-family: 'Cormorant Garamond', serif;  
-            font-size: 17px;  
-            letter-spacing: 1px;  
-            border: 1px solid rgba(255,255,255,0.2);  
-            backdrop-filter: blur(10px);  
-            -webkit-backdrop-filter: blur(10px);  
-            transition: all 0.3s;  
-            display: inline-block;  
-        }  
-        .lang-btn:hover {  
-            background: rgba(255,255,255,0.2);  
-            transform: translateY(-2px);  
-        }  
-        .lang-btn.active {  
-            background: rgba(224,176,185,0.25);  
-            border-color: rgba(224,176,185,0.5);  
-        }  
-  
-        .scroll-hint {  
-            position: absolute;  
-            bottom: 30px;  
-            left: 50%;  
-            transform: translateX(-50%);  
-            z-index: 10;  
-            animation: gentleBounce 2.5s ease infinite;  
-            color: rgba(251,233,246,0.6);  
-            font-size: 13px;  
-            letter-spacing: 3px;  
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);  
-        }  
-        @keyframes gentleBounce {  
-            0%,100% { transform: translateX(-50%) translateY(0); }  
-            50% { transform: translateX(-50%) translateY(8px); }  
-        }  
-  
-        /* ==================== RSVP ==================== */  
-        .section-rsvp {  
-            min-height: 100vh;  
-            background-image: url('rsvp.jpg');  
-            padding: 80px 20px;  
-        }  
-  
-        .rsvp-card {  
-            max-width: 650px; width: 100%;  
-            background: rgba(255,255,255,0.95);  
-            border-radius: 20px;  
-            padding: 50px 30px;  
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);  
-            text-align: center;  
-            backdrop-filter: blur(10px);  
-        }  
-        .rsvp-title {  
-            color: #c97a8b;  
-            font-size: 24px;  
-            letter-spacing: 4px; text-transform: uppercase;  
-            font-weight: bold; margin-bottom: 20px;  
-        }  
-        .rsvp-text {  
-            color: #444; font-size: 20px; line-height: 1.5;  
-            max-width: 480px; margin: 0 auto 20px;  
-        }  
-        .rsvp-deadline {  
-            color: #b05c70; font-size: 18px; font-weight: bold;  
-            margin-bottom: 35px;  
-        }  
-          
-        .rsvp-btn {  
-            display: inline-block;  
-            background: linear-gradient(135deg, #d4798c, #c55a71);  
-            color: white; padding: 18px 60px;  
-            border-radius: 50px; text-decoration: none;  
-            font-size: 24px; font-weight: bold;  
-            letter-spacing: 5px;  
-            box-shadow: 0 8px 25px rgba(197, 90, 113, 0.5);  
-            transition: all 0.3s ease;  
-            animation: pulse-btn 2s infinite;  
-        }  
-        .rsvp-btn:hover {  
-            transform: translateY(-3px) scale(1.05);  
-            box-shadow: 0 12px 30px rgba(197, 90, 113, 0.7);  
-        }  
-        @keyframes pulse-btn {  
-            0% { box-shadow: 0 0 0 0 rgba(212, 121, 140, 0.6); }  
-            70% { box-shadow: 0 0 0 15px rgba(212, 121, 140, 0); }  
-            100% { box-shadow: 0 0 0 0 rgba(212, 121, 140, 0); }  
-        }  
-        .ornament-stars {  
-            color: #d4a0ae; font-size: 22px;  
-            letter-spacing: 8px; margin-top: 30px;  
-        }  
-  
-        /* ==================== PROGRAMME ==================== */  
-        .section-programme {  
-            min-height: 100vh;  
-            background-image: url('programme.jpg');  
-            padding: 80px 20px;  
-        }  
-  
-        .programme-wrapper { max-width: 700px; width: 100%; }  
-  
-        .section-card {  
-            border-radius: 20px; padding: 35px 25px;  
-            margin-bottom: 30px;  
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);  
-            backdrop-filter: blur(8px);  
-        }  
-  
-        .program-card {  
-            background: rgba(247,250,247,0.93);  
-            border: 1px solid rgba(224,236,224,0.6);  
-            text-align: center;  
-        }  
-        .program-card h2 {  
-            color: #729b79;  
-            font-size: 38px;  
-            font-weight: normal; letter-spacing: 1px; margin-bottom: 10px;  
-        }  
-        .program-desc {  
-            font-size: 16px; color: #666;  
-            max-width: 500px; margin: 0 auto 30px; line-height: 1.5;  
-        }  
-  
-        .day-block {  
-            background: rgba(255,255,255,0.85);  
-            border-radius: 15px; padding: 25px;  
-            margin-bottom: 20px; text-align: left;  
-        }  
-        .day-block:last-child { margin-bottom: 0; }  
-        .day-block h3 {  
-            color: #5f8b62; font-size: 22px;  
-            font-weight: normal;  
-            border-bottom: 1px solid #d0e8d0;  
-            padding-bottom: 10px; margin-bottom: 20px;  
-        }  
-        .event-row {  
-            display: flex; justify-content: space-between;  
-            align-items: center; margin-bottom: 12px;  
-            font-size: 16px; color: #444;  
-        }  
-        .event-row:last-child { margin-bottom: 0; }  
-        .event-time {  
-            font-weight: bold; color: #4a704d;  
-            min-width: 70px; text-align: left;  
-        }  
-        .event-dots {  
-            flex-grow: 1; text-align: center;  
-            color: #c0d6c0; font-size: 14px;  
-            letter-spacing: 3px; padding: 0 10px;  
-        }  
-        .event-label { min-width: 180px; text-align: right; }  
-  
-        /* Dress code */  
-        .dress-card {  
-            background: rgba(249,247,251,0.93);  
-            border: 1px solid rgba(232,224,239,0.6);  
-            text-align: center;  
-        }  
-        .dress-card h2 {  
-            color: #8e7ba5;  
-            font-size: 38px;  
-            font-weight: normal; letter-spacing: 1px; margin-bottom: 20px;  
-        }  
-        .dress-inner {  
-            background: rgba(255,255,255,0.7);  
-            border-radius: 15px; padding: 25px;  
-        }  
-        .dress-inner p { font-size: 16px; color: #555; line-height: 1.6; }  
-  
-        /* ==================== LIEU & CONTACT ==================== */  
-        .section-lieu {  
-            min-height: 100vh;  
-            background-image: url('lieu.jpg');  
-            padding: 80px 20px;  
-        }  
-  
-        .location-card { max-width: 700px; width: 100%; }  
-        .location-inner {  
-            background: rgba(255,255,255,0.93);  
-            border-radius: 20px; padding: 35px 25px;  
-            text-align: center;  
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);  
-            backdrop-filter: blur(8px);  
-        }  
-        .location-inner h2 {  
-            color: #8fbc8f;  
-            font-size: 38px;  
-            font-weight: normal; letter-spacing: 3px;  
-            text-transform: uppercase; margin-bottom: 5px;  
-        }  
-        .location-subtitle { color: #999; font-size: 14px; margin-bottom: 25px; }  
-        .location-text { font-size: 16px; color: #555; margin-bottom: 12px; line-height: 1.6; }  
-        .location-note { font-size: 14px; color: #777; font-style: italic; margin-bottom: 25px; }  
-        .map-container { border-radius: 15px; overflow: hidden; height: 350px; }  
-        .map-container iframe { width: 100%; height: 100%; border: 0; }  
-  
-        /* Section Contact Stylisée */  
-        .contact-box {  
-            background: rgba(247,250,247,0.93);  
-            border: 1px solid rgba(224,236,224,0.6);  
-            border-radius: 20px;  
-            padding: 30px 25px;  
-            margin-top: 30px;  
-            text-align: center;  
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);  
-            backdrop-filter: blur(8px);  
-        }  
-        .contact-box h3 {  
-            color: #729b79;  
-            font-size: 28px;  
-            font-weight: normal;  
-            margin-bottom: 25px;  
-        }  
-        .contact-grid {  
-            display: flex;  
-            flex-direction: column;  
-            gap: 15px;  
-            font-size: 18px;  
-            color: #444;  
-            max-width: 450px;  
-            margin: 0 auto;  
-        }  
-        .contact-item {  
-            display: flex;  
-            align-items: center;  
-            gap: 15px;  
-            text-align: left;  
-        }  
-        .contact-item i {  
-            color: #8fbc8f;  
-            font-size: 24px;  
-            min-width: 30px;  
-            text-align: center;  
-        }  
-        .contact-item p { margin: 0; line-height: 1.4; }  
-        .contact-divider {  
-            width: 100%; height: 1px;  
-            background: #d0e8d0;  
-            margin: 10px 0;  
-        }  
-        .contact-us i { color: #d4a0ae; }  
-  
-        /* ==================== COUNTDOWN FLIP ==================== */  
-        .section-countdown {  
-            min-height: 100vh;  
-            background-image: url('countdown.jpg');  
-            padding: 80px 20px;  
-        }  
-        .section-countdown::before {  
-            background: linear-gradient(to bottom,  
-                rgba(15,15,25,0.55),  
-                rgba(15,15,25,0.60));  
-        }  
-  
-        .countdown-content {  
-            text-align: center;  
-            width: 100%; max-width: 800px;  
-        }  
-        .countdown-content h1 {  
-            font-family: 'Aboreto', serif;  
-            color: #e0d0f0;  
-            font-size: clamp(22px, 4vw, 36px);  
-            font-weight: 400;  
-            margin-bottom: 50px;  
-            text-shadow: 0 2px 15px rgba(0,0,0,0.4);  
-        }  
-  
-        /* --- Flip Clock --- */  
-        :root {  
-            --card-w: 100px;  
-            --card-h: 120px;  
-            --card-font: 60px;  
-            --card-radius: 10px;  
-            --sep-size: 22px;  
-        }  
-  
-        .flip-clock {  
-            display: flex;  
-            justify-content: center;  
-            align-items: flex-start;  
-            gap: 12px;  
-            flex-wrap: wrap;  
-        }  
-  
-        .flip-group {  
-            display: flex;  
-            flex-direction: column;  
-            align-items: center;  
-            gap: 10px;  
-        }  
-  
-        .flip-label {  
-            font-family: 'Cormorant Garamond', serif;  
-            font-size: 13px;  
-            letter-spacing: 3px;  
-            text-transform: uppercase;  
-            color: rgba(255,255,255,0.45);  
-        }  
-  
-        .flip-card {  
-            position: relative;  
-            width: var(--card-w);  
-            height: var(--card-h);  
-            perspective: 400px;  
-            border-radius: var(--card-radius);  
-        }  
-  
-        .flip-card::before,  
-        .flip-card::after {  
-            content: '';  
-            position: absolute;  
-            top: 50%;  
-            width: 8px; height: 8px;  
-            background: #0e0e1a;  
-            border-radius: 50%;  
-            z-index: 30;  
-            transform: translateY(-50%);  
-        }  
-        .flip-card::before { left: -4px; }  
-        .flip-card::after  { right: -4px; }  
-  
-        .card-top, .card-bottom, .card-flip-top, .card-flip-bottom {  
-            position: absolute; left: 0; width: 100%; height: 50%; overflow: hidden;  
-        }  
-        .card-top, .card-flip-top {  
-            top: 0; background: linear-gradient(180deg, #2c2c42, #262640);  
-            border-radius: var(--card-radius) var(--card-radius) 0 0; border-bottom: 1px solid rgba(0,0,0,0.6);  
-        }  
-        .card-bottom, .card-flip-bottom {  
-            bottom: 0; background: linear-gradient(180deg, #22223a, #1c1c32);  
-            border-radius: 0 0 var(--card-radius) var(--card-radius);  
-        }  
-  
-        .card-top .num, .card-flip-top .num, .card-bottom .num, .card-flip-bottom .num {  
-            position: absolute; left: 0; width: 100%; font-family: 'Georgia', serif;  
-            font-size: var(--card-font); font-weight: bold; color: #f0e8ff; text-align: center;  
-            height: var(--card-h); line-height: var(--card-h);  
-        }  
-        .card-top .num, .card-flip-top .num { top: 0; }  
-        .card-bottom .num, .card-flip-bottom .num { bottom: 0; }  
-  
-        .flip-card .card-line {  
-            position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(0,0,0,0.7);  
-            z-index: 25; pointer-events: none; transform: translateY(-0.5px);  
-        }  
-        .flip-card .card-shadow {  
-            position: absolute; top: 50%; left: 0; width: 100%; height: 10px;  
-            background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent); z-index: 24; pointer-events: none; transform: translateY(-10px);  
-        }  
-  
-        .card-flip-top { z-index: 20; transform-origin: bottom center; backface-visibility: hidden; visibility: hidden; }  
-        .card-flip-bottom { z-index: 20; transform-origin: top center; transform: rotateX(90deg); backface-visibility: hidden; visibility: hidden; }  
-  
-        @keyframes flipTopDown { from { transform: rotateX(0deg); } to { transform: rotateX(-90deg); } }  
-        @keyframes flipBottomUp { from { transform: rotateX(90deg); } to { transform: rotateX(0deg); } }  
-  
-        .flip-sep {  
-            font-family: 'Georgia', serif; font-size: var(--sep-size); color: rgba(240,232,255,0.25);  
-            align-self: flex-start; margin-top: calc(var(--card-h) / 2 - var(--sep-size) / 2); line-height: 1;  
-        }  
-  
-        /* ==================== RESPONSIVE ==================== */  
-        @media (max-width: 768px) {  
-            :root {  
-                --card-w: 75px; --card-h: 95px; --card-font: 46px; --card-radius: 8px; --sep-size: 18px;  
-            }  
-            .flip-clock { gap: 8px; }  
-            .event-row { font-size: 15px; }  
-            .event-label { min-width: 130px; }  
-            .event-time { min-width: 55px; }  
-        }  
-  
-        @media (max-width: 480px) {  
-            :root {  
-                --card-w: 60px; --card-h: 78px; --card-font: 36px; --card-radius: 7px; --sep-size: 15px;  
-            }  
-            .flip-clock { gap: 5px; }  
-            .flip-label { font-size: 11px; letter-spacing: 2px; }  
-            .event-row { font-size: 14px; }  
-            .event-label { min-width: 110px; }  
-            .lang-buttons { gap: 10px; }  
-            .lang-btn { padding: 8px 20px; font-size: 15px; }  
-            .accueil-content { padding: 30px 20px; }  
-        }  
-  
-        /* ==================== FOOTER ==================== */  
-        footer {  
-            text-align: center;  
-            padding: 40px;  
-            background: #1a1a28;  
-            color: rgba(255,255,255,0.5);  
-            font-size: 22px;  
-            font-family: 'Cinzel', serif;  
-            letter-spacing: 2px;  
-        }  
-    </style>  
-</head>  
-<body>  
-  
-    <!-- NOUVEAU CONTENEUR POUR L'EFFET PARCHEMIN -->
-    <div class="site-wrapper">
 
-        <!-- ===================== ZONE 1 : ACCUEIL ===================== -->  
-        <div class="section-bg section-accueil">  
-            <div class="accueil-content">  
-                <p class="names">Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV</p>  
-                <h1 class="welcome-title" data-i18n="welcome">Bienvenue à notre mariage</h1>  
-        
-                <div class="divider">  
-                    <span class="divider-line"></span>  
-                    <span class="divider-dot"></span>  
-                    <span class="divider-diamond"></span>  
-                    <span class="divider-dot"></span>  
-                    <span class="divider-line"></span>  
-                </div>  
-        
-                <div class="date-box">  
-                    <p class="date-main" data-i18n="date">Samedi 08 MAI 2027</p>  
-                    <p>🏰 Borgo di Tragliata</p>  
-                    <p data-i18n="time">À partir de 16h00</p>  
-                </div>  
-        
-                <div class="lang-buttons">  
-                    <a class="lang-btn active" onclick="changeLanguage('fr')" data-lang="fr">Français</a>  
-                    <a class="lang-btn"          onclick="changeLanguage('it')" data-lang="it">Italiano</a>  
-                    <a class="lang-btn"          onclick="changeLanguage('en')" data-lang="en">English</a>  
-                </div>  
-            </div>  
-            <div class="scroll-hint">▼</div>  
-        </div>  
-        
-        <!-- ===================== ZONE 2 : RSVP ===================== -->  
-        <div class="section-bg section-rsvp">  
-            <div class="rsvp-card">  
-                <p class="rsvp-title" data-i18n="rsvpTitle">Répondez-nous</p>  
-                <p class="rsvp-text" data-i18n="rsvpText">  
-                    Afin de préparer au mieux cette journée et de vous offrir un moment  
-                    inoubliable, nous vous prions de répondre à quelques questions dans  
-                    le formulaire ci-dessous.  
-                </p>  
-                  
-                <p class="rsvp-deadline" data-i18n="rsvpDeadline">  
-                    Merci de nous répondre avant le 01 octobre 2026.  
-                </p>  
-        
-                <a class="rsvp-btn" id="rsvpLink"  
-                   href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"  
-                   target="_blank">RSVP</a>  
-                <p class="ornament-stars">✦ ✦ ✦</p>  
-            </div>  
-        </div>  
-        
-        <!-- ===================== ZONE 3 : PROGRAMME ===================== -->  
-        <div class="section-bg section-programme">  
-            <div class="programme-wrapper">  
-                <div class="section-card program-card">  
-                    <h2 data-i18n="programTitle">Programme du week-end</h2>  
-                    <p class="program-desc" data-i18n="programDesc">  
-                        Le mariage se déroulera durant le week-end de l'Ascension 2027.  
-                        Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !  
-                    </p>  
-                    <div class="day-block">  
-                        <h3 data-i18n="sat">Samedi 8 mai 2027</h3>  
-                        <div class="event-row">  
-                            <span class="event-time">15h00</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sat1">Accueil des invités</span>  
-                        </div>  
-                        <div class="event-row">  
-                            <span class="event-time">16h00</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sat2">Cérémonie de mariage</span>  
-                        </div>  
-                        <div class="event-row">  
-                            <span class="event-time">19h00</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sat3">Dîner et desserts</span>  
-                        </div>  
-                        <div class="event-row">  
-                            <span class="event-time">21h00</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sat4">Soirée dansante</span>  
-                        </div>  
-                        <div class="event-row">  
-                            <span class="event-time">02h00</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sat5">Fin des festivités</span>  
-                        </div>  
-                    </div>  
-                    <div class="day-block">  
-                        <h3 data-i18n="sun">Dimanche 9 mai 2027</h3>  
-                        <div class="event-row">  
-                            <span class="event-time" style="min-width:90px">6h – 11h</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sun1">Petit-déjeuner</span>  
-                        </div>  
-                        <div class="event-row">  
-                            <span class="event-time">11h00</span>  
-                            <span class="event-dots">··········</span>  
-                            <span class="event-label" data-i18n="sun2">Check-out</span>  
-                        </div>  
-                    </div>  
-                </div>  
-        
-                <div class="section-card dress-card">  
-                    <h2 data-i18n="dressTitle">Code vestimentaire</h2>  
-                    <div class="dress-inner">  
-                        <p data-i18n="dressText">  
-                            Le thème du mariage est  
-                            <strong style="color:#9b7ead;">pastel, floral et beige</strong>,  
-                            <br>mais sentez-vous libres de porter les couleurs qui vous font  
-                            vous sentir le plus à votre aise.  
-                        </p>  
-                    </div>  
-                </div>  
-            </div>  
-        </div>  
-        
-        <!-- ===================== ZONE 4 : LIEU & CONTACT ===================== -->  
-        <div class="section-bg section-lieu">  
-            <div class="location-card">  
-                  
-                <!-- La Carte du Lieu -->  
-                <div class="location-inner">  
-                    <h2 data-i18n="locTitle">Le lieu</h2>  
-                    <p class="location-subtitle">Borgo di Tragliata, Rome</p>  
-                    <p class="location-text" data-i18n="locDesc1">  
-                        Le <strong style="color:#8fbc8f;">Borgo di Tragliata</strong> est situé  
-                        à environ <strong>30 minutes en voiture</strong> de l'aéroport  
-                        Rome Fiumicino (FCO).  
-                    </p>  
-                    <p class="location-note" data-i18n="locDesc2">  
-                        Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.  
-                    </p>  
-                      
-                    <!-- Nouvelle carte dézoomée avec épingle -->  
-                    <div class="map-container">  
-                        <iframe  
-                            src="https://maps.google.com/maps?q=Borgo%20di%20Tragliata,%20Via%20Casale%20di%20Tragliata,%2000054%20Fiumicino%20RM,%20Italy&t=&z=10&ie=UTF8&iwloc=&output=embed"  
-                            width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">  
-                        </iframe>  
-                    </div>  
-                </div>  
-        
-                <!-- La Section Contact -->  
-                <div class="contact-box">  
-                    <h3 data-i18n="contactTitle">Contact & Informations</h3>  
-                    <div class="contact-grid">  
-                          
-                        <div class="contact-item">  
-                            <i class="fas fa-map-marker-alt"></i>  
-                            <p><strong>Borgo di Tragliata</strong><br>Via Casale di Tragliata, 00054 Fiumicino RM, Italy</p>  
-                        </div>  
-                        <div class="contact-item">  
-                            <i class="fas fa-phone"></i>  
-                            <p>(+39) 06 66.87.267</p>  
-                        </div>  
-                        <div class="contact-item">  
-                            <i class="fas fa-envelope"></i>  
-                            <p>info@tragliata.it</p>  
-                        </div>  
-                          
-                        <div class="contact-divider"></div>  
-                          
-                        <div class="contact-item contact-us">  
-                            <i class="fas fa-envelope"></i>  
-                            <p><strong>Teresa & Boris :</strong><br>airbnt97@gmail.com</p>  
-                        </div>  
-        
-                    </div>  
-                </div>  
-        
-            </div>  
-        </div>  
-        
-        <!-- ===================== ZONE 5 : COUNTDOWN ===================== -->  
-        <div class="section-bg section-countdown">  
-            <div class="countdown-content">  
-                <h1 data-i18n="countdown">L'amour nous emmène en Italie dans...</h1>  
-        
-                <div class="flip-clock" id="flipClock">  
-        
-                    <div class="flip-group">  
-                        <div class="flip-card" id="card-days">  
-                            <div class="card-line"></div>  
-                            <div class="card-shadow"></div>  
-                            <div class="card-top"><span class="num">00</span></div>  
-                            <div class="card-bottom"><span class="num">00</span></div>  
-                            <div class="card-flip-top"><span class="num">00</span></div>  
-                            <div class="card-flip-bottom"><span class="num">00</span></div>  
-                        </div>  
-                        <span class="flip-label" data-i18n="labelDays">Jours</span>  
-                    </div>  
-        
-                    <span class="flip-sep">:</span>  
-        
-                    <div class="flip-group">  
-                        <div class="flip-card" id="card-hours">  
-                            <div class="card-line"></div>  
-                            <div class="card-shadow"></div>  
-                            <div class="card-top"><span class="num">00</span></div>  
-                            <div class="card-bottom"><span class="num">00</span></div>  
-                            <div class="card-flip-top"><span class="num">00</span></div>  
-                            <div class="card-flip-bottom"><span class="num">00</span></div>  
-                        </div>  
-                        <span class="flip-label" data-i18n="labelHours">Heures</span>  
-                    </div>  
-        
-                    <span class="flip-sep">:</span>  
-        
-                    <div class="flip-group">  
-                        <div class="flip-card" id="card-minutes">  
-                            <div class="card-line"></div>  
-                            <div class="card-shadow"></div>  
-                            <div class="card-top"><span class="num">00</span></div>  
-                            <div class="card-bottom"><span class="num">00</span></div>  
-                            <div class="card-flip-top"><span class="num">00</span></div>  
-                            <div class="card-flip-bottom"><span class="num">00</span></div>  
-                        </div>  
-                        <span class="flip-label" data-i18n="labelMinutes">Minutes</span>  
-                    </div>  
-        
-                    <span class="flip-sep">:</span>  
-        
-                    <div class="flip-group">  
-                        <div class="flip-card" id="card-seconds">  
-                            <div class="card-line"></div>  
-                            <div class="card-shadow"></div>  
-                            <div class="card-top"><span class="num">00</span></div>  
-                            <div class="card-bottom"><span class="num">00</span></div>  
-                            <div class="card-flip-top"><span class="num">00</span></div>  
-                            <div class="card-flip-bottom"><span class="num">00</span></div>  
-                        </div>  
-                        <span class="flip-label" data-i18n="labelSeconds">Secondes</span>  
-                    </div>  
-        
-                </div>  
-            </div>  
-        </div>  
-        
-        <!-- FOOTER -->  
-        <footer>  
-            <p>Made with ♥ for Teresa &amp; Boris — 2027</p>  
-        </footer>  
+        /* ==================== SECTIONS ==================== */
 
-    </div> <!-- FIN DU SITE WRAPPER -->
-  
-    <!-- ===================== SCRIPTS ===================== -->  
-    <script>  
-        const translations = {  
-            fr: {  
-                welcome: "Bienvenue à notre mariage",  
-                date: "Samedi 08 MAI 2027",  
-                time: "À partir de 16h00",  
-                rsvpTitle: "Répondez-nous",  
-                rsvpText: "Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.",  
-                rsvpDeadline: "Merci de nous répondre avant le 01 octobre 2026.",  
-                programTitle: "Programme du week-end",  
-                programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !",  
-                sat: "Samedi 8 mai 2027",  
-                sat1: "Accueil des invités", sat2: "Cérémonie de mariage",  
-                sat3: "Dîner et desserts", sat4: "Soirée dansante", sat5: "Fin des festivités",  
-                sun: "Dimanche 9 mai 2027", sun1: "Petit-déjeuner", sun2: "Check-out",  
-                dressTitle: "Code vestimentaire",  
-                dressText: "Le thème du mariage est <strong style='color:#9b7ead;'>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.",  
-                locTitle: "Le lieu",  
-                locDesc1: "Le <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",  
-                locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",  
-                contactTitle: "Contact & Informations",  
-                countdown: "L'amour nous emmène en Italie dans...",  
-                labelDays: "Jours", labelHours: "Heures",  
-                labelMinutes: "Minutes", labelSeconds: "Secondes",  
-                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"  
-            },  
-            it: {  
-                welcome: "Benvenuti al nostro<br>matrimonio", /* Correctif : forcé sur 2 lignes */  
-                date: "Sabato 08 MAGGIO 2027",  
-                time: "Dalle 16:00",  
-                rsvpTitle: "Rispondeteci",  
-                rsvpText: "Per organizzare al meglio questa giornata e offrirvi un momento indimenticabile, vi preghiamo di rispondere ad alcune domande nel modulo sottostante.",  
-                rsvpDeadline: "Vi preghiamo di risponderci entro il 01 ottobre 2026.",  
-                programTitle: "Programma del weekend",  
-                programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione 2027. Approfittate di questa occasione per passeggiare per le strade di Roma prima della cerimonia!",  
-                sat: "Sabato 8 maggio 2027",  
-                sat1: "Accoglienza degli ospiti", sat2: "Cerimonia di matrimonio",  
-                sat3: "Cena e dessert", sat4: "Serata danzante", sat5: "Fine dei festeggiamenti",  
-                sun: "Domenica 9 maggio 2027", sun1: "Colazione", sun2: "Check-out",  
-                dressTitle: "Dress code",  
-                dressText: "Il tema del matrimonio è <strong style='color:#9b7ead;'>pastello, floreale e beige</strong>,<br>ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio.",  
-                locTitle: "La location",  
-                locDesc1: "Il <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",  
-                locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",  
-                contactTitle: "Contatti & Informazioni",  
-                countdown: "L'amore ci porta in Italia tra...",  
-                labelDays: "Giorni", labelHours: "Ore",  
-                labelMinutes: "Minuti", labelSeconds: "Secondi",  
-                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfhyzz83kcDvGnq0SAU7t6LDZVKN6Ne09Qv4gQHHgEPcgkMAg/viewform?usp=header"  
-            },  
-            en: {  
-                welcome: "Welcome to our wedding",  
-                date: "Saturday, MAY 08, 2027",  
-                time: "From 4:00 PM",  
-                rsvpTitle: "RSVP",  
-                rsvpText: "To best prepare for this day and offer you an unforgettable moment, please answer a few questions in the form below.",  
-                rsvpDeadline: "Please kindly respond by October 01, 2026.",  
-                programTitle: "Weekend Program",  
-                programDesc: "The wedding will take place during the Ascension weekend 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!",  
-                sat: "Saturday, May 8, 2027",  
-                sat1: "Welcome of guests", sat2: "Wedding ceremony",  
-                sat3: "Dinner and desserts", sat4: "Dance party", sat5: "End of festivities",  
-                sun: "Sunday, May 9, 2027", sun1: "Breakfast", sun2: "Check-out",  
-                dressTitle: "Dress Code",  
-                dressText: "The wedding theme is <strong style='color:#9b7ead;'>pastel, floral, and beige</strong>,<br>but feel free to wear the colors that make you feel most comfortable.",  
-                locTitle: "The Venue",  
-                locDesc1: "<strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",  
-                locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",  
-                contactTitle: "Contact & Information",  
-                countdown: "Love takes us to Italy in...",  
-                labelDays: "Days", labelHours: "Hours",  
-                labelMinutes: "Minutes", labelSeconds: "Seconds",  
-                rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLScjINHqGInkGsfRKksbjNLIWzkMzjjN1DNtGCpRnSDENv7GOA/viewform?usp=header"  
-            }  
-        };  
-  
-        function changeLanguage(lang) {  
-            document.documentElement.lang = lang;  
-  
-            document.querySelectorAll('.lang-btn').forEach(btn => {  
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);  
-            });  
-  
-            document.querySelectorAll('[data-i18n]').forEach(el => {  
-                const key = el.getAttribute('data-i18n');  
-                if (translations[lang] && translations[lang][key]) {  
-                    el.innerHTML = translations[lang][key];  
-                }  
-            });  
-  
-            if (translations[lang] && translations[lang].rsvpUrl) {  
-                document.getElementById('rsvpLink').href = translations[lang].rsvpUrl;  
-            }  
-        }  
-  
-        /* FLIP CLOCK */  
-        const WEDDING = new Date("2027-05-08T16:00:00").getTime();  
-        const prev = {};  
-        const timeouts = {};  
-  
-        function pad(n, len) {  
-            return String(n).padStart(len, '0');  
-        }  
-  
-        function flipUnit(id, newValue, padLen) {  
-            const padded = pad(newValue, padLen);  
-            if (prev[id] === padded) return;  
-  
-            const card      = document.getElementById('card-' + id);  
-            const topStatic = card.querySelector('.card-top .num');  
-            const botStatic = card.querySelector('.card-bottom .num');  
-            const topFlip   = card.querySelector('.card-flip-top .num');  
-            const botFlip   = card.querySelector('.card-flip-bottom .num');  
-            const topFlap   = card.querySelector('.card-flip-top');  
-            const botFlap   = card.querySelector('.card-flip-bottom');  
-  
-            const oldValue = prev[id] || padded;  
-  
-            topStatic.textContent = padded;  
-            topFlip.textContent   = oldValue;  
-            botFlip.textContent   = padded;  
-  
-            topFlap.style.visibility = 'visible';  
-            botFlap.style.visibility = 'visible';  
-            topFlap.style.animation  = 'none';  
-            botFlap.style.animation  = 'none';  
-            void topFlap.offsetWidth;  
-  
-            topFlap.style.animation = 'flipTopDown 0.3s ease-in forwards';  
-            botFlap.style.animation = 'flipBottomUp 0.3s 0.3s ease-out forwards';  
-  
-            if (timeouts[id]) clearTimeout(timeouts[id]);  
-            timeouts[id] = setTimeout(() => {  
-                botStatic.textContent  = padded;  
-                topFlap.style.visibility = 'hidden';  
-                botFlap.style.visibility = 'hidden';  
-                topFlap.style.animation  = 'none';  
-                botFlap.style.animation  = 'none';  
-            }, 700);  
-  
-            prev[id] = padded;  
-        }  
-  
-        function tick() {  
-            const now = Date.now();  
-            const diff = WEDDING - now;  
-  
-            if (diff <= 0) {  
-                document.getElementById('flipClock').innerHTML =  
-                    '<h2 style="color:#f0e8ff;font-family:Aboreto,serif;font-size:clamp(22px,5vw,32px);">' +  
-                    '🎉 ' +  
-                    (document.documentElement.lang === 'it' ? 'È arrivato il grande giorno!' :  
-                     document.documentElement.lang === 'en' ? 'The big day is here!' :  
-                     "Le jour J est arrivé !") +  
-                    ' 🎉</h2>';  
-                clearInterval(timer);  
-                return;  
-            }  
-  
-            const d = Math.floor(diff / 86400000);  
-            const h = Math.floor((diff % 86400000) / 3600000);  
-            const m = Math.floor((diff % 3600000) / 60000);  
-            const s = Math.floor((diff % 60000) / 1000);  
-  
-            flipUnit('days',    d, 3);  
-            flipUnit('hours',   h, 2);  
-            flipUnit('minutes', m, 2);  
-            flipUnit('seconds', s, 2);  
-        }  
-  
-        tick();  
-        const timer = setInterval(tick, 1000);  
-    </script>  
-</body>  
+        .section-bg {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .section-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .section-bg > * {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ==================== ACCUEIL ==================== */
+
+        .section-accueil {
+            min-height: 100vh;
+            background-image: url('accueil.jpg');
+            text-align: center;
+        }
+
+        .section-accueil::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(20, 15, 25, .40),
+                rgba(20, 15, 25, .55)
+            );
+        }
+
+        .section-accueil::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            box-shadow: inset 0 0 180px rgba(0, 0, 0, .4);
+            pointer-events: none;
+        }
+
+        .accueil-content {
+            max-width: 750px;
+            padding: 40px 30px;
+        }
+
+        .names {
+            margin-bottom: 20px;
+            color: #c4d8e8;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(12px, 2.2vw, 17px);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, .5);
+        }
+
+        .welcome-title {
+            color: #fbe9f6;
+            font-family: 'Aboreto', serif;
+            font-size: clamp(30px, 7vw, 60px);
+            font-weight: 400;
+            line-height: 1.2;
+            text-shadow: 0 3px 25px rgba(0, 0, 0, .5);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 25px 0;
+        }
+
+        .divider-line {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(196, 216, 232, .5),
+                transparent
+            );
+        }
+
+        .divider-diamond {
+            width: 8px;
+            height: 8px;
+            border: 1px solid rgba(196, 216, 232, .5);
+            transform: rotate(45deg);
+        }
+
+        .divider-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(224, 176, 185, .6);
+            border-radius: 50%;
+        }
+
+        .date-box {
+            display: inline-block;
+            padding-left: 25px;
+            border-left: 1px solid rgba(196, 216, 232, .4);
+            color: #fbe9f6;
+            font-size: clamp(16px, 2.5vw, 20px);
+            line-height: 2;
+            text-align: left;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+        }
+
+        .date-box p {
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .date-main {
+            font-size: clamp(17px, 2.5vw, 21px);
+            font-weight: 600;
+        }
+
+        .lang-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .lang-btn {
+            display: inline-block;
+            padding: 10px 28px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .08);
+            color: #fbe9f6;
+            cursor: pointer;
+            font-size: 17px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            transition: .3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, .2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            border-color: rgba(224, 176, 185, .5);
+            background: rgba(224, 176, 185, .25);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            z-index: 10;
+            color: rgba(251, 233, 246, .6);
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+            transform: translateX(-50%);
+            animation: gentleBounce 2.5s ease infinite;
+        }
+
+        @keyframes gentleBounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
+        /* ==================== RSVP ==================== */
+
+        .section-rsvp {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background-image: url('rsvp.jpg');
+        }
+
+        .rsvp-card {
+            width: 100%;
+            max-width: 650px;
+            padding: 50px 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .95);
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .15);
+            backdrop-filter: blur(10px);
+        }
+
+        .rsvp-title {
+            margin-bottom: 20px;
+            color: #c97a8b;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .rsvp-text {
+            max-width: 480px;
+            margin: 0 auto 20px;
+            color: #444;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .rsvp-deadline {
+            margin-bottom: 35px;
+            color: #b05c70;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .rsvp-btn {
+            display: inline-block;
+            padding: 18px 60px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #d4798c, #c55a71);
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(197, 90, 113, .5);
+            transition: .3s;
+            animation: pulse-btn 2s infinite;
+        }
+
+        .rsvp-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        @keyframes pulse-btn {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 121, 140, .6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 121, 140, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 121, 140, 0);
+            }
+        }
+
+        .ornament-stars {
+            margin-top: 30px;
+            color: #d4a0ae;
+            font-size: 22px;
+            letter-spacing: 8px;
+        }
+
+        /* ==================== PROGRAMME ==================== */
+
+        .section-programme {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background-image: url('programme.jpg');
+        }
+
+        .programme-wrapper {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .section-card {
+            margin-bottom: 30px;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+            backdrop-filter: blur(8px);
+        }
+
+        .program-card {
+            border: 1px solid rgba(224, 236, 224, .6);
+            background: rgba(247, 250, 247, .93);
+            text-align: center;
+        }
+
+        .program-card h2,
+        .dress-card h2 {
+            margin-bottom: 20px;
+            font-size: 38px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .program-card h2 {
+            color: #729b79;
+        }
+
+        .program-desc {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .day-block {
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .85);
+            text-align: left;
+        }
+
+        .day-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-block h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #d0e8d0;
+            color: #5f8b62;
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .event-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 16px;
+        }
+
+        .event-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .event-time {
+            min-width: 70px;
+            color: #4a704d;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .event-dots {
+            flex-grow: 1;
+            padding: 0 10px;
+            color: #c0d6c0;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .event-label {
+            min-width: 180px;
+            text-align: right;
+        }
+
+        /* ==================== DRESS CODE ==================== */
+
+        .dress-card {
+            border: 1px solid rgba(232, 224, 239, .6);
+            background: rgba(249, 247, 251, .93);
+            text-align: center;
+        }
+
+        .dress-card h2 {
+            color: #8e7ba5;
+        }
+
+        .dress-inner,
+        .dress-note {
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .7);
+        }
+
+        .dress-inner p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .dress-note {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .dress-note-title {
+            margin-bottom: 12px;
+            color: #8e7ba5;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .dress-note ul {
+            list-style: none;
+        }
+
+        .dress-note li {
+            position: relative;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .dress-note li:last-child {
+            margin-bottom: 0;
+        }
+
+        .dress-note li::before {
+            content: '✦';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: #c4a0b0;
+            font-size: 10px;
+        }
+
+        /* ==================== LIEU ==================== */
+
+        .section-lieu {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background-image: url('lieu.jpg');
+        }
+
+        .location-card {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .location-inner,
+        .contact-box,
+        .gift-box {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+            backdrop-filter: blur(8px);
+        }
+
+        .location-inner {
+            padding: 35px 25px;
+            background: rgba(255, 255, 255, .93);
+            text-align: center;
+        }
+
+        .location-inner h2 {
+            margin-bottom: 5px;
+            color: #8fbc8f;
+            font-size: 38px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .location-subtitle {
+            margin-bottom: 25px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .location-text {
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .location-note {
+            margin-bottom: 25px;
+            color: #777;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .map-container {
+            height: 350px;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ==================== CONTACT ==================== */
+
+        .contact-box {
+            margin-top: 30px;
+            padding: 30px 25px;
+            border: 1px solid rgba(224, 236, 224, .6);
+            background: rgba(247, 250, 247, .93);
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 25px;
+            color: #729b79;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 450px;
+            margin: 0 auto;
+            color: #444;
+            font-size: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .contact-item i {
+            min-width: 30px;
+            color: #8fbc8f;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .contact-item p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .contact-divider {
+            width: 100%;
+            height: 1px;
+            margin: 10px 0;
+            background: #d0e8d0;
+        }
+
+        .contact-us i {
+            color: #d4a0ae;
+        }
+
+        /* ==================== CADEAUX ==================== */
+
+        .gift-box {
+            margin-top: 30px;
+            padding: 35px 25px;
+            border: 1px solid rgba(232, 224, 239, .6);
+            background: rgba(249, 247, 251, .95);
+            text-align: center;
+        }
+
+        .gift-box h3 {
+            margin-bottom: 20px;
+            color: #8e7ba5;
+            font-size: 32px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .gift-intro {
+            max-width: 590px;
+            margin: 0 auto 28px;
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .gift-intro strong {
+            color: #8e7ba5;
+        }
+
+        .payment-section {
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .75);
+            text-align: left;
+        }
+
+        .payment-section h4 {
+            margin-bottom: 20px;
+            color: #729b79;
+            font-size: 25px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .payment-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .payment-content.qr-right {
+            flex-direction: row-reverse;
+        }
+
+        .qr-placeholder {
+            flex: 0 0 190px;
+            width: 190px;
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px dashed #c4a0b0;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .8);
+        }
+
+        .qr-placeholder img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .payment-details {
+            flex: 1;
+            min-width: 0;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        .payment-line {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 7px;
+        }
+
+        .payment-label {
+            flex: 0 0 150px;
+            color: #729b79;
+            font-weight: bold;
+        }
+
+        .payment-value {
+            overflow-wrap: anywhere;
+        }
+
+        /* ==================== COUNTDOWN ==================== */
+
+        .section-countdown {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background-image: url('countdown.jpg');
+        }
+
+        .section-countdown::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 15, 25, .55),
+                rgba(15, 15, 25, .60)
+            );
+        }
+
+        .countdown-content {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .countdown-content h1 {
+            margin-bottom: 50px;
+            color: #e0d0f0;
+            font-family: 'Aboreto', serif;
+            font-size: clamp(22px, 4vw, 36px);
+            font-weight: 400;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, .4);
+        }
+
+        :root {
+            --card-w: 100px;
+            --card-h: 120px;
+            --card-font: 60px;
+            --card-radius: 10px;
+            --sep-size: 22px;
+        }
+
+        .flip-clock {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .flip-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flip-label {
+            color: rgba(255, 255, 255, .45);
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .flip-card {
+            position: relative;
+            width: var(--card-w);
+            height: var(--card-h);
+            border-radius: var(--card-radius);
+            perspective: 400px;
+        }
+
+        .flip-card::before,
+        .flip-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            z-index: 30;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #0e0e1a;
+            transform: translateY(-50%);
+        }
+
+        .flip-card::before {
+            left: -4px;
+        }
+
+        .flip-card::after {
+            right: -4px;
+        }
+
+        .card-top,
+        .card-bottom,
+        .card-flip-top,
+        .card-flip-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+        }
+
+        .card-top,
+        .card-flip-top {
+            top: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .6);
+            border-radius: var(--card-radius) var(--card-radius) 0 0;
+            background: linear-gradient(180deg, #2c2c42, #262640);
+        }
+
+        .card-bottom,
+        .card-flip-bottom {
+            bottom: 0;
+            border-radius: 0 0 var(--card-radius) var(--card-radius);
+            background: linear-gradient(180deg, #22223a, #1c1c32);
+        }
+
+        .card-top .num,
+        .card-bottom .num,
+        .card-flip-top .num,
+        .card-flip-bottom .num {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: var(--card-h);
+            color: #f0e8ff;
+            font-family: Georgia, serif;
+            font-size: var(--card-font);
+            font-weight: bold;
+            line-height: var(--card-h);
+            text-align: center;
+        }
+
+        .card-top .num,
+        .card-flip-top .num {
+            top: 0;
+        }
+
+        .card-bottom .num,
+        .card-flip-bottom .num {
+            bottom: 0;
+        }
+
+        .card-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 25;
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 0, 0, .7);
+        }
+
+        .card-shadow {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 24;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .12), transparent);
+            transform: translateY(-10px);
+        }
+
+        .card-flip-top {
+            z-index: 20;
+            visibility: hidden;
+            transform-origin: bottom center;
+            backface-visibility: hidden;
+        }
+
+        .card-flip-bottom {
+            z-index: 20;
+            visibility: hidden;
+            transform: rotateX(90deg);
+            transform-origin: top center;
+            backface-visibility: hidden;
+        }
+
+        @keyframes flipTopDown {
+            from {
+                transform: rotateX(0deg);
+            }
+
+            to {
+                transform: rotateX(-90deg);
+            }
+        }
+
+        @keyframes flipBottomUp {
+            from {
+                transform: rotateX(90deg);
+            }
+
+            to {
+                transform: rotateX(0deg);
+            }
+        }
+
+        .flip-sep {
+            align-self: flex-start;
+            margin-top: calc(var(--card-h) / 2 - var(--sep-size) / 2);
+            color: rgba(240, 232, 255, .25);
+            font-family: Georgia, serif;
+            font-size: var(--sep-size);
+            line-height: 1;
+        }
+
+        /* ==================== FOOTER ==================== */
+
+        footer {
+            padding: 40px;
+            background: #1a1a28;
+            color: rgba(255, 255, 255, .5);
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+
+        @media (max-width: 768px) {
+            :root {
+                --card-w: 75px;
+                --card-h: 95px;
+                --card-font: 46px;
+                --card-radius: 8px;
+                --sep-size: 18px;
+            }
+
+            .flip-clock {
+                gap: 8px;
+            }
+
+            .event-row {
+                font-size: 15px;
+            }
+
+            .event-label {
+                min-width: 130px;
+            }
+
+            .event-time {
+                min-width: 55px;
+            }
+
+            .payment-content,
+            .payment-content.qr-right {
+                flex-direction: column;
+            }
+
+            .qr-placeholder {
+                order: 0;
+                width: 190px;
+                height: 190px;
+            }
+
+            .payment-details {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --card-w: 60px;
+                --card-h: 78px;
+                --card-font: 36px;
+                --card-radius: 7px;
+                --sep-size: 15px;
+            }
+
+            .flip-clock {
+                gap: 5px;
+            }
+
+            .flip-label {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .event-row {
+                font-size: 14px;
+            }
+
+            .event-label {
+                min-width: 110px;
+            }
+
+            .lang-buttons {
+                gap: 10px;
+            }
+
+            .lang-btn {
+                padding: 8px 20px;
+                font-size: 15px;
+            }
+
+            .accueil-content {
+                padding: 30px 20px;
+            }
+
+            .payment-section {
+                padding: 18px;
+            }
+
+            .payment-line {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .payment-label {
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            footer {
+                padding: 30px 15px;
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <!-- ==================== ACCUEIL ==================== -->
+
+    <section class="section-bg section-accueil">
+        <div class="accueil-content">
+            <p class="names">
+                Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV
+            </p>
+
+            <h1 class="welcome-title" data-i18n="welcome">
+                Bienvenue à notre mariage
+            </h1>
+
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-dot"></span>
+                <span class="divider-diamond"></span>
+                <span class="divider-dot"></span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="date-box">
+                <p class="date-main" data-i18n="date">
+                    Samedi 08 MAI 2027
+                </p>
+
+                <p>🏰 Borgo di Tragliata</p>
+
+                <p data-i18n="time">
+                    À partir de 16h00
+                </p>
+            </div>
+
+            <div class="lang-buttons">
+                <a class="lang-btn active"
+                   onclick="changeLanguage('fr')"
+                   data-lang="fr">
+                    Français
+                </a>
+
+                <a class="lang-btn"
+                   onclick="changeLanguage('it')"
+                   data-lang="it">
+                    Italiano
+                </a>
+
+                <a class="lang-btn"
+                   onclick="changeLanguage('en')"
+                   data-lang="en">
+                    English
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-hint">▼</div>
+    </section>
+
+    <!-- ==================== RSVP ==================== -->
+
+    <section class="section-bg section-rsvp">
+        <div class="rsvp-card">
+            <p class="rsvp-title" data-i18n="rsvpTitle">
+                Répondez-nous
+            </p>
+
+            <p class="rsvp-text" data-i18n="rsvpText">
+                Afin de préparer au mieux cette journée et de vous offrir un moment
+                inoubliable, nous vous prions de répondre à quelques questions dans
+                le formulaire ci-dessous.
+            </p>
+
+            <p class="rsvp-deadline" data-i18n="rsvpDeadline">
+                Merci de nous répondre avant le 01 octobre 2026.
+            </p>
+
+            <a class="rsvp-btn"
+               id="rsvpLink"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
+               target="_blank">
+                RSVP
+            </a>
+
+            <p class="ornament-stars">✦ ✦ ✦</p>
+        </div>
+    </section>
+
+    <!-- ==================== PROGRAMME ==================== -->
+
+    <section class="section-bg section-programme">
+        <div class="programme-wrapper">
+
+            <div class="section-card program-card">
+                <h2 data-i18n="programTitle">
+                    Programme du week-end
+                </h2>
+
+                <p class="program-desc" data-i18n="programDesc">
+                    Le mariage se déroulera durant le week-end de l'Ascension 2027.
+                    Profitez de cette occasion pour flâner dans les rues de Rome
+                    avant la cérémonie !
+                </p>
+
+                <div class="day-block">
+                    <h3 data-i18n="sat">
+                        Samedi 8 mai 2027
+                    </h3>
+
+                    <div class="event-row">
+                        <span class="event-time">15h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat1">
+                            Accueil des invités
+                        </span>
+                    </div>
+
+                    <div class="event-row">
+                        <span class="event-time">16h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat2">
+                            Cérémonie de mariage
+                        </span>
+                    </div>
+
+                    <div class="event-row">
+                        <span class="event-time">19h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat3">
+                            Dîner et desserts
+                        </span>
+                    </div>
+
+                    <div class="event-row">
+                        <span class="event-time">21h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat4">
+                            Soirée dansante
+                        </span>
+                    </div>
+
+                    <div class="event-row">
+                        <span class="event-time">02h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sat5">
+                            Fin des festivités
+                        </span>
+                    </div>
+                </div>
+
+                <div class="day-block">
+                    <h3 data-i18n="sun">
+                        Dimanche 9 mai 2027
+                    </h3>
+
+                    <div class="event-row">
+                        <span class="event-time">6h – 11h</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sun1">
+                            Petit-déjeuner
+                        </span>
+                    </div>
+
+                    <div class="event-row">
+                        <span class="event-time">11h00</span>
+                        <span class="event-dots">··········</span>
+                        <span class="event-label" data-i18n="sun2">
+                            Check-out
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== CODE VESTIMENTAIRE ==================== -->
+
+            <div class="section-card dress-card">
+                <h2 data-i18n="dressTitle">
+                    Code vestimentaire
+                </h2>
+
+                <div class="dress-inner">
+                    <p data-i18n="dressText">
+                        Le thème du mariage est
+                        <strong style="color:#9b7ead;">
+                            pastel, floral et beige
+                        </strong>,
+                        <br>
+                        mais sentez-vous libres de porter les couleurs qui vous font
+                        vous sentir le plus à votre aise.
+                    </p>
+                </div>
+
+                <div class="dress-note">
+                    <p class="dress-note-title" data-i18n="dressNoteTitle">
+                        À noter pour votre confort :
+                    </p>
+
+                    <ul>
+                        <li data-i18n="dressNote1">
+                            <strong>Températures :</strong>
+                            comptez 20–25 °C en journée et 10–15 °C en soirée.
+                            Une petite jaquette ou veste de mi-saison est vivement
+                            conseillée pour profiter de la fête jusqu'au bout.
+                        </li>
+
+                        <li data-i18n="dressNote2">
+                            <strong>Météo :</strong>
+                            la cérémonie aura lieu en extérieur même en cas de pluie fine.
+                            Pensez à vérifier la météo le matin même et à prévoir un petit
+                            parapluie d'appoint.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIEU, CONTACT & CADEAUX ==================== -->
+
+    <section class="section-bg section-lieu">
+        <div class="location-card">
+
+            <!-- Lieu -->
+
+            <div class="location-inner">
+                <h2 data-i18n="locTitle">
+                    Le lieu
+                </h2>
+
+                <p class="location-subtitle">
+                    Borgo di Tragliata, Rome
+                </p>
+
+                <p class="location-text" data-i18n="locDesc1">
+                    Le <strong style="color:#8fbc8f;">Borgo di Tragliata</strong>
+                    est situé à environ <strong>30 minutes en voiture</strong>
+                    de l'aéroport Rome Fiumicino (FCO).
+                </p>
+
+                <p class="location-note" data-i18n="locDesc2">
+                    Le trafic romain pouvant être dense, prévoyez 1h à 2h
+                    depuis le centre-ville.
+                </p>
+
+                <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Borgo%20di%20Tragliata,%20Via%20Casale%20di%20Tragliata,%2000054%20Fiumicino%20RM,%20Italy&t=&z=10&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact -->
+
+            <div class="contact-box">
+                <h3 data-i18n="contactTitle">
+                    Contact & Informations
+                </h3>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+
+                        <p>
+                            <strong>Borgo di Tragliata</strong><br>
+                            Via Casale di Tragliata,
+                            00054 Fiumicino RM, Italy
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>(+39) 06 66.87.267</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@tragliata.it</p>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item contact-us">
+                        <i class="fas fa-envelope"></i>
+
+                        <p>
+                            <strong>Teresa & Boris :</strong><br>
+                            airbnt97@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cadeaux -->
+
+            <div class="gift-box">
+                <h3 data-i18n="giftTitle">
+                    Cadeaux
+                </h3>
+
+                <div class="gift-intro">
+                    <p data-i18n="giftIntro">
+                        Votre présence à nos côtés en Italie est déjà le plus beau
+                        des cadeaux !
+                    </p>
+
+                    <br>
+
+                    <p data-i18n="giftText">
+                        Pour répondre à vos demandes : pour des raisons logistiques,
+                        nous ne pourrons pas recevoir de cadeaux volumineux. Si vous
+                        tenez malgré tout à nous faire une petite attention, une
+                        contribution par virement est l'option la plus simple pour nous.
+                    </p>
+                </div>
+
+                <!-- Paiement en euros SEPA -->
+
+                <div class="payment-section">
+                    <h4 data-i18n="euroTitle">
+                        Paiement en euros (SEPA)
+                    </h4>
+
+                    <div class="payment-content">
+                        <div class="qr-placeholder">
+                            <img src="qreur.jpg"
+                                 alt="QR code pour paiement en euros">
+                        </div>
+
+                        <div class="payment-details">
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="referenceLabel">
+                                    Référence :
+                                </span>
+
+                                <span class="payment-value">
+                                    848649
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="nameLabel">
+                                    Nom :
+                                </span>
+
+                                <span class="payment-value">
+                                    Teresa Maria Giusti
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="ibanLabel">
+                                    IBAN :
+                                </span>
+
+                                <span class="payment-value">
+                                    BE55 9050 1117 8144
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="swiftLabel">
+                                    SWIFT/BIC :
+                                </span>
+
+                                <span class="payment-value">
+                                    TRWIBEB1XXX
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="bankLabel">
+                                    Banque :
+                                </span>
+
+                                <span class="payment-value">
+                                    Wise
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="addressLabel">
+                                    Adresse :
+                                </span>
+
+                                <span class="payment-value">
+                                    Rue du Trône 100, 3rd floor,
+                                    Brussels, 1050, Belgium
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paiement en francs suisses -->
+
+                <div class="payment-section">
+                    <h4 data-i18n="chfTitle">
+                        Paiement en francs suisses
+                    </h4>
+
+                    <div class="payment-content qr-right">
+                        <div class="qr-placeholder">
+                            <img src="qrchf.jpg"
+                                 alt="QR code pour paiement en francs suisses">
+                        </div>
+
+                        <div class="payment-details">
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="accountHolderLabel">
+                                    Titulaire :
+                                </span>
+
+                                <span class="payment-value">
+                                    Teresa Maria Giusti
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="ibanLabel">
+                                    IBAN :
+                                </span>
+
+                                <span class="payment-value">
+                                    CH07 0830 7000 5492 3130 7
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="swiftCodeLabel">
+                                    SWIFT-Code/BIC :
+                                </span>
+
+                                <span class="payment-value">
+                                    HYPLCH22
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="accountNumberLabel">
+                                    N° de compte :
+                                </span>
+
+                                <span class="payment-value">
+                                    549231307
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="clearingLabel">
+                                    Numéro de clearing :
+                                </span>
+
+                                <span class="payment-value">
+                                    8307
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="contractLabel">
+                                    N° de contrat :
+                                </span>
+
+                                <span class="payment-value">
+                                    549231
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="bankLabel">
+                                    Banque :
+                                </span>
+
+                                <span class="payment-value">
+                                    Hypothekarbank Lenzburg AG
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="addressLabel">
+                                    Adresse :
+                                </span>
+
+                                <span class="payment-value">
+                                    Bahnhofstrasse 2, 5600 Lenzburg
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COUNTDOWN ==================== -->
+
+    <section class="section-bg section-countdown">
+        <div class="countdown-content">
+            <h1 data-i18n="countdown">
+                L'amour nous emmène en Italie dans...
+            </h1>
+
+            <div class="flip-clock" id="flipClock">
+
+                <div class="flip-group">
+                    <div class="flip-card" id="card-days">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
+                    </div>
+
+                    <span class="flip-label" data-i18n="labelDays">
+                        Jours
+                    </span>
+                </div>
+
+                <span class="flip-sep">:</span>
+
+                <div class="flip-group">
+                    <div class="flip-card" id="card-hours">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
+                    </div>
+
+                    <span class="flip-label" data-i18n="labelHours">
+                        Heures
+                    </span>
+                </div>
+
+                <span class="flip-sep">:</span>
+
+                <div class="flip-group">
+                    <div class="flip-card" id="card-minutes">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
+                    </div>
+
+                    <span class="flip-label" data-i18n="labelMinutes">
+                        Minutes
+                    </span>
+                </div>
+
+                <span class="flip-sep">:</span>
+
+                <div class="flip-group">
+                    <div class="flip-card" id="card-seconds">
+                        <div class="card-line"></div>
+                        <div class="card-shadow"></div>
+                        <div class="card-top"><span class="num">00</span></div>
+                        <div class="card-bottom"><span class="num">00</span></div>
+                        <div class="card-flip-top"><span class="num">00</span></div>
+                        <div class="card-flip-bottom"><span class="num">00</span></div>
+                    </div>
+
+                    <span class="flip-label" data-i18n="labelSeconds">
+                        Secondes
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ♥ for Teresa &amp; Boris — 2027</p>
+    </footer>
+
+</div>
+
+<script>
+    /* ==================== TRADUCTIONS ==================== */
+
+    const translations = {
+        fr: {
+            welcome: "Bienvenue à notre mariage",
+            date: "Samedi 08 MAI 2027",
+            time: "À partir de 16h00",
+
+            rsvpTitle: "Répondez-nous",
+            rsvpText: "Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.",
+            rsvpDeadline: "Merci de nous répondre avant le 01 octobre 2026.",
+
+            programTitle: "Programme du week-end",
+            programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !",
+
+            sat: "Samedi 8 mai 2027",
+            sat1: "Accueil des invités",
+            sat2: "Cérémonie de mariage",
+            sat3: "Dîner et desserts",
+            sat4: "Soirée dansante",
+            sat5: "Fin des festivités",
+
+            sun: "Dimanche 9 mai 2027",
+            sun1: "Petit-déjeuner",
+            sun2: "Check-out",
+
+            dressTitle: "Code vestimentaire",
+            dressText: "Le thème du mariage est <strong style='color:#9b7ead;'>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.",
+            dressNoteTitle: "À noter pour votre confort :",
+            dressNote1: "<strong>Températures :</strong> comptez 20–25 °C en journée et 10–15 °C en soirée. Une petite jaquette ou veste de mi-saison est vivement conseillée pour profiter de la fête jusqu'au bout.",
+            dressNote2: "<strong>Météo :</strong> la cérémonie aura lieu en extérieur même en cas de pluie fine. Pensez à vérifier la météo le matin même et à prévoir un petit parapluie d'appoint.",
+
+            locTitle: "Le lieu",
+            locDesc1: "Le <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
+            locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",
+            contactTitle: "Contact & Informations",
+
+            giftTitle: "Cadeaux",
+            giftIntro: "Votre présence à nos côtés en Italie est déjà le plus beau des cadeaux !",
+            giftText: "Pour répondre à vos demandes : pour des raisons logistiques, nous ne pourrons pas recevoir de cadeaux volumineux. Si vous tenez malgré tout à nous faire une petite attention, une contribution par virement est l'option la plus simple pour nous.",
+
+            euroTitle: "Paiement en euros (SEPA)",
+            chfTitle: "Paiement en francs suisses",
+
+            referenceLabel: "Référence :",
+            nameLabel: "Nom :",
+            accountHolderLabel: "Titulaire :",
+            ibanLabel: "IBAN :",
+            swiftLabel: "SWIFT/BIC :",
+            swiftCodeLabel: "SWIFT-Code/BIC :",
+            accountNumberLabel: "N° de compte :",
+            clearingLabel: "Numéro de clearing :",
+            contractLabel: "N° de contrat :",
+            bankLabel: "Banque :",
+            addressLabel: "Adresse :",
+
+            countdown: "L'amour nous emmène en Italie dans...",
+            labelDays: "Jours",
+            labelHours: "Heures",
+            labelMinutes: "Minutes",
+            labelSeconds: "Secondes",
+
+            rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
+        },
+
+        it: {
+            welcome: "Benvenuti al nostro<br>matrimonio",
+            date: "Sabato 08 MAGGIO 2027",
+            time: "Dalle 16:00",
+
+            rsvpTitle: "Rispondeteci",
+            rsvpText: "Per organizzare al meglio questa giornata e offrirvi un momento indimenticabile, vi preghiamo di rispondere ad alcune domande nel modulo sottostante.",
+            rsvpDeadline: "Vi preghiamo di risponderci entro il 01 ottobre 2026.",
+
+            programTitle: "Programma del weekend",
+            programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione 2027. Approfittate di questa occasione per passeggiare per le strade di Roma prima della cerimonia!",
+
+            sat: "Sabato 8 maggio 2027",
+            sat1: "Accoglienza degli ospiti",
+            sat2: "Cerimonia di matrimonio",
+            sat3: "Cena e dessert",
+            sat4: "Serata danzante",
+            sat5: "Fine dei festeggiamenti",
+
+            sun: "Domenica 9 maggio 2027",
+            sun1: "Colazione",
+            sun2: "Check-out",
+
+            dressTitle: "Dress code",
+            dressText: "Il tema del matrimonio è <strong style='color:#9b7ead;'>pastello, floreale e beige</strong>,<br>ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio.",
+            dressNoteTitle: "Da tenere presente per il vostro comfort:",
+            dressNote1: "<strong>Temperature:</strong> prevedete 20–25 °C di giorno e 10–15 °C la sera. Una leggera giacca o un capo di mezza stagione è vivamente consigliato per godervi la festa fino alla fine.",
+            dressNote2: "<strong>Meteo:</strong> la cerimonia si svolgerà all'aperto anche in caso di pioggia leggera. Controllate le previsioni meteo la mattina stessa e portate con voi un piccolo ombrello.",
+
+            locTitle: "La location",
+            locDesc1: "Il <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
+            locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",
+            contactTitle: "Contatti & Informazioni",
+
+            giftTitle: "Regali",
+            giftIntro: "La vostra presenza al nostro fianco in Italia è già il regalo più bello!",
+            giftText: "Per rispondere alle vostre domande: per motivi logistici non potremo ricevere regali ingombranti. Se desiderate comunque farci un piccolo pensiero, un contributo tramite bonifico è l'opzione più semplice per noi.",
+
+            euroTitle: "Pagamento in euro (SEPA)",
+            chfTitle: "Pagamento in franchi svizzeri",
+
+            referenceLabel: "Riferimento:",
+            nameLabel: "Nome:",
+            accountHolderLabel: "Intestatario:",
+            ibanLabel: "IBAN:",
+            swiftLabel: "SWIFT/BIC:",
+            swiftCodeLabel: "SWIFT-Code/BIC:",
+            accountNumberLabel: "N. conto:",
+            clearingLabel: "Numero di clearing:",
+            contractLabel: "N. contratto:",
+            bankLabel: "Banca:",
+            addressLabel: "Indirizzo:",
+
+            countdown: "L'amore ci porta in Italia tra...",
+            labelDays: "Giorni",
+            labelHours: "Ore",
+            labelMinutes: "Minuti",
+            labelSeconds: "Secondi",
+
+            rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfhyzz83kcDvGnq0SAU7t6LDZVKN6Ne09Qv4gQHHgEPcgkMAg/viewform?usp=header"
+        },
+
+        en: {
+            welcome: "Welcome to our wedding",
+            date: "Saturday, MAY 08, 2027",
+            time: "From 4:00 PM",
+
+            rsvpTitle: "RSVP",
+            rsvpText: "To best prepare for this day and offer you an unforgettable moment, please answer a few questions in the form below.",
+            rsvpDeadline: "Please kindly respond by October 01, 2026.",
+
+            programTitle: "Weekend Program",
+            programDesc: "The wedding will take place during the Ascension weekend 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!",
+
+            sat: "Saturday, May 8, 2027",
+            sat1: "Welcome of guests",
+            sat2: "Wedding ceremony",
+            sat3: "Dinner and desserts",
+            sat4: "Dance party",
+            sat5: "End of festivities",
+
+            sun: "Sunday, May 9, 2027",
+            sun1: "Breakfast",
+            sun2: "Check-out",
+
+            dressTitle: "Dress Code",
+            dressText: "The wedding theme is <strong style='color:#9b7ead;'>pastel, floral, and beige</strong>,<br>but feel free to wear the colors that make you feel most comfortable.",
+            dressNoteTitle: "A note for your comfort:",
+            dressNote1: "<strong>Temperatures:</strong> expect 20–25 °C during the day and 10–15 °C in the evening. A light jacket or mid-season layer is strongly recommended so you can enjoy the celebration until the very end.",
+            dressNote2: "<strong>Weather:</strong> the ceremony will take place outdoors even in light rain. Be sure to check the forecast on the morning of the wedding and bring a small umbrella just in case.",
+
+            locTitle: "The Venue",
+            locDesc1: "<strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
+            locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",
+            contactTitle: "Contact & Information",
+
+            giftTitle: "Gifts",
+            giftIntro: "Having you by our side in Italy is already the greatest gift!",
+            giftText: "To answer your questions: for logistical reasons, we will not be able to receive bulky gifts. If you would nevertheless like to give us a small token, a bank transfer is the simplest option for us.",
+
+            euroTitle: "Payment in euros (SEPA)",
+            chfTitle: "Payment in Swiss francs",
+
+            referenceLabel: "Reference:",
+            nameLabel: "Name:",
+            accountHolderLabel: "Account holder:",
+            ibanLabel: "IBAN:",
+            swiftLabel: "SWIFT/BIC:",
+            swiftCodeLabel: "SWIFT-Code/BIC:",
+            accountNumberLabel: "Account number:",
+            clearingLabel: "Clearing number:",
+            contractLabel: "Contract number:",
+            bankLabel: "Bank:",
+            addressLabel: "Address:",
+
+            countdown: "Love takes us to Italy in...",
+            labelDays: "Days",
+            labelHours: "Hours",
+            labelMinutes: "Minutes",
+            labelSeconds: "Seconds",
+
+            rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLScjINHqGInkGsfRKksbjNLIWzkMzjjN1DNtGCpRnSDENv7GOA/viewform?usp=header"
+        }
+    };
+
+    /* ==================== CHANGEMENT DE LANGUE ==================== */
+
+    function changeLanguage(lang) {
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.classList.toggle(
+                'active',
+                button.getAttribute('data-lang') === lang
+            );
+        });
+
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+
+            if (translations[lang] && translations[lang][key]) {
+                element.innerHTML = translations[lang][key];
+            }
+        });
+
+        if (translations[lang].rsvpUrl) {
+            document.getElementById('rsvpLink').href =
+                translations[lang].rsvpUrl;
+        }
+    }
+
+    /* ==================== COUNTDOWN ==================== */
+
+    const WEDDING = new Date('2027-05-08T16:00:00').getTime();
+    const previousValues = {};
+    const animationTimeouts = {};
+    let countdownTimer;
+
+    function pad(number, length) {
+        return String(number).padStart(length, '0');
+    }
+
+    function flipUnit(id, newValue, length) {
+        const value = pad(newValue, length);
+
+        if (previousValues[id] === value) {
+            return;
+        }
+
+        const card = document.getElementById('card-' + id);
+
+        const topStatic = card.querySelector('.card-top .num');
+        const bottomStatic = card.querySelector('.card-bottom .num');
+        const topFlip = card.querySelector('.card-flip-top .num');
+        const bottomFlip = card.querySelector('.card-flip-bottom .num');
+
+        const topFlap = card.querySelector('.card-flip-top');
+        const bottomFlap = card.querySelector('.card-flip-bottom');
+
+        const oldValue = previousValues[id] || value;
+
+        topStatic.textContent = value;
+        topFlip.textContent = oldValue;
+        bottomFlip.textContent = value;
+
+        topFlap.style.visibility = 'visible';
+        bottomFlap.style.visibility = 'visible';
+
+        topFlap.style.animation = 'none';
+        bottomFlap.style.animation = 'none';
+
+        void topFlap.offsetWidth;
+
+        topFlap.style.animation =
+            'flipTopDown .3s ease-in forwards';
+
+        bottomFlap.style.animation =
+            'flipBottomUp .3s .3s ease-out forwards';
+
+        if (animationTimeouts[id]) {
+            clearTimeout(animationTimeouts[id]);
+        }
+
+        animationTimeouts[id] = setTimeout(() => {
+            bottomStatic.textContent = value;
+
+            topFlap.style.visibility = 'hidden';
+            bottomFlap.style.visibility = 'hidden';
+
+            topFlap.style.animation = 'none';
+            bottomFlap.style.animation = 'none';
+        }, 700);
+
+        previousValues[id] = value;
+    }
+
+    function tick() {
+        const difference = WEDDING - Date.now();
+
+        if (difference <= 0) {
+            const currentLanguage = document.documentElement.lang;
+
+            const message =
+                currentLanguage === 'it'
+                    ? 'È arrivato il grande giorno!'
+                    : currentLanguage === 'en'
+                        ? 'The big day is here!'
+                        : 'Le jour J est arrivé !';
+
+            document.getElementById('flipClock').innerHTML =
+                `<h2 style="
+                    color:#f0e8ff;
+                    font-family:Aboreto,serif;
+                    font-size:clamp(22px,5vw,32px);
+                ">🎉 ${message} 🎉</h2>`;
+
+            clearInterval(countdownTimer);
+            return;
+        }
+
+        const days = Math.floor(difference / 86400000);
+
+        const hours = Math.floor(
+            (difference % 86400000) / 3600000
+        );
+
+        const minutes = Math.floor(
+            (difference % 3600000) / 60000
+        );
+
+        const seconds = Math.floor(
+            (difference % 60000) / 1000
+        );
+
+        flipUnit('days', days, 3);
+        flipUnit('hours', hours, 2);
+        flipUnit('minutes', minutes, 2);
+        flipUnit('seconds', seconds, 2);
+    }
+
+    tick();
+    countdownTimer = setInterval(tick, 1000);
+</script>
+
+</body>
 </html>
+```
