@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,20 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ==================== RESET ==================== */
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -22,20 +30,22 @@
         body {
             background: #ffffff;
             color: #333;
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: "Cormorant Garamond", Georgia, serif;
             overflow-x: hidden;
         }
 
         .site-wrapper {
+            position: relative;
             max-width: 1200px;
             margin: 0 auto;
+            overflow: hidden;
             background: #faf9f7;
             box-shadow: 0 0 40px rgba(0, 0, 0, .15);
-            position: relative;
-            overflow: hidden;
         }
 
-        /* ==================== SECTIONS ==================== */
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
 
         .section-bg {
             position: relative;
@@ -49,7 +59,7 @@
         }
 
         .section-bg::before {
-            content: '';
+            content: "";
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -61,11 +71,13 @@
             z-index: 10;
         }
 
-        /* ==================== ACCUEIL ==================== */
+        /* =========================================================
+           ACCUEIL
+        ========================================================= */
 
         .section-accueil {
             min-height: 100vh;
-            background-image: url('accueil.jpg');
+            background-image: url("accueil.jpg");
             text-align: center;
         }
 
@@ -78,7 +90,7 @@
         }
 
         .section-accueil::after {
-            content: '';
+            content: "";
             position: absolute;
             inset: 0;
             z-index: 2;
@@ -94,7 +106,7 @@
         .names {
             margin-bottom: 20px;
             color: #c4d8e8;
-            font-family: 'Cinzel', serif;
+            font-family: "Cinzel", serif;
             font-size: clamp(12px, 2.2vw, 17px);
             letter-spacing: 5px;
             text-transform: uppercase;
@@ -103,7 +115,7 @@
 
         .welcome-title {
             color: #fbe9f6;
-            font-family: 'Aboreto', serif;
+            font-family: "Aboreto", serif;
             font-size: clamp(30px, 7vw, 60px);
             font-weight: 400;
             line-height: 1.2;
@@ -139,8 +151,8 @@
         .divider-dot {
             width: 5px;
             height: 5px;
-            background: rgba(224, 176, 185, .6);
             border-radius: 50%;
+            background: rgba(224, 176, 185, .6);
         }
 
         .date-box {
@@ -220,12 +232,14 @@
             }
         }
 
-        /* ==================== RSVP ==================== */
+        /* =========================================================
+           RSVP
+        ========================================================= */
 
         .section-rsvp {
             min-height: 100vh;
             padding: 80px 20px;
-            background-image: url('rsvp.jpg');
+            background-image: url("rsvp.jpg");
         }
 
         .rsvp-card {
@@ -303,12 +317,14 @@
             letter-spacing: 8px;
         }
 
-        /* ==================== PROGRAMME ==================== */
+        /* =========================================================
+           PROGRAMME
+        ========================================================= */
 
         .section-programme {
             min-height: 100vh;
             padding: 80px 20px;
-            background-image: url('programme.jpg');
+            background-image: url("programme.jpg");
         }
 
         .programme-wrapper {
@@ -371,13 +387,18 @@
             font-weight: normal;
         }
 
+        /*
+         * Les trois colonnes sont équilibrées :
+         * heure / ligne centrée / événement.
+         */
         .event-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: 90px minmax(120px, 1fr) minmax(180px, 1fr);
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
+            gap: 15px;
+            margin-bottom: 16px;
             color: #444;
-            font-size: 16px;
+            font-size: 17px;
         }
 
         .event-row:last-child {
@@ -385,26 +406,37 @@
         }
 
         .event-time {
-            min-width: 70px;
             color: #4a704d;
             font-weight: bold;
             text-align: left;
+            white-space: nowrap;
         }
 
         .event-dots {
-            flex-grow: 1;
-            padding: 0 10px;
-            color: #c0d6c0;
-            letter-spacing: 3px;
-            text-align: center;
+            position: relative;
+            width: 100%;
+            height: 2px;
+            min-width: 70px;
+        }
+
+        .event-dots::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 86%;
+            border-top: 2px dotted #b9d4bb;
+            transform: translate(-50%, -50%);
         }
 
         .event-label {
-            min-width: 180px;
+            color: #444;
             text-align: right;
         }
 
-        /* ==================== DRESS CODE ==================== */
+        /* =========================================================
+           CODE VESTIMENTAIRE
+        ========================================================= */
 
         .dress-card {
             border: 1px solid rgba(232, 224, 239, .6);
@@ -459,7 +491,7 @@
         }
 
         .dress-note li::before {
-            content: '✦';
+            content: "✦";
             position: absolute;
             top: 5px;
             left: 0;
@@ -467,12 +499,14 @@
             font-size: 10px;
         }
 
-        /* ==================== LIEU ==================== */
+        /* =========================================================
+           LIEU
+        ========================================================= */
 
         .section-lieu {
             min-height: 100vh;
             padding: 80px 20px;
-            background-image: url('lieu.jpg');
+            background-image: url("lieu.jpg");
         }
 
         .location-card {
@@ -535,7 +569,9 @@
             border: 0;
         }
 
-        /* ==================== CONTACT ==================== */
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
         .contact-box {
             margin-top: 30px;
@@ -592,7 +628,9 @@
             color: #d4a0ae;
         }
 
-        /* ==================== CADEAUX ==================== */
+        /* =========================================================
+           CADEAUX ET PAIEMENTS
+        ========================================================= */
 
         .gift-box {
             margin-top: 30px;
@@ -618,10 +656,6 @@
             line-height: 1.6;
         }
 
-        .gift-intro strong {
-            color: #8e7ba5;
-        }
-
         .payment-section {
             margin-top: 25px;
             padding: 25px;
@@ -643,6 +677,10 @@
             display: flex;
             align-items: center;
             gap: 25px;
+        }
+
+        .payment-content.euro-payment {
+            display: block;
         }
 
         .payment-content.qr-right {
@@ -677,10 +715,14 @@
             line-height: 1.55;
         }
 
+        .payment-content.euro-payment .payment-details {
+            width: 100%;
+        }
+
         .payment-line {
             display: flex;
             gap: 8px;
-            margin-bottom: 7px;
+            margin-bottom: 8px;
         }
 
         .payment-label {
@@ -693,12 +735,18 @@
             overflow-wrap: anywhere;
         }
 
-        /* ==================== COUNTDOWN ==================== */
+        .bank-value {
+            line-height: 1.45;
+        }
+
+        /* =========================================================
+           COMPTE À REBOURS
+        ========================================================= */
 
         .section-countdown {
             min-height: 100vh;
             padding: 80px 20px;
-            background-image: url('countdown.jpg');
+            background-image: url("countdown.jpg");
         }
 
         .section-countdown::before {
@@ -718,7 +766,7 @@
         .countdown-content h1 {
             margin-bottom: 50px;
             color: #e0d0f0;
-            font-family: 'Aboreto', serif;
+            font-family: "Aboreto", serif;
             font-size: clamp(22px, 4vw, 36px);
             font-weight: 400;
             text-shadow: 0 2px 15px rgba(0, 0, 0, .4);
@@ -764,7 +812,7 @@
 
         .flip-card::before,
         .flip-card::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 50%;
             z-index: 30;
@@ -852,7 +900,11 @@
             z-index: 24;
             width: 100%;
             height: 10px;
-            background: linear-gradient(180deg, rgba(0, 0, 0, .12), transparent);
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, .12),
+                transparent
+            );
             transform: translateY(-10px);
         }
 
@@ -900,19 +952,23 @@
             line-height: 1;
         }
 
-        /* ==================== FOOTER ==================== */
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
         footer {
             padding: 40px;
             background: #1a1a28;
             color: rgba(255, 255, 255, .5);
-            font-family: 'Cinzel', serif;
+            font-family: "Cinzel", serif;
             font-size: 22px;
             letter-spacing: 2px;
             text-align: center;
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
         @media (max-width: 768px) {
             :root {
@@ -928,24 +984,21 @@
             }
 
             .event-row {
+                grid-template-columns: 65px minmax(80px, 1fr) minmax(135px, 1fr);
+                gap: 8px;
                 font-size: 15px;
             }
 
-            .event-label {
-                min-width: 130px;
+            .event-dots::before {
+                width: 90%;
             }
 
-            .event-time {
-                min-width: 55px;
-            }
-
-            .payment-content,
             .payment-content.qr-right {
                 flex-direction: column;
             }
 
             .qr-placeholder {
-                order: 0;
+                flex: 0 0 auto;
                 width: 190px;
                 height: 190px;
             }
@@ -974,11 +1027,14 @@
             }
 
             .event-row {
+                grid-template-columns: 52px minmax(55px, 1fr) minmax(105px, 1fr);
+                gap: 6px;
                 font-size: 14px;
             }
 
-            .event-label {
-                min-width: 110px;
+            .event-dots::before {
+                width: 100%;
+                border-top-width: 1px;
             }
 
             .lang-buttons {
@@ -1020,10 +1076,14 @@
 
 <div class="site-wrapper">
 
-    <!-- ==================== ACCUEIL ==================== -->
+    <!-- =========================================================
+         ACCUEIL
+    ========================================================= -->
 
     <section class="section-bg section-accueil">
+
         <div class="accueil-content">
+
             <p class="names">
                 Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV
             </p>
@@ -1041,18 +1101,23 @@
             </div>
 
             <div class="date-box">
+
                 <p class="date-main" data-i18n="date">
                     Samedi 08 MAI 2027
                 </p>
 
-                <p>🏰 Borgo di Tragliata</p>
+                <p>
+                    🏰 Borgo di Tragliata
+                </p>
 
                 <p data-i18n="time">
                     À partir de 16h00
                 </p>
+
             </div>
 
             <div class="lang-buttons">
+
                 <a class="lang-btn active"
                    onclick="changeLanguage('fr')"
                    data-lang="fr">
@@ -1070,16 +1135,23 @@
                    data-lang="en">
                     English
                 </a>
+
             </div>
         </div>
 
-        <div class="scroll-hint">▼</div>
+        <div class="scroll-hint">
+            ▼
+        </div>
     </section>
 
-    <!-- ==================== RSVP ==================== -->
+    <!-- =========================================================
+         RSVP
+    ========================================================= -->
 
     <section class="section-bg section-rsvp">
+
         <div class="rsvp-card">
+
             <p class="rsvp-title" data-i18n="rsvpTitle">
                 Répondez-nous
             </p>
@@ -1101,16 +1173,23 @@
                 RSVP
             </a>
 
-            <p class="ornament-stars">✦ ✦ ✦</p>
+            <p class="ornament-stars">
+                ✦ ✦ ✦
+            </p>
+
         </div>
     </section>
 
-    <!-- ==================== PROGRAMME ==================== -->
+    <!-- =========================================================
+         PROGRAMME
+    ========================================================= -->
 
     <section class="section-bg section-programme">
+
         <div class="programme-wrapper">
 
             <div class="section-card program-card">
+
                 <h2 data-i18n="programTitle">
                     Programme du week-end
                 </h2>
@@ -1122,13 +1201,14 @@
                 </p>
 
                 <div class="day-block">
+
                     <h3 data-i18n="sat">
                         Samedi 8 mai 2027
                     </h3>
 
                     <div class="event-row">
                         <span class="event-time">15h00</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sat1">
                             Accueil des invités
                         </span>
@@ -1136,7 +1216,7 @@
 
                     <div class="event-row">
                         <span class="event-time">16h00</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sat2">
                             Cérémonie de mariage
                         </span>
@@ -1144,7 +1224,7 @@
 
                     <div class="event-row">
                         <span class="event-time">19h00</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sat3">
                             Dîner et desserts
                         </span>
@@ -1152,7 +1232,7 @@
 
                     <div class="event-row">
                         <span class="event-time">21h00</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sat4">
                             Soirée dansante
                         </span>
@@ -1160,21 +1240,23 @@
 
                     <div class="event-row">
                         <span class="event-time">02h00</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sat5">
                             Fin des festivités
                         </span>
                     </div>
+
                 </div>
 
                 <div class="day-block">
+
                     <h3 data-i18n="sun">
                         Dimanche 9 mai 2027
                     </h3>
 
                     <div class="event-row">
                         <span class="event-time">6h – 11h</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sun1">
                             Petit-déjeuner
                         </span>
@@ -1182,22 +1264,25 @@
 
                     <div class="event-row">
                         <span class="event-time">11h00</span>
-                        <span class="event-dots">··········</span>
+                        <span class="event-dots"></span>
                         <span class="event-label" data-i18n="sun2">
                             Check-out
                         </span>
                     </div>
+
                 </div>
             </div>
 
-            <!-- ==================== CODE VESTIMENTAIRE ==================== -->
+            <!-- CODE VESTIMENTAIRE -->
 
             <div class="section-card dress-card">
+
                 <h2 data-i18n="dressTitle">
                     Code vestimentaire
                 </h2>
 
                 <div class="dress-inner">
+
                     <p data-i18n="dressText">
                         Le thème du mariage est
                         <strong style="color:#9b7ead;">
@@ -1207,14 +1292,17 @@
                         mais sentez-vous libres de porter les couleurs qui vous font
                         vous sentir le plus à votre aise.
                     </p>
+
                 </div>
 
                 <div class="dress-note">
+
                     <p class="dress-note-title" data-i18n="dressNoteTitle">
                         À noter pour votre confort :
                     </p>
 
                     <ul>
+
                         <li data-i18n="dressNote1">
                             <strong>Températures :</strong>
                             comptez 20–25 °C en journée et 10–15 °C en soirée.
@@ -1228,20 +1316,25 @@
                             Pensez à vérifier la météo le matin même et à prévoir un petit
                             parapluie d'appoint.
                         </li>
+
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== LIEU, CONTACT & CADEAUX ==================== -->
+    <!-- =========================================================
+         LIEU, CONTACT ET CADEAUX
+    ========================================================= -->
 
     <section class="section-bg section-lieu">
+
         <div class="location-card">
 
-            <!-- Lieu -->
+            <!-- LIEU -->
 
             <div class="location-inner">
+
                 <h2 data-i18n="locTitle">
                     Le lieu
                 </h2>
@@ -1262,22 +1355,26 @@
                 </p>
 
                 <div class="map-container">
+
                     <iframe
                         src="https://maps.google.com/maps?q=Borgo%20di%20Tragliata,%20Via%20Casale%20di%20Tragliata,%2000054%20Fiumicino%20RM,%20Italy&t=&z=10&ie=UTF8&iwloc=&output=embed"
                         allowfullscreen
                         loading="lazy">
                     </iframe>
+
                 </div>
             </div>
 
-            <!-- Contact -->
+            <!-- CONTACT -->
 
             <div class="contact-box">
+
                 <h3 data-i18n="contactTitle">
                     Contact & Informations
                 </h3>
 
                 <div class="contact-grid">
+
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
 
@@ -1290,12 +1387,18 @@
 
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>(+39) 06 66.87.267</p>
+
+                        <p>
+                            (+39) 06 66.87.267
+                        </p>
                     </div>
 
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>info@tragliata.it</p>
+
+                        <p>
+                            info@tragliata.it
+                        </p>
                     </div>
 
                     <div class="contact-divider"></div>
@@ -1308,17 +1411,20 @@
                             airbnt97@gmail.com
                         </p>
                     </div>
+
                 </div>
             </div>
 
-            <!-- Cadeaux -->
+            <!-- CADEAUX -->
 
             <div class="gift-box">
+
                 <h3 data-i18n="giftTitle">
                     Cadeaux
                 </h3>
 
                 <div class="gift-intro">
+
                     <p data-i18n="giftIntro">
                         Votre présence à nos côtés en Italie est déjà le plus beau
                         des cadeaux !
@@ -1332,32 +1438,20 @@
                         tenez malgré tout à nous faire une petite attention, une
                         contribution par virement est l'option la plus simple pour nous.
                     </p>
+
                 </div>
 
-                <!-- Paiement en euros SEPA -->
+                <!-- PAIEMENT EN EUROS : SANS QR CODE -->
 
                 <div class="payment-section">
+
                     <h4 data-i18n="euroTitle">
                         Paiement en euros (SEPA)
                     </h4>
 
-                    <div class="payment-content">
-                        <div class="qr-placeholder">
-                            <img src="qreur.jpg"
-                                 alt="QR code pour paiement en euros">
-                        </div>
+                    <div class="payment-content euro-payment">
 
                         <div class="payment-details">
-
-                            <div class="payment-line">
-                                <span class="payment-label" data-i18n="referenceLabel">
-                                    Référence :
-                                </span>
-
-                                <span class="payment-value">
-                                    848649
-                                </span>
-                            </div>
 
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="nameLabel">
@@ -1366,6 +1460,17 @@
 
                                 <span class="payment-value">
                                     Teresa Maria Giusti
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="addressLabel">
+                                    Adresse :
+                                </span>
+
+                                <span class="payment-value">
+                                    Avenue de l’Étang 50,<br>
+                                    1219 Châtelaine
                                 </span>
                             </div>
 
@@ -1394,18 +1499,9 @@
                                     Banque :
                                 </span>
 
-                                <span class="payment-value">
-                                    Wise
-                                </span>
-                            </div>
-
-                            <div class="payment-line">
-                                <span class="payment-label" data-i18n="addressLabel">
-                                    Adresse :
-                                </span>
-
-                                <span class="payment-value">
-                                    Rue du Trône 100, 3rd floor,
+                                <span class="payment-value bank-value">
+                                    Wise<br>
+                                    Rue du Trône 100, 3rd floor,<br>
                                     Brussels, 1050, Belgium
                                 </span>
                             </div>
@@ -1414,14 +1510,16 @@
                     </div>
                 </div>
 
-                <!-- Paiement en francs suisses -->
+                <!-- PAIEMENT EN CHF : AVEC QR CODE -->
 
                 <div class="payment-section">
+
                     <h4 data-i18n="chfTitle">
                         Paiement en francs suisses
                     </h4>
 
                     <div class="payment-content qr-right">
+
                         <div class="qr-placeholder">
                             <img src="qrchf.jpg"
                                  alt="QR code pour paiement en francs suisses">
@@ -1436,6 +1534,17 @@
 
                                 <span class="payment-value">
                                     Teresa Maria Giusti
+                                </span>
+                            </div>
+
+                            <div class="payment-line">
+                                <span class="payment-label" data-i18n="addressLabel">
+                                    Adresse :
+                                </span>
+
+                                <span class="payment-value">
+                                    Avenue de l’Étang 50,<br>
+                                    1219 Châtelaine
                                 </span>
                             </div>
 
@@ -1460,52 +1569,14 @@
                             </div>
 
                             <div class="payment-line">
-                                <span class="payment-label" data-i18n="accountNumberLabel">
-                                    N° de compte :
-                                </span>
-
-                                <span class="payment-value">
-                                    549231307
-                                </span>
-                            </div>
-
-                            <div class="payment-line">
-                                <span class="payment-label" data-i18n="clearingLabel">
-                                    Numéro de clearing :
-                                </span>
-
-                                <span class="payment-value">
-                                    8307
-                                </span>
-                            </div>
-
-                            <div class="payment-line">
-                                <span class="payment-label" data-i18n="contractLabel">
-                                    N° de contrat :
-                                </span>
-
-                                <span class="payment-value">
-                                    549231
-                                </span>
-                            </div>
-
-                            <div class="payment-line">
                                 <span class="payment-label" data-i18n="bankLabel">
                                     Banque :
                                 </span>
 
-                                <span class="payment-value">
-                                    Hypothekarbank Lenzburg AG
-                                </span>
-                            </div>
-
-                            <div class="payment-line">
-                                <span class="payment-label" data-i18n="addressLabel">
-                                    Adresse :
-                                </span>
-
-                                <span class="payment-value">
-                                    Bahnhofstrasse 2, 5600 Lenzburg
+                                <span class="payment-value bank-value">
+                                    Hypothekarbank Lenzburg AG<br>
+                                    Bahnhofstrasse 2,<br>
+                                    5600 Lenzburg
                                 </span>
                             </div>
 
@@ -1516,10 +1587,14 @@
         </div>
     </section>
 
-    <!-- ==================== COUNTDOWN ==================== -->
+    <!-- =========================================================
+         COMPTE À REBOURS
+    ========================================================= -->
 
     <section class="section-bg section-countdown">
+
         <div class="countdown-content">
+
             <h1 data-i18n="countdown">
                 L'amour nous emmène en Italie dans...
             </h1>
@@ -1527,6 +1602,7 @@
             <div class="flip-clock" id="flipClock">
 
                 <div class="flip-group">
+
                     <div class="flip-card" id="card-days">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1539,11 +1615,13 @@
                     <span class="flip-label" data-i18n="labelDays">
                         Jours
                     </span>
+
                 </div>
 
                 <span class="flip-sep">:</span>
 
                 <div class="flip-group">
+
                     <div class="flip-card" id="card-hours">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1556,11 +1634,13 @@
                     <span class="flip-label" data-i18n="labelHours">
                         Heures
                     </span>
+
                 </div>
 
                 <span class="flip-sep">:</span>
 
                 <div class="flip-group">
+
                     <div class="flip-card" id="card-minutes">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1573,11 +1653,13 @@
                     <span class="flip-label" data-i18n="labelMinutes">
                         Minutes
                     </span>
+
                 </div>
 
                 <span class="flip-sep">:</span>
 
                 <div class="flip-group">
+
                     <div class="flip-card" id="card-seconds">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1590,6 +1672,7 @@
                     <span class="flip-label" data-i18n="labelSeconds">
                         Secondes
                     </span>
+
                 </div>
 
             </div>
@@ -1597,15 +1680,20 @@
     </section>
 
     <footer>
-        <p>Made with ♥ for Teresa &amp; Boris — 2027</p>
+        <p>
+            Made with ♥ by Teresa &amp; Boris
+        </p>
     </footer>
 
 </div>
 
 <script>
-    /* ==================== TRADUCTIONS ==================== */
+    /* =========================================================
+       TRADUCTIONS
+    ========================================================= */
 
     const translations = {
+
         fr: {
             welcome: "Bienvenue à notre mariage",
             date: "Samedi 08 MAI 2027",
@@ -1647,17 +1735,13 @@
             euroTitle: "Paiement en euros (SEPA)",
             chfTitle: "Paiement en francs suisses",
 
-            referenceLabel: "Référence :",
             nameLabel: "Nom :",
             accountHolderLabel: "Titulaire :",
+            addressLabel: "Adresse :",
             ibanLabel: "IBAN :",
             swiftLabel: "SWIFT/BIC :",
             swiftCodeLabel: "SWIFT-Code/BIC :",
-            accountNumberLabel: "N° de compte :",
-            clearingLabel: "Numéro de clearing :",
-            contractLabel: "N° de contrat :",
             bankLabel: "Banque :",
-            addressLabel: "Adresse :",
 
             countdown: "L'amour nous emmène en Italie dans...",
             labelDays: "Jours",
@@ -1709,17 +1793,13 @@
             euroTitle: "Pagamento in euro (SEPA)",
             chfTitle: "Pagamento in franchi svizzeri",
 
-            referenceLabel: "Riferimento:",
             nameLabel: "Nome:",
             accountHolderLabel: "Intestatario:",
+            addressLabel: "Indirizzo:",
             ibanLabel: "IBAN:",
             swiftLabel: "SWIFT/BIC:",
             swiftCodeLabel: "SWIFT-Code/BIC:",
-            accountNumberLabel: "N. conto:",
-            clearingLabel: "Numero di clearing:",
-            contractLabel: "N. contratto:",
             bankLabel: "Banca:",
-            addressLabel: "Indirizzo:",
 
             countdown: "L'amore ci porta in Italia tra...",
             labelDays: "Giorni",
@@ -1771,17 +1851,13 @@
             euroTitle: "Payment in euros (SEPA)",
             chfTitle: "Payment in Swiss francs",
 
-            referenceLabel: "Reference:",
             nameLabel: "Name:",
             accountHolderLabel: "Account holder:",
+            addressLabel: "Address:",
             ibanLabel: "IBAN:",
             swiftLabel: "SWIFT/BIC:",
             swiftCodeLabel: "SWIFT-Code/BIC:",
-            accountNumberLabel: "Account number:",
-            clearingLabel: "Clearing number:",
-            contractLabel: "Contract number:",
             bankLabel: "Bank:",
-            addressLabel: "Address:",
 
             countdown: "Love takes us to Italy in...",
             labelDays: "Days",
@@ -1793,20 +1869,22 @@
         }
     };
 
-    /* ==================== CHANGEMENT DE LANGUE ==================== */
+    /* =========================================================
+       CHANGEMENT DE LANGUE
+    ========================================================= */
 
     function changeLanguage(lang) {
         document.documentElement.lang = lang;
 
-        document.querySelectorAll('.lang-btn').forEach(button => {
+        document.querySelectorAll(".lang-btn").forEach(button => {
             button.classList.toggle(
-                'active',
-                button.getAttribute('data-lang') === lang
+                "active",
+                button.getAttribute("data-lang") === lang
             );
         });
 
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+            const key = element.getAttribute("data-i18n");
 
             if (translations[lang] && translations[lang][key]) {
                 element.innerHTML = translations[lang][key];
@@ -1814,20 +1892,25 @@
         });
 
         if (translations[lang].rsvpUrl) {
-            document.getElementById('rsvpLink').href =
+            document.getElementById("rsvpLink").href =
                 translations[lang].rsvpUrl;
         }
     }
 
-    /* ==================== COUNTDOWN ==================== */
+    /* =========================================================
+       COMPTE À REBOURS
+    ========================================================= */
 
-    const WEDDING = new Date('2027-05-08T16:00:00').getTime();
+    const WEDDING =
+        new Date("2027-05-08T16:00:00").getTime();
+
     const previousValues = {};
     const animationTimeouts = {};
+
     let countdownTimer;
 
     function pad(number, length) {
-        return String(number).padStart(length, '0');
+        return String(number).padStart(length, "0");
     }
 
     function flipUnit(id, newValue, length) {
@@ -1837,35 +1920,47 @@
             return;
         }
 
-        const card = document.getElementById('card-' + id);
+        const card =
+            document.getElementById("card-" + id);
 
-        const topStatic = card.querySelector('.card-top .num');
-        const bottomStatic = card.querySelector('.card-bottom .num');
-        const topFlip = card.querySelector('.card-flip-top .num');
-        const bottomFlip = card.querySelector('.card-flip-bottom .num');
+        const topStatic =
+            card.querySelector(".card-top .num");
 
-        const topFlap = card.querySelector('.card-flip-top');
-        const bottomFlap = card.querySelector('.card-flip-bottom');
+        const bottomStatic =
+            card.querySelector(".card-bottom .num");
 
-        const oldValue = previousValues[id] || value;
+        const topFlip =
+            card.querySelector(".card-flip-top .num");
+
+        const bottomFlip =
+            card.querySelector(".card-flip-bottom .num");
+
+        const topFlap =
+            card.querySelector(".card-flip-top");
+
+        const bottomFlap =
+            card.querySelector(".card-flip-bottom");
+
+        const oldValue =
+            previousValues[id] || value;
 
         topStatic.textContent = value;
         topFlip.textContent = oldValue;
         bottomFlip.textContent = value;
 
-        topFlap.style.visibility = 'visible';
-        bottomFlap.style.visibility = 'visible';
+        topFlap.style.visibility = "visible";
+        bottomFlap.style.visibility = "visible";
 
-        topFlap.style.animation = 'none';
-        bottomFlap.style.animation = 'none';
+        topFlap.style.animation = "none";
+        bottomFlap.style.animation = "none";
 
         void topFlap.offsetWidth;
 
         topFlap.style.animation =
-            'flipTopDown .3s ease-in forwards';
+            "flipTopDown .3s ease-in forwards";
 
         bottomFlap.style.animation =
-            'flipBottomUp .3s .3s ease-out forwards';
+            "flipBottomUp .3s .3s ease-out forwards";
 
         if (animationTimeouts[id]) {
             clearTimeout(animationTimeouts[id]);
@@ -1874,58 +1969,66 @@
         animationTimeouts[id] = setTimeout(() => {
             bottomStatic.textContent = value;
 
-            topFlap.style.visibility = 'hidden';
-            bottomFlap.style.visibility = 'hidden';
+            topFlap.style.visibility = "hidden";
+            bottomFlap.style.visibility = "hidden";
 
-            topFlap.style.animation = 'none';
-            bottomFlap.style.animation = 'none';
+            topFlap.style.animation = "none";
+            bottomFlap.style.animation = "none";
         }, 700);
 
         previousValues[id] = value;
     }
 
     function tick() {
-        const difference = WEDDING - Date.now();
+        const difference =
+            WEDDING - Date.now();
 
         if (difference <= 0) {
-            const currentLanguage = document.documentElement.lang;
+            const currentLanguage =
+                document.documentElement.lang;
 
             const message =
-                currentLanguage === 'it'
-                    ? 'È arrivato il grande giorno!'
-                    : currentLanguage === 'en'
-                        ? 'The big day is here!'
-                        : 'Le jour J est arrivé !';
+                currentLanguage === "it"
+                    ? "È arrivato il grande giorno!"
+                    : currentLanguage === "en"
+                        ? "The big day is here!"
+                        : "Le jour J est arrivé !";
 
-            document.getElementById('flipClock').innerHTML =
+            document.getElementById("flipClock").innerHTML =
                 `<h2 style="
                     color:#f0e8ff;
                     font-family:Aboreto,serif;
                     font-size:clamp(22px,5vw,32px);
-                ">🎉 ${message} 🎉</h2>`;
+                ">
+                    🎉 ${message} 🎉
+                </h2>`;
 
             clearInterval(countdownTimer);
             return;
         }
 
-        const days = Math.floor(difference / 86400000);
+        const days =
+            Math.floor(difference / 86400000);
 
-        const hours = Math.floor(
-            (difference % 86400000) / 3600000
-        );
+        const hours =
+            Math.floor(
+                (difference % 86400000) / 3600000
+            );
 
-        const minutes = Math.floor(
-            (difference % 3600000) / 60000
-        );
+        const minutes =
+            Math.floor(
+                (difference % 3600000) / 60000
+            );
 
-        const seconds = Math.floor(
-            (difference % 60000) / 1000
-        );
+        const seconds =
+            Math.floor(
+                (difference % 60000) / 1000
+            );
 
-        flipUnit('days', days, 3);
-        flipUnit('hours', hours, 2);
-        flipUnit('minutes', minutes, 2);
-        flipUnit('seconds', seconds, 2);
+        flipUnit("days", days, 3);
+        flipUnit("hours", hours, 2);
+        flipUnit("minutes", minutes, 2);
+        flipUnit("seconds", seconds, 2);
     }
 
     tick();
