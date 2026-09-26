@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariage Teresa & Boris</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         /* =========================================================
            RESET
         ========================================================= */
-
         *,
         *::before,
         *::after {
@@ -26,14 +20,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #ffffff;
             color: #333;
             font-family: "Cormorant Garamond", Georgia, serif;
             overflow-x: hidden;
         }
-
         .site-wrapper {
             position: relative;
             max-width: 1200px;
@@ -42,11 +34,9 @@
             background: #faf9f7;
             box-shadow: 0 0 40px rgba(0, 0, 0, .15);
         }
-
         /* =========================================================
            SECTIONS
         ========================================================= */
-
         .section-bg {
             position: relative;
             display: flex;
@@ -57,7 +47,6 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-
         .section-bg::before {
             content: "";
             position: absolute;
@@ -65,22 +54,18 @@
             z-index: 1;
             pointer-events: none;
         }
-
         .section-bg > * {
             position: relative;
             z-index: 10;
         }
-
         /* =========================================================
            ACCUEIL
         ========================================================= */
-
         .section-accueil {
             min-height: 100vh;
             background-image: url("accueil.jpg");
             text-align: center;
         }
-
         .section-accueil::before {
             background: linear-gradient(
                 to bottom,
@@ -88,7 +73,6 @@
                 rgba(20, 15, 25, .55)
             );
         }
-
         .section-accueil::after {
             content: "";
             position: absolute;
@@ -97,12 +81,10 @@
             box-shadow: inset 0 0 180px rgba(0, 0, 0, .4);
             pointer-events: none;
         }
-
         .accueil-content {
             max-width: 750px;
             padding: 40px 30px;
         }
-
         .names {
             margin-bottom: 20px;
             color: #c4d8e8;
@@ -112,7 +94,6 @@
             text-transform: uppercase;
             text-shadow: 0 2px 15px rgba(0, 0, 0, .5);
         }
-
         .welcome-title {
             color: #fbe9f6;
             font-family: "Aboreto", serif;
@@ -121,7 +102,6 @@
             line-height: 1.2;
             text-shadow: 0 3px 25px rgba(0, 0, 0, .5);
         }
-
         .divider {
             display: flex;
             align-items: center;
@@ -129,7 +109,6 @@
             gap: 14px;
             margin: 25px 0;
         }
-
         .divider-line {
             width: 50px;
             height: 1px;
@@ -140,21 +119,18 @@
                 transparent
             );
         }
-
         .divider-diamond {
             width: 8px;
             height: 8px;
             border: 1px solid rgba(196, 216, 232, .5);
             transform: rotate(45deg);
         }
-
         .divider-dot {
             width: 5px;
             height: 5px;
             border-radius: 50%;
             background: rgba(224, 176, 185, .6);
         }
-
         .date-box {
             display: inline-block;
             padding-left: 25px;
@@ -165,17 +141,14 @@
             text-align: left;
             text-shadow: 0 2px 10px rgba(0, 0, 0, .4);
         }
-
         .date-box p {
             margin: 0;
             letter-spacing: 2px;
         }
-
         .date-main {
             font-size: clamp(17px, 2.5vw, 21px);
             font-weight: 600;
         }
-
         .lang-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -183,7 +156,6 @@
             gap: 15px;
             margin-top: 40px;
         }
-
         .lang-btn {
             display: inline-block;
             padding: 10px 28px;
@@ -198,17 +170,14 @@
             backdrop-filter: blur(10px);
             transition: .3s;
         }
-
         .lang-btn:hover {
             background: rgba(255, 255, 255, .2);
             transform: translateY(-2px);
         }
-
         .lang-btn.active {
             border-color: rgba(224, 176, 185, .5);
             background: rgba(224, 176, 185, .25);
         }
-
         .scroll-hint {
             position: absolute;
             bottom: 30px;
@@ -221,27 +190,22 @@
             transform: translateX(-50%);
             animation: gentleBounce 2.5s ease infinite;
         }
-
         @keyframes gentleBounce {
             0%, 100% {
                 transform: translateX(-50%) translateY(0);
             }
-
             50% {
                 transform: translateX(-50%) translateY(8px);
             }
         }
-
         /* =========================================================
            RSVP
         ========================================================= */
-
         .section-rsvp {
             min-height: 100vh;
             padding: 80px 20px;
             background-image: url("rsvp.jpg");
         }
-
         .rsvp-card {
             width: 100%;
             max-width: 650px;
@@ -252,7 +216,6 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, .15);
             backdrop-filter: blur(10px);
         }
-
         .rsvp-title {
             margin-bottom: 20px;
             color: #c97a8b;
@@ -261,7 +224,6 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
-
         .rsvp-text {
             max-width: 480px;
             margin: 0 auto 20px;
@@ -269,14 +231,12 @@
             font-size: 20px;
             line-height: 1.5;
         }
-
         .rsvp-deadline {
             margin-bottom: 35px;
             color: #b05c70;
             font-size: 18px;
             font-weight: bold;
         }
-
         .rsvp-btn {
             display: inline-block;
             padding: 18px 60px;
@@ -291,47 +251,38 @@
             transition: .3s;
             animation: pulse-btn 2s infinite;
         }
-
         .rsvp-btn:hover {
             transform: translateY(-3px) scale(1.05);
         }
-
         @keyframes pulse-btn {
             0% {
                 box-shadow: 0 0 0 0 rgba(212, 121, 140, .6);
             }
-
             70% {
                 box-shadow: 0 0 0 15px rgba(212, 121, 140, 0);
             }
-
             100% {
                 box-shadow: 0 0 0 0 rgba(212, 121, 140, 0);
             }
         }
-
         .ornament-stars {
             margin-top: 30px;
             color: #d4a0ae;
             font-size: 22px;
             letter-spacing: 8px;
         }
-
         /* =========================================================
            PROGRAMME
         ========================================================= */
-
         .section-programme {
             min-height: 100vh;
             padding: 80px 20px;
             background-image: url("programme.jpg");
         }
-
         .programme-wrapper {
             width: 100%;
             max-width: 700px;
         }
-
         .section-card {
             margin-bottom: 30px;
             padding: 35px 25px;
@@ -339,13 +290,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
             backdrop-filter: blur(8px);
         }
-
         .program-card {
             border: 1px solid rgba(224, 236, 224, .6);
             background: rgba(247, 250, 247, .93);
             text-align: center;
         }
-
         .program-card h2,
         .dress-card h2 {
             margin-bottom: 20px;
@@ -353,11 +302,9 @@
             font-weight: normal;
             letter-spacing: 1px;
         }
-
         .program-card h2 {
             color: #729b79;
         }
-
         .program-desc {
             max-width: 500px;
             margin: 0 auto 30px;
@@ -365,7 +312,6 @@
             font-size: 16px;
             line-height: 1.5;
         }
-
         .day-block {
             margin-bottom: 20px;
             padding: 25px;
@@ -373,11 +319,9 @@
             background: rgba(255, 255, 255, .85);
             text-align: left;
         }
-
         .day-block:last-child {
             margin-bottom: 0;
         }
-
         .day-block h3 {
             margin-bottom: 20px;
             padding-bottom: 10px;
@@ -386,7 +330,6 @@
             font-size: 22px;
             font-weight: normal;
         }
-
         /*
          * Les trois colonnes sont équilibrées :
          * heure / ligne centrée / événement.
@@ -400,25 +343,21 @@
             color: #444;
             font-size: 17px;
         }
-
         .event-row:last-child {
             margin-bottom: 0;
         }
-
         .event-time {
             color: #4a704d;
             font-weight: bold;
             text-align: left;
             white-space: nowrap;
         }
-
         .event-dots {
             position: relative;
             width: 100%;
             height: 2px;
             min-width: 70px;
         }
-
         .event-dots::before {
             content: "";
             position: absolute;
@@ -428,55 +367,45 @@
             border-top: 2px dotted #b9d4bb;
             transform: translate(-50%, -50%);
         }
-
         .event-label {
             color: #444;
             text-align: right;
         }
-
         /* =========================================================
            CODE VESTIMENTAIRE
         ========================================================= */
-
         .dress-card {
             border: 1px solid rgba(232, 224, 239, .6);
             background: rgba(249, 247, 251, .93);
             text-align: center;
         }
-
         .dress-card h2 {
             color: #8e7ba5;
         }
-
         .dress-inner,
         .dress-note {
             padding: 25px;
             border-radius: 15px;
             background: rgba(255, 255, 255, .7);
         }
-
         .dress-inner p {
             color: #555;
             font-size: 16px;
             line-height: 1.6;
         }
-
         .dress-note {
             margin-top: 20px;
             text-align: left;
         }
-
         .dress-note-title {
             margin-bottom: 12px;
             color: #8e7ba5;
             font-size: 17px;
             font-weight: bold;
         }
-
         .dress-note ul {
             list-style: none;
         }
-
         .dress-note li {
             position: relative;
             margin-bottom: 12px;
@@ -485,11 +414,9 @@
             font-size: 15px;
             line-height: 1.6;
         }
-
         .dress-note li:last-child {
             margin-bottom: 0;
         }
-
         .dress-note li::before {
             content: "✦";
             position: absolute;
@@ -498,22 +425,18 @@
             color: #c4a0b0;
             font-size: 10px;
         }
-
         /* =========================================================
            LIEU
         ========================================================= */
-
         .section-lieu {
             min-height: 100vh;
             padding: 80px 20px;
             background-image: url("lieu.jpg");
         }
-
         .location-card {
             width: 100%;
             max-width: 700px;
         }
-
         .location-inner,
         .contact-box,
         .gift-box {
@@ -521,13 +444,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
             backdrop-filter: blur(8px);
         }
-
         .location-inner {
             padding: 35px 25px;
             background: rgba(255, 255, 255, .93);
             text-align: center;
         }
-
         .location-inner h2 {
             margin-bottom: 5px;
             color: #8fbc8f;
@@ -536,43 +457,149 @@
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-
         .location-subtitle {
             margin-bottom: 25px;
             color: #999;
             font-size: 14px;
         }
-
         .location-text {
             margin-bottom: 12px;
             color: #555;
             font-size: 16px;
             line-height: 1.6;
         }
-
-        .location-note {
-            margin-bottom: 25px;
-            color: #777;
-            font-size: 14px;
-            font-style: italic;
-        }
-
         .map-container {
             height: 350px;
             overflow: hidden;
             border-radius: 15px;
         }
-
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
         }
-
+        /* =========================================================
+           TRANSPORTS (sous la carte)
+        ========================================================= */
+        .transport-block {
+            margin-top: 30px;
+            padding-top: 28px;
+            border-top: 1px solid #d0e8d0;
+            text-align: center;
+        }
+        .transport-title {
+            margin-bottom: 6px;
+            color: #729b79;
+            font-size: 26px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .transport-subtitle {
+            margin-bottom: 24px;
+            color: #999;
+            font-size: 14px;
+            font-style: italic;
+        }
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .transport-card {
+            display: flex;
+            flex-direction: column;
+            padding: 28px 24px;
+            border: 1px solid rgba(224, 236, 224, .7);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .85);
+            text-align: left;
+            transition: transform .3s, box-shadow .3s;
+        }
+        .transport-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+        }
+        .transport-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 16px;
+            border: 1px solid #d0e8d0;
+            border-radius: 50%;
+            background: rgba(247, 250, 247, .9);
+            color: #729b79;
+            font-size: 21px;
+        }
+        .transport-card h3 {
+            margin-bottom: 14px;
+            color: #5f8b62;
+            font-size: 21px;
+            font-weight: normal;
+            line-height: 1.35;
+        }
+        .transport-card p {
+            margin-bottom: 14px;
+            color: #555;
+            font-size: 15.5px;
+            line-height: 1.65;
+        }
+        .transport-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: auto;
+            padding: 12px 14px;
+            border-left: 2px solid #b9d4bb;
+            border-radius: 0 8px 8px 0;
+            background: rgba(247, 250, 247, .9);
+            color: #777;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 1.55;
+        }
+        .transport-note i {
+            margin-top: 3px;
+            color: #8fbc8f;
+            font-size: 14px;
+        }
+        .transport-note a {
+            color: #5f8b62;
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .transport-note a:hover {
+            color: #3f6644;
+        }
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-start;
+            gap: 10px;
+            margin: 4px 0 16px;
+            padding: 12px 26px;
+            border: 1px solid #729b79;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #8fbc8f, #729b79);
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(114, 155, 121, .30);
+            transition: .3s;
+        }
+        .pdf-btn:hover {
+            background: linear-gradient(135deg, #7fae7f, #5f8b62);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(114, 155, 121, .40);
+        }
         /* =========================================================
            CONTACT
         ========================================================= */
-
         .contact-box {
             margin-top: 30px;
             padding: 30px 25px;
@@ -580,14 +607,12 @@
             background: rgba(247, 250, 247, .93);
             text-align: center;
         }
-
         .contact-box h3 {
             margin-bottom: 25px;
             color: #729b79;
             font-size: 28px;
             font-weight: normal;
         }
-
         .contact-grid {
             display: flex;
             flex-direction: column;
@@ -597,41 +622,34 @@
             color: #444;
             font-size: 18px;
         }
-
         .contact-item {
             display: flex;
             align-items: center;
             gap: 15px;
             text-align: left;
         }
-
         .contact-item i {
             min-width: 30px;
             color: #8fbc8f;
             font-size: 24px;
             text-align: center;
         }
-
         .contact-item p {
             margin: 0;
             line-height: 1.4;
         }
-
         .contact-divider {
             width: 100%;
             height: 1px;
             margin: 10px 0;
             background: #d0e8d0;
         }
-
         .contact-us i {
             color: #d4a0ae;
         }
-
         /* =========================================================
            CADEAUX ET PAIEMENTS
         ========================================================= */
-
         .gift-box {
             margin-top: 30px;
             padding: 35px 25px;
@@ -639,7 +657,6 @@
             background: rgba(249, 247, 251, .95);
             text-align: center;
         }
-
         .gift-box h3 {
             margin-bottom: 20px;
             color: #8e7ba5;
@@ -647,7 +664,6 @@
             font-weight: normal;
             letter-spacing: 2px;
         }
-
         .gift-intro {
             max-width: 590px;
             margin: 0 auto 28px;
@@ -655,7 +671,6 @@
             font-size: 17px;
             line-height: 1.6;
         }
-
         .payment-section {
             margin-top: 25px;
             padding: 25px;
@@ -663,7 +678,6 @@
             background: rgba(255, 255, 255, .75);
             text-align: left;
         }
-
         .payment-section h4 {
             margin-bottom: 20px;
             color: #729b79;
@@ -672,21 +686,17 @@
             letter-spacing: 1px;
             text-align: center;
         }
-
         .payment-content {
             display: flex;
             align-items: center;
             gap: 25px;
         }
-
         .payment-content.euro-payment {
             display: block;
         }
-
         .payment-content.qr-right {
             flex-direction: row-reverse;
         }
-
         .qr-placeholder {
             flex: 0 0 190px;
             width: 190px;
@@ -699,14 +709,12 @@
             border-radius: 12px;
             background: rgba(255, 255, 255, .8);
         }
-
         .qr-placeholder img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .payment-details {
             flex: 1;
             min-width: 0;
@@ -714,41 +722,33 @@
             font-size: 16px;
             line-height: 1.55;
         }
-
         .payment-content.euro-payment .payment-details {
             width: 100%;
         }
-
         .payment-line {
             display: flex;
             gap: 8px;
             margin-bottom: 8px;
         }
-
         .payment-label {
             flex: 0 0 150px;
             color: #729b79;
             font-weight: bold;
         }
-
         .payment-value {
             overflow-wrap: anywhere;
         }
-
         .bank-value {
             line-height: 1.45;
         }
-
         /* =========================================================
            COMPTE À REBOURS
         ========================================================= */
-
         .section-countdown {
             min-height: 100vh;
             padding: 80px 20px;
             background-image: url("countdown.jpg");
         }
-
         .section-countdown::before {
             background: linear-gradient(
                 to bottom,
@@ -756,13 +756,11 @@
                 rgba(15, 15, 25, .60)
             );
         }
-
         .countdown-content {
             width: 100%;
             max-width: 800px;
             text-align: center;
         }
-
         .countdown-content h1 {
             margin-bottom: 50px;
             color: #e0d0f0;
@@ -771,7 +769,6 @@
             font-weight: 400;
             text-shadow: 0 2px 15px rgba(0, 0, 0, .4);
         }
-
         :root {
             --card-w: 100px;
             --card-h: 120px;
@@ -779,7 +776,6 @@
             --card-radius: 10px;
             --sep-size: 22px;
         }
-
         .flip-clock {
             display: flex;
             flex-wrap: wrap;
@@ -787,21 +783,18 @@
             justify-content: center;
             gap: 12px;
         }
-
         .flip-group {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
         }
-
         .flip-label {
             color: rgba(255, 255, 255, .45);
             font-size: 13px;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-
         .flip-card {
             position: relative;
             width: var(--card-w);
@@ -809,7 +802,6 @@
             border-radius: var(--card-radius);
             perspective: 400px;
         }
-
         .flip-card::before,
         .flip-card::after {
             content: "";
@@ -822,15 +814,12 @@
             background: #0e0e1a;
             transform: translateY(-50%);
         }
-
         .flip-card::before {
             left: -4px;
         }
-
         .flip-card::after {
             right: -4px;
         }
-
         .card-top,
         .card-bottom,
         .card-flip-top,
@@ -841,7 +830,6 @@
             height: 50%;
             overflow: hidden;
         }
-
         .card-top,
         .card-flip-top {
             top: 0;
@@ -849,14 +837,12 @@
             border-radius: var(--card-radius) var(--card-radius) 0 0;
             background: linear-gradient(180deg, #2c2c42, #262640);
         }
-
         .card-bottom,
         .card-flip-bottom {
             bottom: 0;
             border-radius: 0 0 var(--card-radius) var(--card-radius);
             background: linear-gradient(180deg, #22223a, #1c1c32);
         }
-
         .card-top .num,
         .card-bottom .num,
         .card-flip-top .num,
@@ -872,17 +858,14 @@
             line-height: var(--card-h);
             text-align: center;
         }
-
         .card-top .num,
         .card-flip-top .num {
             top: 0;
         }
-
         .card-bottom .num,
         .card-flip-bottom .num {
             bottom: 0;
         }
-
         .card-line {
             position: absolute;
             top: 50%;
@@ -892,7 +875,6 @@
             height: 1px;
             background: rgba(0, 0, 0, .7);
         }
-
         .card-shadow {
             position: absolute;
             top: 50%;
@@ -907,14 +889,12 @@
             );
             transform: translateY(-10px);
         }
-
         .card-flip-top {
             z-index: 20;
             visibility: hidden;
             transform-origin: bottom center;
             backface-visibility: hidden;
         }
-
         .card-flip-bottom {
             z-index: 20;
             visibility: hidden;
@@ -922,27 +902,22 @@
             transform-origin: top center;
             backface-visibility: hidden;
         }
-
         @keyframes flipTopDown {
             from {
                 transform: rotateX(0deg);
             }
-
             to {
                 transform: rotateX(-90deg);
             }
         }
-
         @keyframes flipBottomUp {
             from {
                 transform: rotateX(90deg);
             }
-
             to {
                 transform: rotateX(0deg);
             }
         }
-
         .flip-sep {
             align-self: flex-start;
             margin-top: calc(var(--card-h) / 2 - var(--sep-size) / 2);
@@ -951,11 +926,9 @@
             font-size: var(--sep-size);
             line-height: 1;
         }
-
         /* =========================================================
            FOOTER
         ========================================================= */
-
         footer {
             padding: 40px;
             background: #1a1a28;
@@ -965,11 +938,9 @@
             letter-spacing: 2px;
             text-align: center;
         }
-
         /* =========================================================
            RESPONSIVE
         ========================================================= */
-
         @media (max-width: 768px) {
             :root {
                 --card-w: 75px;
@@ -978,36 +949,35 @@
                 --card-radius: 8px;
                 --sep-size: 18px;
             }
-
             .flip-clock {
                 gap: 8px;
             }
-
             .event-row {
                 grid-template-columns: 65px minmax(80px, 1fr) minmax(135px, 1fr);
                 gap: 8px;
                 font-size: 15px;
             }
-
             .event-dots::before {
                 width: 90%;
             }
-
             .payment-content.qr-right {
                 flex-direction: column;
             }
-
             .qr-placeholder {
                 flex: 0 0 auto;
                 width: 190px;
                 height: 190px;
             }
-
             .payment-details {
                 width: 100%;
             }
+            .transport-grid {
+                grid-template-columns: 1fr;
+            }
+            .transport-title {
+                font-size: 22px;
+            }
         }
-
         @media (max-width: 480px) {
             :root {
                 --card-w: 60px;
@@ -1016,54 +986,58 @@
                 --card-radius: 7px;
                 --sep-size: 15px;
             }
-
             .flip-clock {
                 gap: 5px;
             }
-
             .flip-label {
                 font-size: 11px;
                 letter-spacing: 2px;
             }
-
             .event-row {
                 grid-template-columns: 52px minmax(55px, 1fr) minmax(105px, 1fr);
                 gap: 6px;
                 font-size: 14px;
             }
-
             .event-dots::before {
                 width: 100%;
                 border-top-width: 1px;
             }
-
             .lang-buttons {
                 gap: 10px;
             }
-
             .lang-btn {
                 padding: 8px 20px;
                 font-size: 15px;
             }
-
             .accueil-content {
                 padding: 30px 20px;
             }
-
             .payment-section {
                 padding: 18px;
             }
-
             .payment-line {
                 display: block;
                 margin-bottom: 10px;
             }
-
             .payment-label {
                 display: block;
                 margin-bottom: 2px;
             }
-
+            .transport-block {
+                margin-top: 24px;
+                padding-top: 22px;
+            }
+            .transport-card {
+                padding: 22px 18px;
+            }
+            .transport-card h3 {
+                font-size: 19px;
+            }
+            .pdf-btn {
+                width: 100%;
+                padding: 13px 20px;
+                font-size: 15px;
+            }
             footer {
                 padding: 30px 15px;
                 font-size: 17px;
@@ -1071,27 +1045,19 @@
         }
     </style>
 </head>
-
 <body>
-
 <div class="site-wrapper">
-
     <!-- =========================================================
          ACCUEIL
     ========================================================= -->
-
     <section class="section-bg section-accueil">
-
         <div class="accueil-content">
-
             <p class="names">
                 Teresa Maria GIUSTI & Boris Rafael GUEORGUIEV
             </p>
-
             <h1 class="welcome-title" data-i18n="welcome">
                 Bienvenue à notre mariage
             </h1>
-
             <div class="divider">
                 <span class="divider-line"></span>
                 <span class="divider-dot"></span>
@@ -1099,113 +1065,84 @@
                 <span class="divider-dot"></span>
                 <span class="divider-line"></span>
             </div>
-
             <div class="date-box">
-
                 <p class="date-main" data-i18n="date">
                     Samedi 08 MAI 2027
                 </p>
-
                 <p>
                     🏰 Borgo di Tragliata
                 </p>
-
                 <p data-i18n="time">
                     À partir de 16h00
                 </p>
-
             </div>
-
             <div class="lang-buttons">
-
                 <a class="lang-btn active"
                    onclick="changeLanguage('fr')"
                    data-lang="fr">
                     Français
                 </a>
-
                 <a class="lang-btn"
                    onclick="changeLanguage('it')"
                    data-lang="it">
                     Italiano
                 </a>
-
                 <a class="lang-btn"
                    onclick="changeLanguage('en')"
                    data-lang="en">
                     English
                 </a>
-
             </div>
         </div>
-
         <div class="scroll-hint">
             ▼
         </div>
     </section>
-
     <!-- =========================================================
          RSVP
     ========================================================= -->
-
     <section class="section-bg section-rsvp">
-
         <div class="rsvp-card">
-
             <p class="rsvp-title" data-i18n="rsvpTitle">
                 Répondez-nous
             </p>
-
             <p class="rsvp-text" data-i18n="rsvpText">
                 Afin de préparer au mieux cette journée et de vous offrir un moment
                 inoubliable, nous vous prions de répondre à quelques questions dans
                 le formulaire ci-dessous.
             </p>
-
             <p class="rsvp-deadline" data-i18n="rsvpDeadline">
                 Merci de nous répondre avant le 01 octobre 2026.
             </p>
-
             <a class="rsvp-btn"
                id="rsvpLink"
                href="https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
                target="_blank">
                 RSVP
             </a>
-
             <p class="ornament-stars">
                 ✦ ✦ ✦
             </p>
-
         </div>
     </section>
-
     <!-- =========================================================
          PROGRAMME
     ========================================================= -->
-
     <section class="section-bg section-programme">
-
         <div class="programme-wrapper">
-
             <div class="section-card program-card">
-
                 <h2 data-i18n="programTitle">
                     Programme du week-end
                 </h2>
-
                 <p class="program-desc" data-i18n="programDesc">
                     Le mariage se déroulera durant le week-end de l'Ascension 2027.
                     Profitez de cette occasion pour flâner dans les rues de Rome
                     avant la cérémonie !
                 </p>
-
                 <div class="day-block">
-
                     <h3 data-i18n="sat">
                         Samedi 8 mai 2027
                     </h3>
-
                     <div class="event-row">
                         <span class="event-time">15h00</span>
                         <span class="event-dots"></span>
@@ -1213,7 +1150,6 @@
                             Accueil des invités
                         </span>
                     </div>
-
                     <div class="event-row">
                         <span class="event-time">16h00</span>
                         <span class="event-dots"></span>
@@ -1221,7 +1157,6 @@
                             Cérémonie de mariage
                         </span>
                     </div>
-
                     <div class="event-row">
                         <span class="event-time">19h00</span>
                         <span class="event-dots"></span>
@@ -1229,7 +1164,6 @@
                             Dîner et desserts
                         </span>
                     </div>
-
                     <div class="event-row">
                         <span class="event-time">21h00</span>
                         <span class="event-dots"></span>
@@ -1237,7 +1171,6 @@
                             Soirée dansante
                         </span>
                     </div>
-
                     <div class="event-row">
                         <span class="event-time">02h00</span>
                         <span class="event-dots"></span>
@@ -1245,15 +1178,11 @@
                             Fin des festivités
                         </span>
                     </div>
-
                 </div>
-
                 <div class="day-block">
-
                     <h3 data-i18n="sun">
                         Dimanche 9 mai 2027
                     </h3>
-
                     <div class="event-row">
                         <span class="event-time">6h – 11h</span>
                         <span class="event-dots"></span>
@@ -1261,7 +1190,6 @@
                             Petit-déjeuner
                         </span>
                     </div>
-
                     <div class="event-row">
                         <span class="event-time">11h00</span>
                         <span class="event-dots"></span>
@@ -1269,20 +1197,14 @@
                             Check-out
                         </span>
                     </div>
-
                 </div>
             </div>
-
             <!-- CODE VESTIMENTAIRE -->
-
             <div class="section-card dress-card">
-
                 <h2 data-i18n="dressTitle">
                     Code vestimentaire
                 </h2>
-
                 <div class="dress-inner">
-
                     <p data-i18n="dressText">
                         Le thème du mariage est
                         <strong style="color:#9b7ead;">
@@ -1292,317 +1214,299 @@
                         mais sentez-vous libres de porter les couleurs qui vous font
                         vous sentir le plus à votre aise.
                     </p>
-
                 </div>
-
                 <div class="dress-note">
-
                     <p class="dress-note-title" data-i18n="dressNoteTitle">
                         À noter pour votre confort :
                     </p>
-
                     <ul>
-
                         <li data-i18n="dressNote1">
                             <strong>Températures :</strong>
                             comptez 20–25 °C en journée et 10–15 °C en soirée.
                             Une petite jaquette ou veste de mi-saison est vivement
                             conseillée pour profiter de la fête jusqu'au bout.
                         </li>
-
                         <li data-i18n="dressNote2">
                             <strong>Météo :</strong>
                             la cérémonie aura lieu en extérieur même en cas de pluie fine.
                             Pensez à vérifier la météo le matin même et à prévoir un petit
                             parapluie d'appoint.
                         </li>
-
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- =========================================================
          LIEU, CONTACT ET CADEAUX
     ========================================================= -->
-
     <section class="section-bg section-lieu">
-
         <div class="location-card">
-
             <!-- LIEU -->
-
             <div class="location-inner">
-
                 <h2 data-i18n="locTitle">
                     Le lieu
                 </h2>
-
                 <p class="location-subtitle">
                     Borgo di Tragliata, Rome
                 </p>
-
                 <p class="location-text" data-i18n="locDesc1">
                     Le <strong style="color:#8fbc8f;">Borgo di Tragliata</strong>
                     est situé à environ <strong>30 minutes en voiture</strong>
                     de l'aéroport Rome Fiumicino (FCO).
                 </p>
-
-                <p class="location-note" data-i18n="locDesc2">
-                    Le trafic romain pouvant être dense, prévoyez 1h à 2h
-                    depuis le centre-ville.
-                </p>
-
                 <div class="map-container">
-
                     <iframe
                         src="https://maps.google.com/maps?q=Borgo%20di%20Tragliata,%20Via%20Casale%20di%20Tragliata,%2000054%20Fiumicino%20RM,%20Italy&t=&z=10&ie=UTF8&iwloc=&output=embed"
                         allowfullscreen
                         loading="lazy">
                     </iframe>
+                </div>
 
+                <!-- TRANSPORTS -->
+                <div class="transport-block">
+                    <h3 class="transport-title" data-i18n="transportTitle">
+                        Comment venir ?
+                    </h3>
+                    <p class="transport-subtitle" data-i18n="transportSubtitle">
+                        Deux options s'offrent à vous pour rejoindre le Borgo di Tragliata.
+                    </p>
+
+                    <div class="transport-grid">
+                        <!-- OPTION 1 : VÉHICULE / COVOITURAGE -->
+                        <div class="transport-card">
+                            <div class="transport-icon">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <h3 data-i18n="carTitle">
+                                Option 1 — Vous venez avec votre véhicule
+                            </h3>
+                            <p data-i18n="carText">
+                                Vous venez en voiture ? N'hésitez pas à nous indiquer si vous
+                                avez des places disponibles et si vous êtes disposés à embarquer
+                                d'autres invités : le covoiturage est le bienvenu et permettra
+                                à chacun de voyager sereinement.
+                            </p>
+                            <div class="transport-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span data-i18n="locDesc2">
+                                    Le trafic romain pouvant être dense, prévoyez 1h à 2h
+                                    depuis le centre-ville.
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- OPTION 2 : TAXI / TRANSFERT -->
+                        <div class="transport-card">
+                            <div class="transport-icon">
+                                <i class="fas fa-taxi"></i>
+                            </div>
+                            <h3 data-i18n="taxiTitle">
+                                Option 2 — Vous souhaitez venir en taxi / transfert
+                            </h3>
+                            <p data-i18n="taxiText">
+                                Pas de véhicule ? Le Borgo di Tragliata peut organiser
+                                votre transfert (depuis l'aéroport, la gare ou votre hôtel).
+                                Les tarifs sont détaillés dans le document ci-dessous.
+                            </p>
+                            <a class="pdf-btn"
+                               href="taxi.pdf"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-i18n="taxiPdf">
+                                    Consulter les tarifs taxi (PDF)
+                                </span>
+                            </a>
+                            <div class="transport-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span data-i18n="taxiNote">
+                                    La demande de réservation s'effectue directement auprès
+                                    du Borgo — retrouvez leurs coordonnées dans la
+                                    <a href="#contact">section Contact</a> juste en dessous.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <!-- CONTACT -->
-
-            <div class="contact-box">
-
+            <div class="contact-box" id="contact">
                 <h3 data-i18n="contactTitle">
                     Contact & Informations
                 </h3>
-
                 <div class="contact-grid">
-
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-
                         <p>
                             <strong>Borgo di Tragliata</strong><br>
                             Via Casale di Tragliata,
                             00054 Fiumicino RM, Italy
                         </p>
                     </div>
-
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-
                         <p>
                             (+39) 06 66.87.267
                         </p>
                     </div>
-
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-
                         <p>
                             info@tragliata.it
                         </p>
                     </div>
-
                     <div class="contact-divider"></div>
-
                     <div class="contact-item contact-us">
                         <i class="fas fa-envelope"></i>
-
                         <p>
                             <strong>Teresa & Boris :</strong><br>
                             airbnt97@gmail.com
                         </p>
                     </div>
-
                 </div>
             </div>
-
             <!-- CADEAUX -->
-
             <div class="gift-box">
-
                 <h3 data-i18n="giftTitle">
                     Cadeaux
                 </h3>
-
                 <div class="gift-intro">
-
                     <p data-i18n="giftIntro">
                         Votre présence à nos côtés en Italie est déjà le plus beau
                         des cadeaux !
                     </p>
-
                     <br>
-
                     <p data-i18n="giftText">
                         Pour répondre à vos demandes : pour des raisons logistiques,
                         nous ne pourrons pas recevoir de cadeaux volumineux. Si vous
                         tenez malgré tout à nous faire une petite attention, une
                         contribution par virement est l'option la plus simple pour nous.
                     </p>
-
                 </div>
-
                 <!-- PAIEMENT EN EUROS : SANS QR CODE -->
-
                 <div class="payment-section">
-
                     <h4 data-i18n="euroTitle">
                         Paiement en euros (SEPA)
                     </h4>
-
                     <div class="payment-content euro-payment">
-
                         <div class="payment-details">
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="nameLabel">
                                     Nom :
                                 </span>
-
                                 <span class="payment-value">
                                     Teresa Maria Giusti
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="addressLabel">
                                     Adresse :
                                 </span>
-
                                 <span class="payment-value">
                                     Avenue de l’Étang 50,<br>
                                     1219 Châtelaine
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="ibanLabel">
                                     IBAN :
                                 </span>
-
                                 <span class="payment-value">
                                     BE55 9050 1117 8144
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="swiftLabel">
                                     SWIFT/BIC :
                                 </span>
-
                                 <span class="payment-value">
                                     TRWIBEB1XXX
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="bankLabel">
                                     Banque :
                                 </span>
-
                                 <span class="payment-value bank-value">
                                     Wise<br>
                                     Rue du Trône 100, 3rd floor,<br>
                                     Brussels, 1050, Belgium
                                 </span>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <!-- PAIEMENT EN CHF : AVEC QR CODE -->
-
                 <div class="payment-section">
-
                     <h4 data-i18n="chfTitle">
                         Paiement en francs suisses
                     </h4>
-
                     <div class="payment-content qr-right">
-
                         <div class="qr-placeholder">
                             <img src="qrchf.jpg"
                                  alt="QR code pour paiement en francs suisses">
                         </div>
-
                         <div class="payment-details">
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="accountHolderLabel">
                                     Titulaire :
                                 </span>
-
                                 <span class="payment-value">
                                     Teresa Maria Giusti
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="addressLabel">
                                     Adresse :
                                 </span>
-
                                 <span class="payment-value">
                                     Avenue de l’Étang 50,<br>
                                     1219 Châtelaine
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="ibanLabel">
                                     IBAN :
                                 </span>
-
                                 <span class="payment-value">
                                     CH07 0830 7000 5492 3130 7
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="swiftCodeLabel">
                                     SWIFT-Code/BIC :
                                 </span>
-
                                 <span class="payment-value">
                                     HYPLCH22
                                 </span>
                             </div>
-
                             <div class="payment-line">
                                 <span class="payment-label" data-i18n="bankLabel">
                                     Banque :
                                 </span>
-
                                 <span class="payment-value bank-value">
                                     Hypothekarbank Lenzburg AG<br>
                                     Bahnhofstrasse 2,<br>
                                     5600 Lenzburg
                                 </span>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- =========================================================
          COMPTE À REBOURS
     ========================================================= -->
-
     <section class="section-bg section-countdown">
-
         <div class="countdown-content">
-
             <h1 data-i18n="countdown">
                 L'amour nous emmène en Italie dans...
             </h1>
-
             <div class="flip-clock" id="flipClock">
-
                 <div class="flip-group">
-
                     <div class="flip-card" id="card-days">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1611,17 +1515,12 @@
                         <div class="card-flip-top"><span class="num">00</span></div>
                         <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-
                     <span class="flip-label" data-i18n="labelDays">
                         Jours
                     </span>
-
                 </div>
-
                 <span class="flip-sep">:</span>
-
                 <div class="flip-group">
-
                     <div class="flip-card" id="card-hours">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1630,17 +1529,12 @@
                         <div class="card-flip-top"><span class="num">00</span></div>
                         <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-
                     <span class="flip-label" data-i18n="labelHours">
                         Heures
                     </span>
-
                 </div>
-
                 <span class="flip-sep">:</span>
-
                 <div class="flip-group">
-
                     <div class="flip-card" id="card-minutes">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1649,17 +1543,12 @@
                         <div class="card-flip-top"><span class="num">00</span></div>
                         <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-
                     <span class="flip-label" data-i18n="labelMinutes">
                         Minutes
                     </span>
-
                 </div>
-
                 <span class="flip-sep">:</span>
-
                 <div class="flip-group">
-
                     <div class="flip-card" id="card-seconds">
                         <div class="card-line"></div>
                         <div class="card-shadow"></div>
@@ -1668,73 +1557,64 @@
                         <div class="card-flip-top"><span class="num">00</span></div>
                         <div class="card-flip-bottom"><span class="num">00</span></div>
                     </div>
-
                     <span class="flip-label" data-i18n="labelSeconds">
                         Secondes
                     </span>
-
                 </div>
-
             </div>
         </div>
     </section>
-
     <footer>
         <p>
             Made with ♥ by Teresa &amp; Boris
         </p>
     </footer>
-
 </div>
-
 <script>
     /* =========================================================
        TRADUCTIONS
     ========================================================= */
-
     const translations = {
-
         fr: {
             welcome: "Bienvenue à notre mariage",
             date: "Samedi 08 MAI 2027",
             time: "À partir de 16h00",
-
             rsvpTitle: "Répondez-nous",
             rsvpText: "Afin de préparer au mieux cette journée et de vous offrir un moment inoubliable, nous vous prions de répondre à quelques questions dans le formulaire ci-dessous.",
             rsvpDeadline: "Merci de nous répondre avant le 31 octobre 2026.",
-
             programTitle: "Programme du week-end",
             programDesc: "Le mariage se déroulera durant le week-end de l'Ascension 2027. Profitez de cette occasion pour flâner dans les rues de Rome avant la cérémonie !",
-
             sat: "Samedi 8 mai 2027",
             sat1: "Accueil des invités",
             sat2: "Cérémonie de mariage",
             sat3: "Dîner et desserts",
             sat4: "Soirée dansante",
             sat5: "Fin des festivités",
-
             sun: "Dimanche 9 mai 2027",
             sun1: "Petit-déjeuner",
             sun2: "Check-out",
-
             dressTitle: "Code vestimentaire",
             dressText: "Le thème du mariage est <strong style='color:#9b7ead;'>pastel, floral et beige</strong>,<br>mais sentez-vous libres de porter les couleurs qui vous font vous sentir le plus à votre aise.",
             dressNoteTitle: "À noter pour votre confort :",
             dressNote1: "<strong>Températures :</strong> comptez 20–25 °C en journée et 10–15 °C en soirée. Une petite jaquette ou veste de mi-saison est vivement conseillée pour profiter de la fête jusqu'au bout.",
             dressNote2: "<strong>Météo :</strong> la cérémonie aura lieu en extérieur même en cas de pluie fine. Pensez à vérifier la météo le matin même et à prévoir un petit parapluie d'appoint.",
-
             locTitle: "Le lieu",
             locDesc1: "Le <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> est situé à environ <strong>30 minutes en voiture</strong> de l'aéroport Rome Fiumicino (FCO).",
             locDesc2: "Le trafic romain pouvant être dense, prévoyez 1h à 2h depuis le centre-ville.",
+            transportTitle: "Comment venir ?",
+            transportSubtitle: "Deux options s'offrent à vous pour rejoindre le Borgo di Tragliata.",
+            carTitle: "Option 1 — Vous venez avec votre véhicule",
+            carText: "Vous venez en voiture ? N'hésitez pas à nous indiquer si vous avez des places disponibles et si vous êtes disposés à embarquer d'autres invités : le covoiturage est le bienvenu et permettra à chacun de voyager sereinement.",
+            taxiTitle: "Option 2 — Vous souhaitez venir en taxi / transfert",
+            taxiText: "Pas de véhicule ? Le Borgo di Tragliata peut organiser votre transfert (depuis l'aéroport, la gare ou votre hôtel). Les tarifs sont détaillés dans le document ci-dessous.",
+            taxiPdf: "Consulter les tarifs taxi (PDF)",
+            taxiNote: "La demande de réservation s'effectue directement auprès du Borgo — retrouvez leurs coordonnées dans la <a href='#contact'>section Contact</a> juste en dessous.",
             contactTitle: "Contact & Informations",
-
             giftTitle: "Cadeaux",
             giftIntro: "Votre présence à nos côtés en Italie est déjà le plus beau des cadeaux !",
             giftText: "Pour répondre à vos demandes : pour des raisons logistiques, nous ne pourrons pas recevoir de cadeaux volumineux. Si vous tenez malgré tout à nous faire une petite attention, une contribution par virement est l'option la plus simple pour nous.",
-
             euroTitle: "Paiement en euros (SEPA)",
             chfTitle: "Paiement en francs suisses",
-
             nameLabel: "Nom :",
             accountHolderLabel: "Titulaire :",
             addressLabel: "Adresse :",
@@ -1742,57 +1622,53 @@
             swiftLabel: "SWIFT/BIC :",
             swiftCodeLabel: "SWIFT-Code/BIC :",
             bankLabel: "Banque :",
-
             countdown: "L'amour nous emmène en Italie dans...",
             labelDays: "Jours",
             labelHours: "Heures",
             labelMinutes: "Minutes",
             labelSeconds: "Secondes",
-
             rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5pVw99CpjVCD1cDhkMl-wiirqO4fc7XVPc1zQvkb4pK3MgA/viewform?usp=header"
         },
-
         it: {
             welcome: "Benvenuti al nostro<br>matrimonio",
             date: "Sabato 08 MAGGIO 2027",
             time: "Dalle 16:00",
-
             rsvpTitle: "Rispondeteci",
             rsvpText: "Per organizzare al meglio questa giornata e offrirvi un momento indimenticabile, vi preghiamo di rispondere ad alcune domande nel modulo sottostante.",
             rsvpDeadline: "Vi preghiamo di risponderci entro il 31 ottobre 2026.",
-
             programTitle: "Programma del weekend",
             programDesc: "Il matrimonio si svolgerà durante il ponte dell'Ascensione 2027. Approfittate di questa occasione per passeggiare per le strade di Roma prima della cerimonia!",
-
             sat: "Sabato 8 maggio 2027",
             sat1: "Accoglienza degli ospiti",
             sat2: "Cerimonia di matrimonio",
             sat3: "Cena e dessert",
             sat4: "Serata danzante",
             sat5: "Fine dei festeggiamenti",
-
             sun: "Domenica 9 maggio 2027",
             sun1: "Colazione",
             sun2: "Check-out",
-
             dressTitle: "Dress code",
             dressText: "Il tema del matrimonio è <strong style='color:#9b7ead;'>pastello, floreale e beige</strong>,<br>ma sentitevi liberi di indossare i colori che vi fanno sentire più a vostro agio.",
             dressNoteTitle: "Da tenere presente per il vostro comfort:",
             dressNote1: "<strong>Temperature:</strong> prevedete 20–25 °C di giorno e 10–15 °C la sera. Una leggera giacca o un capo di mezza stagione è vivamente consigliato per godervi la festa fino alla fine.",
             dressNote2: "<strong>Meteo:</strong> la cerimonia si svolgerà all'aperto anche in caso di pioggia leggera. Controllate le previsioni meteo la mattina stessa e portate con voi un piccolo ombrello.",
-
             locTitle: "La location",
             locDesc1: "Il <strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> si trova a circa <strong>30 minuti di auto</strong> dall'aeroporto di Roma Fiumicino (FCO).",
             locDesc2: "Poiché il traffico romano può essere intenso, prevedete da 1 a 2 ore dal centro città.",
+            transportTitle: "Come arrivare",
+            transportSubtitle: "Due opzioni per raggiungere il Borgo di Tragliata.",
+            carTitle: "Opzione 1 — Venite con la vostra auto",
+            carText: "Venite in auto? Indicateci se avete posti liberi e se siete disposti ad accompagnare altri ospiti: il carpooling è il benvenuto e permetterà a tutti di viaggiare serenamente.",
+            taxiTitle: "Opzione 2 — Venite in taxi / transfer",
+            taxiText: "Nessuna auto? Il Borgo di Tragliata può organizzare il vostro transfer (dall'aeroporto, dalla stazione o dal vostro hotel). Le tariffe sono indicate nel documento qui sotto.",
+            taxiPdf: "Vedi le tariffe taxi (PDF)",
+            taxiNote: "La prenotazione si effettua direttamente presso il Borgo — trovate i loro contatti nella <a href='#contact'>sezione Contatti</a> qui sotto.",
             contactTitle: "Contatti & Informazioni",
-
             giftTitle: "Regali",
             giftIntro: "La vostra presenza al nostro fianco in Italia è già il regalo più bello!",
             giftText: "Per rispondere alle vostre domande: per motivi logistici non potremo ricevere regali ingombranti. Se desiderate comunque farci un piccolo pensiero, un contributo tramite bonifico è l'opzione più semplice per noi.",
-
             euroTitle: "Pagamento in euro (SEPA)",
             chfTitle: "Pagamento in franchi svizzeri",
-
             nameLabel: "Nome:",
             accountHolderLabel: "Intestatario:",
             addressLabel: "Indirizzo:",
@@ -1800,57 +1676,53 @@
             swiftLabel: "SWIFT/BIC:",
             swiftCodeLabel: "SWIFT-Code/BIC:",
             bankLabel: "Banca:",
-
             countdown: "L'amore ci porta in Italia tra...",
             labelDays: "Giorni",
             labelHours: "Ore",
             labelMinutes: "Minuti",
             labelSeconds: "Secondi",
-
             rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfhyzz83kcDvGnq0SAU7t6LDZVKN6Ne09Qv4gQHHgEPcgkMAg/viewform?usp=header"
         },
-
         en: {
             welcome: "Welcome to our wedding",
             date: "Saturday, MAY 08, 2027",
             time: "From 4:00 PM",
-
             rsvpTitle: "RSVP",
             rsvpText: "To best prepare for this day and offer you an unforgettable moment, please answer a few questions in the form below.",
             rsvpDeadline: "Please kindly respond by October 31, 2026.",
-
             programTitle: "Weekend Program",
             programDesc: "The wedding will take place during the Ascension weekend 2027. Take this opportunity to stroll through the streets of Rome before the ceremony!",
-
             sat: "Saturday, May 8, 2027",
             sat1: "Welcome of guests",
             sat2: "Wedding ceremony",
             sat3: "Dinner and desserts",
             sat4: "Dance party",
             sat5: "End of festivities",
-
             sun: "Sunday, May 9, 2027",
             sun1: "Breakfast",
             sun2: "Check-out",
-
             dressTitle: "Dress Code",
             dressText: "The wedding theme is <strong style='color:#9b7ead;'>pastel, floral, and beige</strong>,<br>but feel free to wear the colors that make you feel most comfortable.",
             dressNoteTitle: "A note for your comfort:",
             dressNote1: "<strong>Temperatures:</strong> expect 20–25 °C during the day and 10–15 °C in the evening. A light jacket or mid-season layer is strongly recommended so you can enjoy the celebration until the very end.",
             dressNote2: "<strong>Weather:</strong> the ceremony will take place outdoors even in light rain. Be sure to check the forecast on the morning of the wedding and bring a small umbrella just in case.",
-
             locTitle: "The Venue",
             locDesc1: "<strong style='color:#8fbc8f;'>Borgo di Tragliata</strong> is located about <strong>30 minutes by car</strong> from Rome Fiumicino Airport (FCO).",
             locDesc2: "Since Roman traffic can be heavy, allow 1 to 2 hours from the city center.",
+            transportTitle: "Getting there",
+            transportSubtitle: "Two options to reach Borgo di Tragliata.",
+            carTitle: "Option 1 — You are coming with your own car",
+            carText: "Driving there? Please let us know if you have seats available and would be willing to take other guests along: carpooling is most welcome and will help everyone travel stress-free.",
+            taxiTitle: "Option 2 — You would like to come by taxi / shuttle",
+            taxiText: "No car? Borgo di Tragliata can arrange your transfer (from the airport, the train station or your hotel). Rates are listed in the document below.",
+            taxiPdf: "View taxi rates (PDF)",
+            taxiNote: "Bookings are made directly with the Borgo — you will find their contact details in the <a href='#contact'>Contact section</a> just below.",
             contactTitle: "Contact & Information",
-
             giftTitle: "Gifts",
             giftIntro: "Having you by our side in Italy is already the greatest gift!",
             giftText: "To answer your questions: for logistical reasons, we will not be able to receive bulky gifts. If you would nevertheless like to give us a small token, a bank transfer is the simplest option for us.",
-
             euroTitle: "Payment in euros (SEPA)",
             chfTitle: "Payment in Swiss francs",
-
             nameLabel: "Name:",
             accountHolderLabel: "Account holder:",
             addressLabel: "Address:",
@@ -1858,142 +1730,104 @@
             swiftLabel: "SWIFT/BIC:",
             swiftCodeLabel: "SWIFT-Code/BIC:",
             bankLabel: "Bank:",
-
             countdown: "Love takes us to Italy in...",
             labelDays: "Days",
             labelHours: "Hours",
             labelMinutes: "Minutes",
             labelSeconds: "Seconds",
-
             rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLScjINHqGInkGsfRKksbjNLIWzkMzjjN1DNtGCpRnSDENv7GOA/viewform?usp=header"
         }
     };
-
     /* =========================================================
        CHANGEMENT DE LANGUE
     ========================================================= */
-
     function changeLanguage(lang) {
         document.documentElement.lang = lang;
-
         document.querySelectorAll(".lang-btn").forEach(button => {
             button.classList.toggle(
                 "active",
                 button.getAttribute("data-lang") === lang
             );
         });
-
         document.querySelectorAll("[data-i18n]").forEach(element => {
             const key = element.getAttribute("data-i18n");
-
             if (translations[lang] && translations[lang][key]) {
                 element.innerHTML = translations[lang][key];
             }
         });
-
         if (translations[lang].rsvpUrl) {
             document.getElementById("rsvpLink").href =
                 translations[lang].rsvpUrl;
         }
     }
-
     /* =========================================================
        COMPTE À REBOURS
     ========================================================= */
-
     const WEDDING =
         new Date("2027-05-08T16:00:00").getTime();
-
     const previousValues = {};
     const animationTimeouts = {};
-
     let countdownTimer;
-
     function pad(number, length) {
         return String(number).padStart(length, "0");
     }
-
     function flipUnit(id, newValue, length) {
         const value = pad(newValue, length);
-
         if (previousValues[id] === value) {
             return;
         }
-
         const card =
             document.getElementById("card-" + id);
-
         const topStatic =
             card.querySelector(".card-top .num");
-
         const bottomStatic =
             card.querySelector(".card-bottom .num");
-
         const topFlip =
             card.querySelector(".card-flip-top .num");
-
         const bottomFlip =
             card.querySelector(".card-flip-bottom .num");
-
         const topFlap =
             card.querySelector(".card-flip-top");
-
         const bottomFlap =
             card.querySelector(".card-flip-bottom");
-
         const oldValue =
             previousValues[id] || value;
-
         topStatic.textContent = value;
         topFlip.textContent = oldValue;
         bottomFlip.textContent = value;
-
         topFlap.style.visibility = "visible";
         bottomFlap.style.visibility = "visible";
-
         topFlap.style.animation = "none";
         bottomFlap.style.animation = "none";
-
         void topFlap.offsetWidth;
-
         topFlap.style.animation =
             "flipTopDown .3s ease-in forwards";
-
         bottomFlap.style.animation =
             "flipBottomUp .3s .3s ease-out forwards";
-
         if (animationTimeouts[id]) {
             clearTimeout(animationTimeouts[id]);
         }
-
         animationTimeouts[id] = setTimeout(() => {
             bottomStatic.textContent = value;
-
             topFlap.style.visibility = "hidden";
             bottomFlap.style.visibility = "hidden";
-
             topFlap.style.animation = "none";
             bottomFlap.style.animation = "none";
         }, 700);
-
         previousValues[id] = value;
     }
-
     function tick() {
         const difference =
             WEDDING - Date.now();
-
         if (difference <= 0) {
             const currentLanguage =
                 document.documentElement.lang;
-
             const message =
                 currentLanguage === "it"
                     ? "È arrivato il grande giorno!"
                     : currentLanguage === "en"
                         ? "The big day is here!"
                         : "Le jour J est arrivé !";
-
             document.getElementById("flipClock").innerHTML =
                 `<h2 style="
                     color:#f0e8ff;
@@ -2002,38 +1836,30 @@
                 ">
                     🎉 ${message} 🎉
                 </h2>`;
-
             clearInterval(countdownTimer);
             return;
         }
-
         const days =
             Math.floor(difference / 86400000);
-
         const hours =
             Math.floor(
                 (difference % 86400000) / 3600000
             );
-
         const minutes =
             Math.floor(
                 (difference % 3600000) / 60000
             );
-
         const seconds =
             Math.floor(
                 (difference % 60000) / 1000
             );
-
         flipUnit("days", days, 3);
         flipUnit("hours", hours, 2);
         flipUnit("minutes", minutes, 2);
         flipUnit("seconds", seconds, 2);
     }
-
     tick();
     countdownTimer = setInterval(tick, 1000);
 </script>
-
 </body>
 </html>
